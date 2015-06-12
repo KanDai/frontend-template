@@ -37,11 +37,18 @@ gulp.task('jade', function () {
 });
 
 // ejs
-gulp.task("ejs", function() {
+gulp.task("ejs", ['ejs-sp'], function() {
   gulp.src(["./dev/ejs/**/*.ejs",'!' + "./dev/ejs/**/_*.ejs"])
   .pipe(plumber())
-  .pipe(ejs())
+  .pipe(ejs( { flag : 'pc'} ))
   .pipe(gulp.dest('./htdocs/'));
+});
+
+gulp.task("ejs-sp", function() {
+  gulp.src(["./dev/ejs/**/*.ejs",'!' + "./dev/ejs/**/_*.ejs"])
+  .pipe(plumber())
+  .pipe(ejs( { flag : 'sp'} ))
+  .pipe(gulp.dest('./htdocs/sp/'));
 });
 
 // Sassのコンパイル
