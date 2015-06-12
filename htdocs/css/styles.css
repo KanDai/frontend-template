@@ -1,0 +1,179 @@
+@charset 'UTF-8';
+/*==========================================================================*/
+/*  Reset Css 
+/*==========================================================================*/
+/* Eric Meyer's Reset CSS v2.0 - http://cssreset.com */
+html , body , div , span , applet , object , iframe , h1 , h2 , h3 , h4 , h5 , h6 , p , blockquote , pre , a , abbr , acronym , address , big , cite , code , del , dfn , em , img , ins , kbd , q , s , samp , small , strike , strong , sub , sup , tt , var , b , u , i , center , dl , dt , dd , ol , ul , li , fieldset , form , label , legend , table , caption , tbody , tfoot , thead , tr , th , td , article , aside , canvas , details , embed , figure , figcaption , footer , header , hgroup , menu , nav , output , ruby , section , summary , time , mark , audio , video {
+  font : inherit;
+  font-size : 100%;
+  margin : 0;
+  padding : 0; 
+  vertical-align : baseline;
+  border : 0;
+}
+
+article , aside , details , figcaption , figure , footer , header , hgroup , menu , nav , section {
+  display : block;
+}
+
+ol , ul {
+  list-style : none;
+}
+
+blockquote , q {
+  quotes : none;
+}
+
+blockquote:before , blockquote:after , q:before , q:after {
+  content : none;
+}
+
+/*==========================================================================*/
+/*  Common-Setting
+/*==========================================================================*/
+html {
+  font-size : 62.5%;
+  background : none;
+}
+
+body , input , select , textarea {
+  font-family : Helvetica,Arial,'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','游ゴシック体',YuGothic,'メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
+}
+
+body {
+  line-height : 1.7; 
+  text-align : left;
+  color : #666;
+  background : #d0eae7;
+}
+
+input , button , textarea , select , p , blockquote , table , pre , address , ul , ol , dl {
+  font-size : 100%;
+}
+
+img {
+  max-width : 100%;
+  height : auto; 
+  vertical-align : bottom;
+}
+
+address {
+  font-style : normal;
+  line-height : 1.0;
+}
+
+strong {
+  font-weight : bold;
+}
+
+em {
+  font-style : italic;
+}
+
+a {
+  -webkit-transition : all .5s;
+          transition : all .5s; 
+  text-decoration : none;
+  color : #666;
+}
+
+a:hover , a:active {
+  text-decoration : none;
+  opacity : .7;
+}
+
+/*==========================================================================*/
+/*  General-Styles
+/*==========================================================================*/
+.clear {
+  clear : both;
+}
+
+.cf:before , .cf:after {
+  display : table; 
+  content : ' ';
+}
+
+.cf:after {
+  clear : both;
+}
+
+.cf {
+  *zoom : 1;
+}
+
+.fl {
+  float : left;
+}
+
+.fr {
+  float : right;
+}
+
+.left {
+  text-align : left;
+}
+
+.center {
+  text-align : center;
+}
+
+.right {
+  text-align : right;
+}
+
+.middle {
+  vertical-align : middle;
+}
+
+.hidden {
+  overflow : hidden;
+}
+
+.sp_none {
+  display : none;
+}
+
+.pc_only {
+  display : none;
+}
+
+@media (min-width: 641px) {
+  .sp_none {
+    display : block;
+  }
+  .tab_none {
+    display : none;
+  }
+  .pc_none {
+    display : block;
+  }
+  .sp_only {
+    display : none;
+  }
+}
+
+@media (min-width: 1024px) {
+  .pc_none {
+    display : none;
+  }
+  .pc_only {
+    display : block;
+  }
+}
+
+/*==========================================================================*/
+/*  Base Rayout
+/*==========================================================================*/
+/* Header
+---------------------------------------*/
+/* Main Nav
+---------------------------------------*/
+/* Footer
+---------------------------------------*/
+/*==========================================================================*/
+/*  TopPage
+/*==========================================================================*/
+/*==========================================================================*/
+/*
+/*==========================================================================*/

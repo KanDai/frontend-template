@@ -1,0 +1,29 @@
+<%
+var title = "ページのタイトルとか";
+var description = "ディスクリプション";
+%>
+
+<!-- ここからPC -->
+<% if(flag == 'pc'){ %>
+<% include common/_header %>
+
+<div id="main">
+PCのトップページの内容
+</div>
+
+<% include common/_footer %>
+<% } %>
+<!-- ここまでPC -->
+
+
+<!-- ここからSP -->
+<% if(flag == 'sp'){ %>
+<% include common/_header-sp %>
+
+<div id="main">
+SPのトップページの内容
+</div>
+
+<% include common/_footer-sp %>
+<% } %>
+<!-- ここまでSP -->

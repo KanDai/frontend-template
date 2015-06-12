@@ -1,0 +1,84 @@
+/*==========================================================================*/
+/*  Common-Setting
+/*==========================================================================*/
+
+html {
+  font-size: 62.5%;
+  background: none;
+}
+body, input, select, textarea {
+  font-family: Helvetica,Arial,'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','游ゴシック体',YuGothic,'メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
+}
+body {
+  background: $brand-base;
+  color: #666;
+  text-align: left;
+  line-height:1.7;
+}
+input, button, textarea, select, p, blockquote, table, pre, address, ul, ol, dl {
+  font-size: 100%;
+}
+img { vertical-align: bottom; max-width: 100%; height: auto;}
+address { font-style: normal; line-height: 1.0; }
+strong { font-weight: bold; }
+em { font-style: italic;}
+a { text-decoration: none; color: #666; transition: all .5s;}
+a:hover,
+a:active { text-decoration: none; opacity: 0.7; }
+
+/*==========================================================================*/
+/*  General-Styles
+/*==========================================================================*/
+
+.clear { clear: both; }
+.cf:before,.cf:after { content: " "; display: table; }
+.cf:after { clear: both; }
+.cf { *zoom: 1; }
+
+.fl     { float: left; }
+.fr     { float: right;}
+.left   { text-align: left; }
+.center { text-align: center; }
+.right  { text-align: right; }
+.middle { vertical-align: middle;}
+.hidden { overflow: hidden; }
+
+
+.sp_none {
+  display : none;
+}
+.pc_only {
+  display : none;
+}
+
+@media (min-width: $tablet) {
+  .sp_none {
+    display : block;
+  }
+  .tab_none {
+    display : none;
+  }
+  .pc_none {
+    display : block;
+  }
+  .sp_only {
+    display : none;
+  }
+}
+
+@media (min-width: $pc) {
+  .pc_none {
+    display : none;
+  }
+  .pc_only {
+    display : block;
+  }
+}
+
+
+.external {
+}
+
+
+
+
