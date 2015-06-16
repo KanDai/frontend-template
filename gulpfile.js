@@ -85,7 +85,7 @@ gulp.task( 'imagemin', function () {
     .pipe(gifsicle({interlaced: true})())
     .pipe(gulp.dest('./htdocs/images/' ));
   gulp.src( [ './dev/images/*.svg' ] )
-    .pipe(imageminSvgo()())
+    .pipe(svgo()())
     .pipe(gulp.dest('./htdocs/images/' ));
 });
 
