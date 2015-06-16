@@ -11,10 +11,14 @@ var minify       = require('gulp-minify-css');   //CSS圧縮
 var rename       = require('gulp-rename');       //リネーム
 var plumber      = require('gulp-plumber');      //エラーが出ても動作を止めない
 var browserSync  = require('browser-sync');      //ローカルホストとオートリロード
+var imagemin     = require('gulp-imagemin');     //画像圧縮
+var pngquant     = require('imagemin-pngquant'); //PNGの圧縮率を髙く
+var jpegtran     = require('imagemin-jpegtran'); //JPGの圧縮率を髙く
+var gifsicle     = require('imagemin-gifsicle'); //GIFの圧縮率を髙く
+var svgo         = require('imagemin-svgo');     //SVGの圧縮率を髙く
 
 
 var concat       = require('gulp-concat');
-var imagemin     = require('gulp-imagemin');
 var uglify       = require('gulp-uglify');
 var sprite       = require('gulp.spritesmith');
 
@@ -69,6 +73,21 @@ gulp.task('optimize', ['sass'], function() {
     .pipe(gulp.dest('./htdocs/css'));
 });
 
+// imageminで画像を圧縮
+gulp.task( 'imagemin', function () {
+  gulp.src( [ './dev/images/*.png' ] )
+    .pipe(pngquant( { quality: '65-80', speed: 1 })() )
+    .pipe(gulp.dest('./htdocs/images/' ));
+  gulp.src( [ './dev/images/*.jpg' ] )
+    .pipe(jpegtran({progressive: true})())
+    .pipe(gulp.dest('./htdocs/images/' ));
+  gulp.src( [ './dev/images/*.gif' ] )
+    .pipe(gifsicle({interlaced: true})())
+    .pipe(gulp.dest('./htdocs/images/' ));
+  gulp.src( [ './dev/images/*.svg' ] )
+    .pipe(imageminSvgo()())
+    .pipe(gulp.dest('./htdocs/images/' ));
+});
 
 
 // サーバーの起動
