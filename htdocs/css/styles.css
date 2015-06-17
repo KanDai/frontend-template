@@ -43,8 +43,8 @@ body , input , select , textarea {
 body {
   line-height : 1.7; 
   text-align : left;
-  color : #666;
-  background : #d0eae7;
+  color : #333;
+  background : #fff;
 }
 
 input , button , textarea , select , p , blockquote , table , pre , address , ul , ol , dl {
