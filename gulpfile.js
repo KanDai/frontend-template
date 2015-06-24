@@ -36,7 +36,8 @@ gulp.task('jade', function () {
     .pipe(jade({
       pretty: true
     }))
-    .pipe(gulp.dest('./htdocs/'));
+    .pipe(gulp.dest('./htdocs/'))
+    .pipe( browserSync.reload( { stream: true } ) );
 });
 
 // ejs
@@ -44,7 +45,8 @@ gulp.task("ejs", ['ejs-sp'], function() {
   gulp.src(["./dev/ejs/**/*.ejs",'!' + "./dev/ejs/**/_*.ejs"])
   .pipe(plumber())
   .pipe(ejs( { flag : 'pc'} ))
-  .pipe(gulp.dest('./htdocs/'));
+  .pipe(gulp.dest('./htdocs/'))
+  .pipe( browserSync.reload( { stream: true } ) );
 });
 
 gulp.task("ejs-sp", function() {
@@ -64,7 +66,8 @@ gulp.task('sass' , function(){
     .pipe(gulp.dest('./htdocs/css'))
     .pipe(minify({compatibility: 'ie8'}))
     .pipe(rename({ extname : '.min.css' }))
-    .pipe(gulp.dest('./htdocs/css'));
+    .pipe(gulp.dest('./htdocs/css'))
+    .pipe( browserSync.reload( { stream: true } ) );
 });
 
 // _で始まるjsを結合
@@ -78,7 +81,8 @@ gulp.task( 'js', function () {
       preserveComments: 'some'
     } ) )
     .pipe(rename({ extname : '.min.js' }))
-    .pipe(gulp.dest('./htdocs/js/'));
+    .pipe(gulp.dest('./htdocs/js/'))
+    .pipe( browserSync.reload( { stream: true } ) );
 } );
 
 var destImg = './htdocs/images/';
@@ -131,10 +135,10 @@ gulp.task('server', function() {
 // gulpの実行とファイルの監視
 gulp.task('default', ['server'], function() {
   gulp.watch(['./htdocs/**/*.html'], browserSync.reload);
-  //gulp.watch(['./dev/ejs/*.ejs','./dev/ejs/**/*.ejs'], ['ejs' , browserSync.reload]);
-  //gulp.watch(['./dev/jade/*.jade','./dev/jade/**/*.jade'], ['jade' , browserSync.reload]);
-  gulp.watch(['./dev/scss/*.scss','./dev/scss/**/_*.scss'],['sass' , browserSync.reload]);
-  gulp.watch(['./dev/js/*.js'],['js' , browserSync.reload]);
+  //gulp.watch(['./dev/ejs/*.ejs','./dev/ejs/**/*.ejs'], ['ejs']);
+  //gulp.watch(['./dev/jade/*.jade','./dev/jade/**/*.jade'], ['jade']);
+  gulp.watch(['./dev/scss/*.scss','./dev/scss/**/_*.scss'],['sass']);
+  gulp.watch(['./dev/js/*.js'],['js']);
   gulp.watch(['./dev/images/sprite/*.png' ], [ 'sprite' ]);
   gulp.watch(['./dev/images/**' ], [ 'imagemin' ]);
 });
