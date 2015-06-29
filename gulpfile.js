@@ -20,6 +20,9 @@ var gifsicle     = require('imagemin-gifsicle'); //GIFの圧縮率を髙く
 var svgo         = require('imagemin-svgo');     //SVGの圧縮率を髙く
 var concat       = require('gulp-concat');       //ファイルの結合
 var uglify       = require('gulp-uglify');       //特定のコメントを残したまま圧縮
+var styledocco   = require('gulp-styledocco');   //スタイルガイド作成用
+var stylestats   = require('gulp-stylestats');   //StyleStats
+var jshint       = require('gulp-jshint');       //jshint
 
 
 /*
@@ -68,6 +71,31 @@ gulp.task('sass' , function(){
     .pipe(rename({ extname : '.min.css' }))
     .pipe(gulp.dest('./htdocs/css'))
     .pipe( browserSync.reload( { stream: true } ) );
+});
+
+
+// スタイルガイドの作成
+// _で始まるのは除外設定してるのにされない…
+gulp.task('styledocco', function () {
+  gulp.src(['./dev/scss/*.scss', '!./dev/scss/_*.scss'])
+    .pipe(styledocco({
+      out: './guide',
+      name: 'My Project',
+      'no-minify': true
+  }));
+});
+
+// StyleStats
+gulp.task('stylestats', function () {
+  gulp.src('./htdocs/css/*.min.css')
+    .pipe(stylestats());
+});
+
+// jshint
+gulp.task('jshint', function() {
+  return gulp.src(['./htdocs/js/*.js', '!' + './htdocs/js/*.min.js'])
+    .pipe( jshint() )
+    .pipe( jshint.reporter( 'jshint-stylish' ) );
 });
 
 // _で始まるjsを結合

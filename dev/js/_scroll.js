@@ -10,4 +10,4 @@ $(function() {
         }, speed, "swing");
         return false;
     });
-})
+});

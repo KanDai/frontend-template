@@ -15,4 +15,4 @@ $(function() {
             pagetop_hide = true;
         }
     });
-})
+});

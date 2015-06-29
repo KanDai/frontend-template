@@ -15,8 +15,7 @@ $(function() {
             pagetop_hide = true;
         }
     });
-})
-
+});
 /*! スムーススクロール */
 $(function() {
     $(document).on('click', 'a[href^=#]', function() {
@@ -29,4 +28,4 @@ $(function() {
         }, speed, "swing");
         return false;
     });
-})
+});
