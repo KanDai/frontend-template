@@ -1,7 +1,26 @@
-//color
-$color-brand: #000;
-$color-bg: #fff;
+// Colors
+// --------------------------------------------------
+$color-main : #000;
+$color-secondary : #333;
 
-//media query
+$color-bg-body : #fff;
+
+//$color-xx : #fff;
+
+
+// Media query
+// --------------------------------------------------
+
 $pc     : 1024px;
 $tablet : 641px;
+$sp     : 640px;
+
+
+
+// Width
+// --------------------------------------------------
+
+$width-main-inner : 1000px;
+$width-main-padding : 30px;
+$width-main : $width-main-inner + ($width-main-padding * 2);
+

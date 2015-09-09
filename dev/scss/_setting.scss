@@ -1,6 +1,6 @@
-/*==========================================================================*/
-/*  Common-Setting
-/*==========================================================================*/
+/*--------------------------------------
+  Common-Setting
+---------------------------------------*/
 
 html {
   font-size: 62.5%;
@@ -10,10 +10,14 @@ body, input, select, textarea {
   font-family: Helvetica,Arial,'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','游ゴシック体',YuGothic,'メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
 }
 body {
-  background: $color-bg;
+  background: $color-bg-body;
   color: #333;
   text-align: left;
   line-height:1.7;
+  font-size: 1.4rem;
+}
+h1 , h2 , h3 , h4 , h5 , h6 {
+    line-height : 1.4;
 }
 input, button, textarea, select, p, blockquote, table, pre, address, ul, ol, dl {
   font-size: 100%;
@@ -26,10 +30,19 @@ a { text-decoration: none; color: #666; transition: all .5s;}
 a:hover,
 a:active { text-decoration: none; opacity: 0.7; }
 
-/*==========================================================================*/
-/*  General-Styles
-/*==========================================================================*/
+* {
+  box-sizing: border-box;
+}
+*:before,
+*:after {
+  box-sizing: border-box;
+}
 
+/*--------------------------------------
+  General-Styles
+---------------------------------------*/
+
+/* ---- Clearfix ---- */
 .clear { clear: both; }
 .cf:before,.cf:after { content: " "; display: table; }
 .cf:after { clear: both; }
@@ -43,42 +56,14 @@ a:active { text-decoration: none; opacity: 0.7; }
 .middle { vertical-align: middle;}
 .hidden { overflow: hidden; }
 
-
-.sp_none {
-  display : none;
-}
-.pc_only {
-  display : none;
+@media (max-width: $sp) {
+  .sp_none {
+    display : none;
+  }
 }
 
 @media (min-width: $tablet) {
-  .sp_none {
-    display : block;
-  }
-  .tab_none {
-    display : none;
-  }
-  .pc_none {
-    display : block;
-  }
-  .sp_only {
-    display : none;
-  }
-}
-
-@media (min-width: $pc) {
   .pc_none {
     display : none;
   }
-  .pc_only {
-    display : block;
-  }
 }
-
-
-.external {
-}
-
-
-
-
