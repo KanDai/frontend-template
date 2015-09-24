@@ -1,6 +1,5 @@
-/*
-/* プラグイン読み込み
-*/
+// gulpプラグインの読み込み
+// ------------------------------------------
 var gulp         = require('gulp');
 var ejs          = require('gulp-ejs');          //ejs
 var jade         = require('gulp-jade');         //Jade
@@ -24,10 +23,8 @@ var styledocco   = require('gulp-styledocco');   //スタイルガイド作成�
 var stylestats   = require('gulp-stylestats');   //StyleStats
 var jshint       = require('gulp-jshint');       //jshint
 
-
-/*
-/* タスク
-*/
+// タスク
+// ------------------------------------------
 
 // Jade
 gulp.task('jade', function () {
@@ -160,9 +157,11 @@ gulp.task('server', function() {
 gulp.task('default', ['server'], function() {
   gulp.watch([
     './htdocs/**/*.html',
-    './htdocs/css/**/*.css',
-    './htdocs/js/**/*.js',
-    './htdocs/images/**/*',
+    './htdocs/**/*.css',
+    './htdocs/**/*.js',
+    './htdocs/**/*.jpg',
+    './htdocs/**/*.png',
+    './htdocs/**/*.svg',
   ], browserSync.reload);
   //gulp.watch(['./dev/ejs/*.ejs','./dev/ejs/**/*.ejs'], ['ejs']);
   //gulp.watch(['./dev/jade/*.jade','./dev/jade/**/*.jade'], ['jade']);
