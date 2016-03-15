@@ -1,5 +1,6 @@
 // gulpプラグインの読み込み
 // ------------------------------------------
+var fs           = require('fs');
 var gulp         = require('gulp');
 var ejs          = require('gulp-ejs');          //ejs
 var jade         = require('gulp-jade');         //Jade
@@ -9,6 +10,7 @@ var autoprefixer = require('gulp-autoprefixer'); //自動でprefixつける
 var minify       = require('gulp-minify-css');   //CSS圧縮
 var rename       = require('gulp-rename');       //リネーム
 var plumber      = require('gulp-plumber');      //エラーが出ても動作を止めない
+var notify       = require('gulp-notify');       //エラー時に通知
 var browserSync  = require('browser-sync');      //ローカルホストとオートリロード
 var sprite       = require('gulp.spritesmith');  //CSS Sprite生成
 var imagemin     = require('gulp-imagemin');     //画像圧縮
@@ -22,14 +24,18 @@ var uglify       = require('gulp-uglify');       //特定のコメントを残�
 var styledocco   = require('gulp-styledocco');   //スタイルガイド作成用
 var stylestats   = require('gulp-stylestats');   //StyleStats
 var jshint       = require('gulp-jshint');       //jshint
+var htmlhint     = require("gulp-htmlhint");     //htmlhint
+var sourcemaps   = require('gulp-sourcemaps');
+
 
 // タスク
 // ------------------------------------------
 
+
 // Jade
 gulp.task('jade', function () {
   gulp.src(['./dev/jade/*.jade','src/jade/**/*.jade'])
-    .pipe(plumber())
+    .pipe(plumber({errorHandler: notify.onError('<%= error.message %>')}))
     /*.pipe(data(function(file) {
       return require('./data.json');
     }))*/
@@ -40,27 +46,29 @@ gulp.task('jade', function () {
 });
 
 // ejs
-gulp.task("ejs", ['ejs-sp'], function() {
+gulp.task("ejs", function() {
   gulp.src(["./dev/ejs/**/*.ejs",'!' + "./dev/ejs/**/_*.ejs"])
-  .pipe(plumber())
-  .pipe(ejs( { flag : 'pc'} ))
+  .pipe(ejs( {
+        date: JSON.parse(fs.readFileSync('./dev/json/date.json'))
+      },
+      {
+        ext: '.html'
+      }
+  ))
+  .pipe(plumber({errorHandler: notify.onError('<%= error.message %>')}))
   .pipe(gulp.dest('./htdocs/'));
 });
 
-gulp.task("ejs-sp", function() {
-  gulp.src(["./dev/ejs/**/*.ejs",'!' + "./dev/ejs/**/_*.ejs"])
-  .pipe(plumber())
-  .pipe(ejs( { flag : 'sp'} ))
-  .pipe(gulp.dest('./htdocs/sp/'));
-});
 
 // Sassのコンパイルと圧縮
 gulp.task('sass' , function(){
   gulp.src('./dev/scss/*.scss')
-    .pipe(plumber())
+    .pipe(plumber({errorHandler: notify.onError('<%= error.message %>')}))
+    // .pipe(sourcemaps.init())
     .pipe(sass())
     .pipe(autoprefixer('last 3 version'))
     .pipe(csscomb())
+    // .pipe(sourcemaps.write('./maps/')) // マップファイルを出力するパスを指定します
     .pipe(gulp.dest('./htdocs/css'))
     .pipe(minify({compatibility: 'ie8'}))
     .pipe(rename({ extname : '.min.css' }))
@@ -87,16 +95,23 @@ gulp.task('stylestats', function () {
 
 // jshint
 gulp.task('jshint', function() {
-  return gulp.src(['./htdocs/js/*.js', '!' + './htdocs/js/*.min.js'])
+  gulp.src(['./htdocs/js/*.js', '!' + './htdocs/js/*.min.js'])
     .pipe( jshint() )
     .pipe( jshint.reporter( 'jshint-stylish' ) );
+});
+
+// htmlLint
+gulp.task('htmllint', function() {
+    gulp.src('./htdocs/**/*.html')
+        .pipe(htmlhint())
+        .pipe(htmlhint.reporter())
 });
 
 // _で始まるjsを結合
 // 圧縮して生成
 gulp.task( 'js', function () {
   gulp.src( './dev/js/_*.js' )
-    .pipe( plumber() )
+    .pipe( plumber({errorHandler: notify.onError('<%= error.message %>')}) )
     .pipe( concat( 'common.js' ) )
     .pipe(gulp.dest('./htdocs/js/'))
     .pipe( uglify( {
@@ -110,19 +125,19 @@ var destImg = './htdocs/images/';
 
 // imageminで画像を圧縮
 gulp.task( 'imagemin', function () {
-  gulp.src( [ './dev/images/*.png' ] )
+  gulp.src( [ './dev/images/**/*.png' ] )
     .pipe(changed( destImg ))
     .pipe(pngquant( { quality: '65-80', speed: 1 })() )
     .pipe(gulp.dest( destImg ));
-  gulp.src( [ './dev/images/*.jpg' ] )
+  gulp.src( [ './dev/images/**/*.jpg' ] )
     .pipe(changed( destImg ))
     .pipe(jpegtran({progressive: true})())
     .pipe(gulp.dest( destImg ));
-  gulp.src( [ './dev/images/*.gif' ] )
+  gulp.src( [ './dev/images/**/*.gif' ] )
     .pipe(changed( destImg ))
     .pipe(gifsicle({interlaced: true})())
     .pipe(gulp.dest( destImg ));
-  gulp.src( [ './dev/images/*.svg' ] )
+  gulp.src( [ './dev/images/**/*.svg' ] )
     .pipe(changed( destImg ))
     .pipe(svgo()())
     .pipe(gulp.dest( destImg ));
