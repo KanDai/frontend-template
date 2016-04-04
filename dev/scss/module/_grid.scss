@@ -1,0 +1,90 @@
+/* ---- grid ---- */
+
+.grid-row {
+  @include clearfix;
+}
+
+.grid-col {
+  float: left;
+  img {
+      width: 100%;
+  }
+}
+
+.grid-row {
+    margin-right: -10px;
+    margin-left: -10px;
+}
+.grid-col {
+    padding: 0 10px;
+    .grid--s-1 & {
+        width: 100%;
+    }
+    .grid--s-2 & {
+        width: 50%;
+    }
+    .grid--s-3 & {
+        width: 33.3%;
+    }
+    .grid--s-4 & {
+        width: 25%;
+    }
+}
+
+
+@media screen and (max-width: 767px) {
+    .grid--s-1 .grid-col:nth-child(n+2),
+    .grid--s-2 .grid-col:nth-child(n+3),
+    .grid--s-3 .grid-col:nth-child(n+4),
+    .grid--s-4 .grid-col:nth-child(n+5){
+        margin-top: 20px;
+    }
+
+    .grid--s-1 .grid-col,
+    .grid--s-2 .grid-col:nth-child(odd),
+    .grid--s-3 .grid-col:nth-child(3n+1),
+    .grid--s-4 .grid-col:nth-child(4n+1){
+        clear: both;
+    }
+}
+
+
+@media print, screen and (min-width: 768px) {
+    .grid-row {
+        margin-right: -15px;
+        margin-left: -15px;
+    }
+    .grid-col {
+        padding: 0 15px;
+        .grid--l-1 & {
+            width: 100%;
+        }
+        .grid--l-2 & {
+            width: 50%;
+        }
+        .grid--l-3 & {
+            width: 33.3%;
+        }
+        .grid--l-4 & {
+            width: 25%;
+        }
+        .grid--l-5 & {
+            width: 20%;
+        }
+    }
+
+    .grid--l-1 .grid-col:nth-child(n+2),
+    .grid--l-2 .grid-col:nth-child(n+3),
+    .grid--l-3 .grid-col:nth-child(n+4),
+    .grid--l-4 .grid-col:nth-child(n+5){
+        margin-top: 30px;
+    }
+
+    .grid--l-1 .grid-col,
+    .grid--l-2 .grid-col:nth-child(2n+1),
+    .grid--l-3 .grid-col:nth-child(3n+1),
+    .grid--l-4 .grid-col:nth-child(4n+1),
+    .grid--l-5 .grid-col:nth-child(5n+1){
+        clear: both;
+    }
+}

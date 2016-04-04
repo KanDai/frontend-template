@@ -4,7 +4,8 @@
 /* Mixin
 /*========================================*/
 
-@import "bourbon/bourbon";
+@import "mixin/mixin";
+@import "mixin/bourbon/bourbon";
 
 /*========================================*/
 /* Foundation
@@ -24,7 +25,9 @@
 /*  Module
 /*========================================*/
 
-
+//@import "module/grid";
+@import "module/utility";
+@import "module/helper";
 
 /*========================================*/
 /*  Page

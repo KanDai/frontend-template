@@ -1,19 +1,24 @@
 // Colors
 // --------------------------------------------------
+
 $color-main : #000;
 $color-secondary : #333;
-
+$color-link : #666;
 $color-bg-body : #fff;
 
-//$color-xx : #fff;
 
+//$color-xx : #fff;
 
 // Media query
 // --------------------------------------------------
 
-$pc     : 1024px;
-$tablet : 641px;
-$sp     : 640px;
+// todo 基本設定を検討
+
+// $xs : 320px;
+// $sm : 480px;
+$md : 501px;
+$lg : 980px;
+// $xl : 1200px;
 
 
 
@@ -23,4 +28,3 @@ $sp     : 640px;
 $width-main-inner : 1000px;
 $width-main-padding : 30px;
 $width-main : $width-main-inner + ($width-main-padding * 2);
-
