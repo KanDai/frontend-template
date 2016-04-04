@@ -34,7 +34,7 @@ var sourcemaps   = require('gulp-sourcemaps');
 
 // Jade
 gulp.task('jade', function () {
-  gulp.src(['./dev/jade/*.jade','src/jade/**/*.jade'])
+  gulp.src(['./dev/**/*.jade','./dev/**/**/*.jade'])
     .pipe(plumber({errorHandler: notify.onError('<%= error.message %>')}))
     /*.pipe(data(function(file) {
       return require('./data.json');
@@ -47,9 +47,10 @@ gulp.task('jade', function () {
 
 // ejs
 gulp.task("ejs", function() {
-  gulp.src(["./dev/ejs/**/*.ejs",'!' + "./dev/ejs/**/_*.ejs"])
+  gulp.src(["./dev/**/**/*.ejs",'!' + "./dev/**/**/_*.ejs"])
+  .pipe(plumber({errorHandler: notify.onError('<%= error.message %>')}))
   .pipe(ejs( {
-        date: JSON.parse(fs.readFileSync('./dev/json/date.json'))
+        site: JSON.parse(fs.readFileSync('./dev/json/site.json'))
       },
       {
         ext: '.html'
@@ -178,8 +179,8 @@ gulp.task('default', ['server'], function() {
     './htdocs/**/*.png',
     './htdocs/**/*.svg',
   ], browserSync.reload);
-  //gulp.watch(['./dev/ejs/*.ejs','./dev/ejs/**/*.ejs'], ['ejs']);
-  //gulp.watch(['./dev/jade/*.jade','./dev/jade/**/*.jade'], ['jade']);
+  //gulp.watch(['./dev/**/*.ejs','./dev/**/**/*.ejs'], ['ejs']);
+  //gulp.watch(['./dev/**/*.jade','./dev/**/**/*.jade'], ['jade']);
   gulp.watch(['./dev/scss/*.scss','./dev/scss/**/_*.scss'],['sass']);
   gulp.watch(['./dev/js/*.js'],['js']);
   gulp.watch(['./dev/images/sprite/*.png' ], [ 'sprite' ]);
