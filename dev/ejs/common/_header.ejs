@@ -2,20 +2,38 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<title><%= title %></title>
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title><%= page.title %></title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<!-- 半レスポンシブの場合 -->
+<script type="text/javascript">
+if ((navigator.userAgent.indexOf('iPhone') > 0 && navigator.userAgent.indexOf('iPad') == -1) || navigator.userAgent.indexOf('iPod') > 0 || (navigator.userAgent.indexOf('Android') > 0 && navigator.userAgent.indexOf('Mobile') > 0)) {
+    document.write('<meta name="viewport" content="width=device-width, initial-scale=1.0">');
+} else {
+    document.write('<meta name="viewport" content="width=980">');
+}
+</script>
+<!-- 半レスポンシブの場合 -->
+
+<!-- レスポンシブの場合 -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="keywords" content="<%= keywords %>">
-<meta name="description" content="<%= description %>">
+<!-- レスポンシブの場合 -->
+
+<meta name="keywords" content="<%= page.keywords %>">
+<meta name="description" content="<%= page.desc %>">
 <meta property="og:locale" content="ja_JP">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="">
-<meta property="og:title" content="<%= title %>">
-<meta property="og:url" content="">
-<meta property="og:description" content="<%= description %>">
-<link rel="shortcut icon" href="images/favicon.ico">
-<link rel="apple-touch-icon" href="images/home-icon.png">
-<link rel="stylesheet" href="css/styles.css" type="text/css">
+<meta property="og:type" content="<% if(page.id == 'home'){ %>website<% } else { %>article<% } %>">
+<meta property="og:site_name" content="<%= site.name %>">
+<meta property="og:title" content="<%= page.title %>">
+<meta property="og:url" content="<%= page.url %>">
+<meta property="og:description" content="<%= page.desc %>">
+<meta property="og:image" content="<%= site.url %>images/ogp.png">
+<link rel="shortcut icon" href="/images/favicon.ico" type="image/vnd.microsoft.icon">
+<link rel="icon" href="/images/favicon.ico" type="image/vnd.microsoft.icon">
+<link rel="apple-touch-icon" href="/images/home-icon.png">
+<link rel="stylesheet" href="/css/styles.css" type="text/css">
+<link rel="canonical" href="<%= page.url %>">
+<link rel="alternate" media="only screen and (max-width: 640px)" href="">
 </head>
 
 <body>
