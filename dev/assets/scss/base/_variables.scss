@@ -14,12 +14,18 @@ $color-bg-body : #fff;
 
 // todo 基本設定を検討
 
-// $xs : 320px;
-// $sm : 480px;
-$md : 501px;
-$lg : 980px;
-// $xl : 1200px;
+$sm-min : 512px;
+$md-min : 768px;
+$lg-min : 1000px;
 
+$xs-max : ($sm-min - 1);
+$sm-max : ($md-min - 1);
+$md-max : ($lg-min - 1);
+
+// xs 〜 511px
+// sm 512px 〜 767px
+// md 768px 〜 999px
+// lg 1000px 〜
 
 
 // Width

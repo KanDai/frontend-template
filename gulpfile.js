@@ -28,13 +28,38 @@ var htmlhint     = require("gulp-htmlhint");     //htmlhint
 var sourcemaps   = require('gulp-sourcemaps');
 
 
+// 変数設定
+// ------------------------------------------
+
+// 対象ブラウザ
+var AUTOPREFIXER_BROWSERS = [
+	'last 3 versions',
+	'ie >= 9',
+    'iOS >= 8',
+    'Android >= 4.2'
+];
+var src = {
+    base: './dev/',
+    scss: './dev/assets/scss/',
+    js  : './dev/assets/js/',
+    img : './dev/assets/images/',
+};
+var dist = {
+    base: './htdocs/',
+    css : './htdocs/assets/css/',
+    js  : './htdocs/assets/js/',
+    img : './htdocs/assets/images/',
+};
+
+
+
 // タスク
 // ------------------------------------------
 
 
 // Jade
 gulp.task('jade', function () {
-  gulp.src(['./dev/**/*.jade','./dev/**/**/*.jade'])
+  gulp.src([src.base + '**/*.jade', '!' + src.base + '**/_*.jade'])
     .pipe(plumber({errorHandler: notify.onError('<%= error.message %>')}))
     /*.pipe(data(function(file) {
       return require('./data.json');
@@ -42,38 +67,39 @@ gulp.task('jade', function () {
     .pipe(jade({
       pretty: true
     }))
-    .pipe(gulp.dest('./htdocs/'));
+    .pipe(gulp.dest(dist));
 });
 
 // ejs
-gulp.task("ejs", function() {
-  gulp.src(["./dev/**/**/*.ejs",'!' + "./dev/**/**/_*.ejs"])
+gulp.task('ejs', function() {
+  gulp.src([ src.base + '/**/*.ejs', '!' + src.base + '**/_*.ejs' ])
   .pipe(plumber({errorHandler: notify.onError('<%= error.message %>')}))
-  .pipe(ejs( {
-        site: JSON.parse(fs.readFileSync('./dev/json/site.json'))
+  .pipe(ejs({
+        site: JSON.parse(fs.readFileSync( src.base + 'config/site.json'))
       },
       {
         ext: '.html'
       }
   ))
-  .pipe(plumber({errorHandler: notify.onError('<%= error.message %>')}))
-  .pipe(gulp.dest('./htdocs/'));
+  .pipe(gulp.dest(dist));
 });
 
 
 // Sassのコンパイルと圧縮
 gulp.task('sass' , function(){
-  gulp.src('./dev/scss/*.scss')
+  gulp.src( src.scss + '*.scss' )
     .pipe(plumber({errorHandler: notify.onError('<%= error.message %>')}))
     // .pipe(sourcemaps.init())
     .pipe(sass())
-    .pipe(autoprefixer('last 3 version'))
+    .pipe(autoprefixer({
+        browsers: AUTOPREFIXER_BROWSERS
+    }))
     .pipe(csscomb())
     // .pipe(sourcemaps.write('./maps/')) // マップファイルを出力するパスを指定します
-    .pipe(gulp.dest('./htdocs/css'))
-    .pipe(minify({compatibility: 'ie8'}))
+    .pipe(gulp.dest(dist.css))
+    .pipe(minify({ compatibility: 'ie8' }))
     .pipe(rename({ extname : '.min.css' }))
-    .pipe(gulp.dest('./htdocs/css'));
+    .pipe(gulp.dest(dist.css));
 });
 
 
@@ -96,57 +122,59 @@ gulp.task('stylestats', function () {
 
 // jshint
 gulp.task('jshint', function() {
-  gulp.src(['./htdocs/js/*.js', '!' + './htdocs/js/*.min.js'])
+  gulp.src([ dist.js + '*.js', '!' + dist.js + '*.min.js'])
     .pipe( jshint() )
     .pipe( jshint.reporter( 'jshint-stylish' ) );
 });
 
 // htmlLint
 gulp.task('htmllint', function() {
-    gulp.src('./htdocs/**/*.html')
+    gulp.src(dist.base + '**/*.html')
         .pipe(htmlhint())
         .pipe(htmlhint.reporter())
 });
 
-// _で始まるjsを結合
-// 圧縮して生成
+// commonフォルダのjsを結合・圧縮
+// それ以外のjsはそのまま出力
 gulp.task( 'js', function () {
-  gulp.src( './dev/js/_*.js' )
+  gulp.src( src.js + '/common/_*.js' )
     .pipe( plumber({errorHandler: notify.onError('<%= error.message %>')}) )
     .pipe( concat( 'common.js' ) )
-    .pipe(gulp.dest('./htdocs/js/'))
+    .pipe(gulp.dest(dist.js))
     .pipe( uglify( {
       preserveComments: 'some'
     } ) )
     .pipe(rename({ extname : '.min.js' }))
-    .pipe(gulp.dest('./htdocs/js/'));
-} );
+    .pipe(gulp.dest(dist.js));
+  gulp.src([ src.js + '/**/*.js', '!' + src.js + '/common/*.js' ])
+    .pipe(gulp.dest(dist.js));
+});
 
-var destImg = './htdocs/images/';
+
 
 // imageminで画像を圧縮
 gulp.task( 'imagemin', function () {
-  gulp.src( [ './dev/images/**/*.png' ] )
-    .pipe(changed( destImg ))
+  gulp.src( [ src.img + '**/*.png' ] )
+    .pipe(changed( dist.img ))
     .pipe(pngquant( { quality: '65-80', speed: 1 })() )
-    .pipe(gulp.dest( destImg ));
-  gulp.src( [ './dev/images/**/*.jpg' ] )
-    .pipe(changed( destImg ))
+    .pipe(gulp.dest( dist.img ));
+  gulp.src( [ src.img + '**/*.jpg' ] )
+    .pipe(changed( dist.img ))
     .pipe(jpegtran({progressive: true})())
-    .pipe(gulp.dest( destImg ));
-  gulp.src( [ './dev/images/**/*.gif' ] )
-    .pipe(changed( destImg ))
+    .pipe(gulp.dest( dist.img ));
+  gulp.src( [ src.img + '**/*.gif' ] )
+    .pipe(changed( dist.img ))
     .pipe(gifsicle({interlaced: true})())
-    .pipe(gulp.dest( destImg ));
-  gulp.src( [ './dev/images/**/*.svg' ] )
-    .pipe(changed( destImg ))
+    .pipe(gulp.dest( dist.img ));
+  gulp.src( [ src.img + '**/*.svg' ] )
+    .pipe(changed( dist.img ))
     .pipe(svgo()())
-    .pipe(gulp.dest( destImg ));
+    .pipe(gulp.dest( dist.img ));
 });
 
 // sprite画像を生成
 gulp.task( 'sprite', function () {
-  var spriteData = gulp.src( './dev/images/sprite/*.png' )
+  var spriteData = gulp.src( src.img + 'sprite/*.png' )
   .pipe( sprite( {
     imgName: 'sprite.png',
     imgPath: '../images/sprite.png',
@@ -155,16 +183,16 @@ gulp.task( 'sprite', function () {
   } ) );
   spriteData.img
     .pipe(pngquant( { quality: '65-80', speed: 1 })() )
-    .pipe( gulp.dest( './htdocs/images/' ) );
+    .pipe( gulp.dest( dist.img ) );
   spriteData.css
-    .pipe( gulp.dest( './dev/scss/' ) );
+    .pipe( gulp.dest( src.scss ) );
 } );
 
 // サーバーの起動
 gulp.task('server', function() {
   browserSync({
     server: {
-      baseDir: './htdocs'
+      baseDir: dist.base
     }
   });
 });
@@ -172,17 +200,17 @@ gulp.task('server', function() {
 // gulpの実行とファイルの監視
 gulp.task('default', ['server'], function() {
   gulp.watch([
-    './htdocs/**/*.html',
-    './htdocs/**/*.css',
-    './htdocs/**/*.js',
-    './htdocs/**/*.jpg',
-    './htdocs/**/*.png',
-    './htdocs/**/*.svg',
+    dist.base + '**/*.html',
+    dist.base + '**/*.css',
+    dist.base + '**/*.js',
+    dist.base + '**/*.jpg',
+    dist.base + '**/*.png',
+    dist.base + '**/*.svg',
   ], browserSync.reload);
-  //gulp.watch(['./dev/**/*.ejs','./dev/**/**/*.ejs'], ['ejs']);
-  //gulp.watch(['./dev/**/*.jade','./dev/**/**/*.jade'], ['jade']);
-  gulp.watch(['./dev/scss/*.scss','./dev/scss/**/_*.scss'],['sass']);
-  gulp.watch(['./dev/js/*.js'],['js']);
-  gulp.watch(['./dev/images/sprite/*.png' ], [ 'sprite' ]);
-  gulp.watch(['./dev/images/*' ], [ 'imagemin' ]);
+  gulp.watch([ src.base + '**/*.ejs' ], ['ejs']);
+  gulp.watch([ src.base + '**/*.jade' ], ['jade']);
+  gulp.watch([ src.scss + '**/*.scss' ],['sass']);
+  gulp.watch([ src.js + '**/*.js' ], ['js']);
+  gulp.watch([ src.img + 'sprite/*.png' ], [ 'sprite' ]);
+  gulp.watch([ src.img + '*' ], [ 'imagemin' ]);
 });
