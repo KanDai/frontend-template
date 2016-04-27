@@ -27,11 +27,11 @@ if ((navigator.userAgent.indexOf('iPhone') > 0 && navigator.userAgent.indexOf('i
 <meta property="og:title" content="<%= page.title %>">
 <meta property="og:url" content="<%= page.url %>">
 <meta property="og:description" content="<%= page.desc %>">
-<meta property="og:image" content="<%= site.url %>images/ogp.png">
+<meta property="og:image" content="<% if(page.ogimg){ %><%= site.url + page.ogimg %><% } else { %><%= site.url %>images/ogp.png<% } %>">
 <link rel="shortcut icon" href="/images/favicon.ico" type="image/vnd.microsoft.icon">
 <link rel="icon" href="/images/favicon.ico" type="image/vnd.microsoft.icon">
 <link rel="apple-touch-icon" href="/images/home-icon.png">
-<link rel="stylesheet" href="/css/styles.css" type="text/css">
+<link rel="stylesheet" href="/css/styles.css">
 <link rel="canonical" href="<%= page.url %>">
 <link rel="alternate" media="only screen and (max-width: 640px)" href="">
 </head>

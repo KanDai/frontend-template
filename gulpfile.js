@@ -67,12 +67,12 @@ gulp.task('jade', function () {
     .pipe(jade({
       pretty: true
     }))
-    .pipe(gulp.dest(dist));
+    .pipe(gulp.dest(dist.base));
 });
 
 // ejs
 gulp.task('ejs', function() {
-  gulp.src([ src.base + '/**/*.ejs', '!' + src.base + '**/_*.ejs' ])
+  gulp.src([ src.base + '**/*.ejs', '!' + src.base + '**/_*.ejs' ])
   .pipe(plumber({errorHandler: notify.onError('<%= error.message %>')}))
   .pipe(ejs({
         site: JSON.parse(fs.readFileSync( src.base + 'config/site.json'))
@@ -81,7 +81,7 @@ gulp.task('ejs', function() {
         ext: '.html'
       }
   ))
-  .pipe(gulp.dest(dist));
+  .pipe(gulp.dest(dist.base));
 });
 
 
