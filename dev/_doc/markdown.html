@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Markdown記法チートシート</title>
+<link rel="stylesheet" href="markdown.css">
+<script type="text/template" id="content">
+<!--==================================================================
+ ↓ここからmarkdownを記述します
+====================================================================-->
+利用可能なMarkdown記法のチートシートです。
+
+Markdown記法の原文については、[Daring Fireball: Markdown Syntax Documentation]
+(http://daringfireball.net/projects/markdown/syntax.php)をご覧下さい。
+また、コードに関する記法は[GitHub Flavored Markdown](http://github.github.com/github-flavored-markdown/)に準拠しています。
+
+
+## Code - コードの挿入
+
+\```で囲む
+
+```
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>タイトル</title>
+```
+
+また、コードを `インライン表示` することも可能です。
+
+
+## Format Text - テキストの装飾
+
+### Headers - 見出し
+
+* \# これはH1タグです
+* \## これはH2タグです
+* \###### これはH6タグです
+
+### Emphasis - 強調
+
+* \*これはイタリック体です*
+* \_これもイタリック体です_
+* _これは_イタリック体になりません
+* \*\*これは太字です**
+* \_\_これも太字です__
+
+## Lists - リスト
+
+### 順序なしリスト
+
+* 文頭に「*」「+」「-」のいずれかを入れると順序なしリストになります
+* 要点をまとめる際に便利です
+* リストを挿入する際は、**リストの上下に空行がないと正しく表示されません**
+
+### 順序つきリスト
+
+1.  文頭に「数字.」を入れると順序つきリストになります
+2.  1.2.3.と入れていくといい具合です
+3.  リストを挿入する際は、**リストの上下に空行がないと正しく表示されません**
+
+## Blockquotes - 引用
+
+> 文頭に>を置くことで引用になります。
+> 複数行にまたがる場合、改行のたびにこの記号を置く必要があります。
+> **引用の上下にはリストと同じく空行がないと正しく表示されません**
+> 引用の中に別のMarkdownを使用することも可能です。
+> > これはネストされた引用です。
+
+
+## Links - リンク
+
+[Qiita](http://qiita.com)
+
+## Images - 画像埋め込み
+
+* \![代替テキスト]\(画像のURL)
+    * タイトル無しの画像を埋め込む
+* \![代替テキスト]\(画像のURL "画像タイトル")
+    * タイトル有りの画像を埋め込む
+
+
+## Table - テーブル
+
+| Left align | Right align | Center align |
+|:-----------|------------:|:------------:|
+| This       |        This |     This     |
+| column     |      column |    column    |
+| will       |        will |     will     |
+| be         |          be |      be      |
+| left       |       right |    center    |
+| aligned    |     aligned |   aligned    |
+
+## その他
+
+バックスラッシュ[\\]をMarkdownの前に挿入することで、Markdownをエスケープ(無効化)することができます。
+
+**例**
+
+> \# H1
+> エスケープされています
+
+
+<!--==================================================================
+ ↑ここまでmarkdownを記述します
+====================================================================-->
+</script>
+<body></body>
+<script src="markdown.js"></script>
+<script>
+var content = document.getElementById("content");
+document.getElementsByTagName('body')[0].innerHTML = marked(content.innerHTML);
+</script>
