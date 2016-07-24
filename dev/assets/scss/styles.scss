@@ -1,17 +1,17 @@
 @charset "utf-8";
 
 /*========================================*/
-/* Mixin
-/*========================================*/
-
-@import "mixin/mixin";
-@import "mixin/bourbon/bourbon";
-
-/*========================================*/
 /* Foundation
 /*========================================*/
 
+// Mixin
+@import "mixin/mixin";
+@import "mixin/bourbon/bourbon";
+
+// Variables
 @import "base/variables";
+
+// Common Setting
 @import "base/reset";
 @import "base/setting";
 

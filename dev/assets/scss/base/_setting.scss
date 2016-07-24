@@ -7,7 +7,7 @@ html {
     font-size: 10px;
 }
 body, input, button, select, textarea {
-    font-family: Helvetica,Arial,'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','游ゴシック体',YuGothic,'メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
+    font-family: $font-gothic;
 }
 body {
     background: $color-bg-body;
