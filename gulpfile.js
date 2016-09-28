@@ -137,16 +137,22 @@ gulp.task('htmllint', function() {
 // commonフォルダのjsを結合・圧縮
 // それ以外のjsはそのまま出力
 gulp.task( 'js', function () {
-  gulp.src( src.js + '/common/_*.js' )
+  gulp.src([ src.js + '/common/script/*.js', '!' + src.js + '/common/script/!*.js' ])
     .pipe( plumber({errorHandler: notify.onError('<%= error.message %>')}) )
-    .pipe( concat( 'common.js' ) )
-    .pipe(gulp.dest(dist.js))
+    .pipe( concat( 'script.js' ) )
+    .pipe(gulp.dest(dist.js + 'common/'))
     .pipe( uglify( {
       preserveComments: 'some'
     } ) )
     .pipe(rename({ extname : '.min.js' }))
-    .pipe(gulp.dest(dist.js));
-  gulp.src([ src.js + '/**/*.js', '!' + src.js + '/common/*.js' ])
+    .pipe(gulp.dest(dist.js + 'common/'));
+
+  gulp.src([ src.js + '/common/lib/*.js', '!' + src.js + '/common/lib/!*.js' ])
+    .pipe( plumber({errorHandler: notify.onError('<%= error.message %>')}) )
+    .pipe( concat( 'lib.js' ) )
+    .pipe(gulp.dest(dist.js + 'common/'))
+
+  gulp.src([ src.js + '/**/*.js', '!' + src.js + '/common/**/*.js' ])
     .pipe(gulp.dest(dist.js));
 });
 
