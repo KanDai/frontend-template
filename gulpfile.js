@@ -24,7 +24,7 @@ var stylestats   = require('gulp-stylestats');   //StyleStats
 var jshint       = require('gulp-jshint');       //jshint
 var htmlhint     = require("gulp-htmlhint");     //htmlhint
 var sourcemaps   = require('gulp-sourcemaps');
-
+var hologram     = require('gulp-hologram');
 
 // 変数設定
 // ------------------------------------------
@@ -128,6 +128,15 @@ gulp.task( 'js', function () {
     .pipe(gulp.dest(dist.js));
 });
 
+// Gulpからhologram実行
+// そのまま[docs]にコピー
+gulp.task('hologram', function() {
+  gulp.src('./hologram/config.yml')
+    .pipe(hologram());
+
+  gulp.src("./htdocs/_docs/**/*")
+    .pipe(gulp.dest("./docs"));
+});
 
 
 // imageminで画像を圧縮
@@ -190,4 +199,5 @@ gulp.task('default', ['server'], function() {
   gulp.watch([ src.js + '**/*.js' ], ['js']);
   gulp.watch([ src.img + 'sprite/*.png' ], [ 'sprite' ]);
   gulp.watch([ src.img + '*' ], [ 'imagemin' ]);
+  gulp.watch( './dev/docs/*.scss' , [ 'hologram' ]);
 });
