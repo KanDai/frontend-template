@@ -1,10 +1,19 @@
-# Dependency directories
-node_modules
-bower_components
+## ----------------------------
+##  Settings this projects
+## ----------------------------
 
 # Generated from development files
 htdocs/**/
 htdocs/*.html
+
+
+## ----------------------------
+##  Settings all projects
+## ----------------------------
+
+# Dependency directories
+node_modules
+bower_components
 
 ### https://raw.github.com/github/gitignore//Global/Windows.gitignore
 

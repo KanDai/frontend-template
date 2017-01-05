@@ -31,8 +31,8 @@ var sourcemaps   = require('gulp-sourcemaps');
 
 // 対象ブラウザ
 var AUTOPREFIXER_BROWSERS = [
-	'last 3 versions',
-	'ie >= 9',
+    'last 3 versions',
+    'ie >= 9',
     'iOS >= 8',
     'Android >= 4.2'
 ];
