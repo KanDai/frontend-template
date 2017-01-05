@@ -1,0 +1,22 @@
+# hologram config
+
+# スタイルガイドのもとになるスタイルシートファイルがあるディレクトリ
+source: ../dev/docs
+
+# スタイルガイドの書き出し先のディレクトリ
+destination: ../htdocs/_docs
+
+# スタイルガイドのテンプレート  があるディレクトリ
+documentation_assets: ./templates
+
+# Markdownの変換をカスタマイズするRubyファイル
+custom_markdown: ./markdown_renderer.rb
+
+# destinationで指定したディレクトリにコピーしたいファイル／ディレクトリ
+dependencies:
+  - ./assets
+  - ../htdocs/assets/css
+  - ../htdocs/assets/js
+
+# スタイルガイドの名前
+styleguide_name: 'Development Document'
