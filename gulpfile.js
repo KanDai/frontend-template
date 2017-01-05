@@ -3,7 +3,6 @@
 var fs           = require('fs');
 var gulp         = require('gulp');
 var ejs          = require('gulp-ejs');          //ejs
-var jade         = require('gulp-jade');         //Jade
 var sass         = require('gulp-sass');         //SASSコンパイル
 var csscomb      = require('gulp-csscomb');      //CSS順番
 var autoprefixer = require('gulp-autoprefixer'); //自動でprefixつける
@@ -21,7 +20,6 @@ var gifsicle     = require('imagemin-gifsicle'); //GIFの圧縮率を髙く
 var svgo         = require('imagemin-svgo');     //SVGの圧縮率を髙く
 var concat       = require('gulp-concat');       //ファイルの結合
 var uglify       = require('gulp-uglify');       //特定のコメントを残したまま圧縮
-var styledocco   = require('gulp-styledocco');   //スタイルガイド作成用
 var stylestats   = require('gulp-stylestats');   //StyleStats
 var jshint       = require('gulp-jshint');       //jshint
 var htmlhint     = require("gulp-htmlhint");     //htmlhint
@@ -56,20 +54,6 @@ var dist = {
 // タスク
 // ------------------------------------------
 
-
-// Jade
-gulp.task('jade', function () {
-  gulp.src([src.base + '**/*.jade', '!' + src.base + '**/_*.jade'])
-    .pipe(plumber({errorHandler: notify.onError('<%= error.message %>')}))
-    /*.pipe(data(function(file) {
-      return require('./data.json');
-    }))*/
-    .pipe(jade({
-      pretty: true
-    }))
-    .pipe(gulp.dest(dist.base));
-});
-
 // ejs
 gulp.task('ejs', function() {
   gulp.src([ src.base + '**/*.ejs', '!' + src.base + '**/_*.ejs' ])
@@ -100,18 +84,6 @@ gulp.task('sass' , function(){
     .pipe(minify({ compatibility: 'ie8' }))
     .pipe(rename({ extname : '.min.css' }))
     .pipe(gulp.dest(dist.css));
-});
-
-
-// スタイルガイドの作成
-// _で始まるのは除外設定してるのにされない…
-gulp.task('styledocco', function () {
-  gulp.src(['./dev/scss/*.scss', '!./dev/scss/_*.scss'])
-    .pipe(styledocco({
-      out: './guide',
-      name: 'My Project',
-      'no-minify': true
-  }));
 });
 
 // StyleStats
@@ -214,7 +186,6 @@ gulp.task('default', ['server'], function() {
     dist.base + '**/*.svg',
   ], browserSync.reload);
   gulp.watch([ src.base + '**/*.ejs' ], ['ejs']);
-  gulp.watch([ src.base + '**/*.jade' ], ['jade']);
   gulp.watch([ src.scss + '**/*.scss' ],['sass']);
   gulp.watch([ src.js + '**/*.js' ], ['js']);
   gulp.watch([ src.img + 'sprite/*.png' ], [ 'sprite' ]);
