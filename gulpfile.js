@@ -59,7 +59,7 @@ gulp.task('ejs', function() {
   gulp.src([ src.base + '**/*.ejs', '!' + src.base + '**/_*.ejs' ])
   .pipe(plumber({errorHandler: notify.onError('<%= error.message %>')}))
   .pipe(ejs({
-        site: JSON.parse(fs.readFileSync( src.base + 'config/site.json'))
+        site: JSON.parse(fs.readFileSync( src.base + 'inc/config.json'))
       },
       {
         ext: '.html'
