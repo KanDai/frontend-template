@@ -130,13 +130,16 @@ gulp.task( 'js', function () {
 
 // Gulpからhologram実行
 // そのまま[docs]にコピー
-gulp.task('hologram', function() {
-  gulp.src('./hologram/config.yml')
-    .pipe(hologram());
-
+gulp.task('hologram', ['styleguide'], function() {
   gulp.src("./htdocs/_docs/**/*")
     .pipe(gulp.dest("./docs"));
 });
+
+gulp.task('styleguide', function() {
+  return gulp.src('./hologram/config.yml')
+    .pipe(hologram());
+});
+
 
 
 // imageminで画像を圧縮

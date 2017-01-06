@@ -20,3 +20,11 @@ dependencies:
 
 # スタイルガイドの名前
 styleguide_name: 'Development Document'
+
+# カテゴリの定義
+categories:
+  index      : ドキュメント
+  layout     : CSSレイアウト
+  components : CSSモジュール
+  icon       : アイコンフォント
+  template   : テンプレート

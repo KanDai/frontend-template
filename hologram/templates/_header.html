@@ -13,11 +13,9 @@
 <header class="sg-header">
   <h1 class="sg-name"><a href="./"><%= @config['styleguide_name'] %></a></h1>
   <ul class="sg-nav">
-    <li<% if title == 'index' %> class="current"<% end %>><a href="./index.html">ドキュメント</a></li>
-    <li<% if title == 'layout' %> class="current"<% end %>><a href="./layout.html">CSSレイアウト</a></li>
-    <li<% if title == 'components' %> class="current"<% end %>><a href="./components.html">CSSモジュール</a></li>
-    <li<% if title == 'icon' %> class="current"<% end %>><a href="./icon.html">アイコンフォント</a></li>
-    <li<% if title == 'template' %> class="current"<% end %>><a href="./template.html">テンプレート</a></li>
+    <% @config['categories'].each do |slug, name| %>
+    <li<% if title == slug %> class="current"<% end %>><a href="./<%= slug %>.html"><%= name %></a></li>
+    <% end %>
   </ul>
 </header><!-- / .sg-header -->
 
