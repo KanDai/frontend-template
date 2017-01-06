@@ -1,5 +1,7 @@
-// gulpプラグインの読み込み
-// ------------------------------------------
+/* -------------------------------------------- */
+/*  Gulp plugin
+/* -------------------------------------------- */
+
 var fs           = require('fs');
 var gulp         = require('gulp');
 var ejs          = require('gulp-ejs');          //ejs
@@ -11,12 +13,10 @@ var rename       = require('gulp-rename');       //リネーム
 var plumber      = require('gulp-plumber');      //エラーが出ても動作を止めない
 var notify       = require('gulp-notify');       //エラー時に通知
 var browserSync  = require('browser-sync');      //ローカルホストとオートリロード
-var sprite       = require('gulp.spritesmith');  //CSS Sprite生成
 var imagemin     = require('gulp-imagemin');     //画像圧縮
 var changed      = require('gulp-changed');      //変更したファイルだけ処理させる
 var pngquant     = require('imagemin-pngquant'); //PNGの圧縮率を髙く
 var jpegtran     = require('imagemin-jpegtran'); //JPGの圧縮率を髙く
-var gifsicle     = require('imagemin-gifsicle'); //GIFの圧縮率を髙く
 var svgo         = require('imagemin-svgo');     //SVGの圧縮率を髙く
 var concat       = require('gulp-concat');       //ファイルの結合
 var uglify       = require('gulp-uglify');       //特定のコメントを残したまま圧縮
@@ -26,8 +26,9 @@ var htmlhint     = require("gulp-htmlhint");     //htmlhint
 var sourcemaps   = require('gulp-sourcemaps');
 var hologram     = require('gulp-hologram');
 
-// 変数設定
-// ------------------------------------------
+/* -------------------------------------------- */
+/*  Setting
+/* -------------------------------------------- */
 
 // 対象ブラウザ
 var AUTOPREFIXER_BROWSERS = [
@@ -49,10 +50,9 @@ var dist = {
     img : './htdocs/assets/images/',
 };
 
-
-
-// タスク
-// ------------------------------------------
+/* -------------------------------------------- */
+/*  Task
+/* -------------------------------------------- */
 
 // ejs
 gulp.task('ejs', function() {
@@ -152,31 +152,11 @@ gulp.task( 'imagemin', function () {
     .pipe(changed( dist.img ))
     .pipe(jpegtran({progressive: true})())
     .pipe(gulp.dest( dist.img ));
-  gulp.src( [ src.img + '**/*.gif' ] )
-    .pipe(changed( dist.img ))
-    .pipe(gifsicle({interlaced: true})())
-    .pipe(gulp.dest( dist.img ));
   gulp.src( [ src.img + '**/*.svg' ] )
     .pipe(changed( dist.img ))
     .pipe(svgo()())
     .pipe(gulp.dest( dist.img ));
 });
-
-// sprite画像を生成
-gulp.task( 'sprite', function () {
-  var spriteData = gulp.src( src.img + 'sprite/*.png' )
-  .pipe( sprite( {
-    imgName: 'sprite.png',
-    imgPath: '../images/sprite.png',
-    cssName: '_sprite.scss',
-    padding: 5
-  } ) );
-  spriteData.img
-    .pipe(pngquant( { quality: '65-80', speed: 1 })() )
-    .pipe( gulp.dest( dist.img ) );
-  spriteData.css
-    .pipe( gulp.dest( src.scss ) );
-} );
 
 // サーバーの起動
 gulp.task('server', function() {
@@ -200,7 +180,6 @@ gulp.task('default', ['server'], function() {
   gulp.watch([ src.base + '**/*.ejs' ], ['ejs']);
   gulp.watch([ src.scss + '**/*.scss' ],['sass']);
   gulp.watch([ src.js + '**/*.js' ], ['js']);
-  gulp.watch([ src.img + 'sprite/*.png' ], [ 'sprite' ]);
   gulp.watch([ src.img + '*' ], [ 'imagemin' ]);
   gulp.watch( './dev/docs/*.scss' , [ 'hologram' ]);
 });
