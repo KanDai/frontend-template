@@ -1,0 +1,34 @@
+.media {
+    &_img {
+        text-align: center;
+        margin-bottom: 15px;
+    }
+    &_text {
+        p:not(:last-child) {
+            margin-bottom: 15px;
+        }
+    }
+}
+
+@media print, screen and (min-width: $md-min) {
+    .media {
+        overflow: hidden;
+        &_img {
+            text-align: center;
+            margin-bottom: 0;
+            &-l {
+                float: left;
+                margin-right: 30px;
+            }
+            &-r {
+                float: right;
+                margin-left: 30px;
+            }
+        }
+        &_text {
+            p:not(:last-child) {
+                margin-bottom: 15px;
+            }
+        }
+    }
+}

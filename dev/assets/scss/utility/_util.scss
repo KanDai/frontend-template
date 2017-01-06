@@ -1,0 +1,53 @@
+/*--------------------------------------
+  Utility Styles
+---------------------------------------*/
+
+.clear { clear: both; }
+.cf:before,.cf:after { content: " "; display: table; }
+.cf:after { clear: both; }
+.cf { *zoom: 1; }
+
+.fl-l     { float: left; }
+.fl-r     { float: right;}
+.ta-left   { text-align: left; }
+.ta-center { text-align: center; }
+.ta-right  { text-align: right; }
+.bold {font-weight: bold;}
+
+.ib {
+    display: inline-block;
+}
+.db {
+    display: block;
+}
+
+.hidden {
+    display: none;
+}
+@media screen and (max-width: $xs-max) {
+    .hidden-u-sm { display: none; }
+}
+@media screen and (max-width: $sm-max) {
+    .hidden-u-md,
+    .hidden-sp { display: none; }
+}
+@media screen and (max-width: $md-max) {
+    .hidden-u-lg {
+        display: none;
+    }
+}
+
+@media print, screen and (min-width: $sm-min) {
+    .hidden-o-sm {
+        display: none;
+    }
+}
+@media print, screen and (min-width: $md-min) {
+    .hidden-o-md,
+    .hidden-pc { display: none; }
+}
+@media print, screen and (min-width: $lg-min) {
+    .hidden-o-lg {
+        display: none;
+    }
+}

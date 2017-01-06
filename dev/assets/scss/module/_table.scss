@@ -1,0 +1,32 @@
+.table {
+  width: 100%;
+  border-top: 1px solid rgba(100,100,100,.5);
+  border-collapse: separate;
+  th, td {
+    vertical-align: middle;
+    border-bottom: 1px solid rgba(100,100,100,.5);
+  }
+  th {
+    padding: 15px 20px 15px 10px;
+  }
+  td {
+    padding: 15px 10px;
+  }
+  a:not(.btn) {
+    text-decoration: underline;
+    &:hover {
+        text-decoration: none;
+    }
+  }
+  &-2col {
+    th {
+        white-space: nowrap;
+    }
+    td {
+        width: 90%;
+    }
+  }
+  &-more {
+    border-top: none;
+  }
+}

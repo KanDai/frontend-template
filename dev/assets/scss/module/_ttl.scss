@@ -1,0 +1,34 @@
+.ttl-lg {
+    font-weight: normal;
+    font-size: 1.9rem;
+    line-height: 1.3;
+    vertical-align: middle;
+    span {
+        font-size: 1.2rem;
+        margin-left: 5px;
+        display: inline-block;
+        vertical-align: middle;
+    }
+}
+
+@media print, screen and (min-width: $md-min) {
+    .ttl-lg {
+        font-size: 2.6rem;
+        span {
+            font-size: 1.4rem;
+        }
+    }
+}
+
+.ttl-md {
+    font-weight: normal;
+    font-size: 1.7rem;
+    line-height: 1.3;
+}
+
+@media print, screen and (min-width: $md-min) {
+    .ttl-md {
+        font-size: 2rem;
+    }
+}
+

@@ -1,0 +1,27 @@
+.mb-xs { margin-bottom: 5px !important; }
+.mb-sm { margin-bottom: 10px !important; }
+.mb-md { margin-bottom: 20px !important; }
+.mb-lg { margin-bottom: 30px !important; }
+.mb-xl { margin-bottom: 40px !important; }
+
+@media print, screen and (min-width: $md-min) {
+    .mb-xs { margin-bottom: 10px !important; }
+    .mb-sm { margin-bottom: 20px !important; }
+    .mb-md { margin-bottom: 30px !important; }
+    .mb-lg { margin-bottom: 40px !important; }
+    .mb-xl { margin-bottom: 50px !important; }
+}
+
+.mt-xs { margin-top: 5px !important; }
+.mt-sm { margin-top: 10px !important; }
+.mt-md { margin-top: 20px !important; }
+.mt-lg { margin-top: 30px !important; }
+.mt-xl { margin-top: 40px !important; }
+
+@media print, screen and (min-width: $md-min) {
+    .mt-xs { margin-top: 10px !important; }
+    .mt-sm { margin-top: 20px !important; }
+    .mt-md { margin-top: 30px !important; }
+    .mt-lg { margin-top: 40px !important; }
+    .mt-xl { margin-top: 50px !important; }
+}
