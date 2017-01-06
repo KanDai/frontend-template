@@ -4,6 +4,7 @@
 
 var fs           = require('fs');
 var gulp         = require('gulp');
+var watch        = require('gulp-watch');
 var ejs          = require('gulp-ejs');          //ejs
 var sass         = require('gulp-sass');         //SASSコンパイル
 var csscomb      = require('gulp-csscomb');      //CSS順番
@@ -16,8 +17,6 @@ var browserSync  = require('browser-sync');      //ローカルホストとオ�
 var imagemin     = require('gulp-imagemin');     //画像圧縮
 var changed      = require('gulp-changed');      //変更したファイルだけ処理させる
 var pngquant     = require('imagemin-pngquant'); //PNGの圧縮率を髙く
-var jpegtran     = require('imagemin-jpegtran'); //JPGの圧縮率を髙く
-var svgo         = require('imagemin-svgo');     //SVGの圧縮率を髙く
 var concat       = require('gulp-concat');       //ファイルの結合
 var uglify       = require('gulp-uglify');       //特定のコメントを残したまま圧縮
 var stylestats   = require('gulp-stylestats');   //StyleStats
@@ -25,6 +24,7 @@ var jshint       = require('gulp-jshint');       //jshint
 var htmlhint     = require("gulp-htmlhint");     //htmlhint
 var sourcemaps   = require('gulp-sourcemaps');
 var hologram     = require('gulp-hologram');
+
 
 /* -------------------------------------------- */
 /*  Setting
@@ -49,6 +49,7 @@ var dist = {
     js  : './htdocs/assets/js/',
     img : './htdocs/assets/images/',
 };
+
 
 /* -------------------------------------------- */
 /*  Task
@@ -144,18 +145,32 @@ gulp.task('styleguide', function() {
 
 // imageminで画像を圧縮
 gulp.task( 'imagemin', function () {
-  gulp.src( [ src.img + '**/*.png' ] )
+  return gulp.src( [ src.img + '**/*' ] )
     .pipe(changed( dist.img ))
-    .pipe(pngquant( { quality: '65-80', speed: 1 })() )
+    .pipe(imagemin({
+      progressive: true,
+      svgoPlugins: [
+        { removeViewBox: false },
+        { cleanupIDs: false }
+      ],
+      use: [
+        pngquant({
+          quality: '65-80',
+          speed: 1
+        })()
+      ]
+    }))
+    // .pipe(changed( dist.img ))
+    // .pipe(pngquant( { quality: '65-80', speed: 1 })() )
     .pipe(gulp.dest( dist.img ));
-  gulp.src( [ src.img + '**/*.jpg' ] )
-    .pipe(changed( dist.img ))
-    .pipe(jpegtran({progressive: true})())
-    .pipe(gulp.dest( dist.img ));
-  gulp.src( [ src.img + '**/*.svg' ] )
-    .pipe(changed( dist.img ))
-    .pipe(svgo()())
-    .pipe(gulp.dest( dist.img ));
+  // gulp.src( [ src.img + '**/*.jpg' ] )
+  //   .pipe(changed( dist.img ))
+  //   .pipe(jpegtran({progressive: true})())
+  //   .pipe(gulp.dest( dist.img ));
+  // gulp.src( [ src.img + '**/*.svg' ] )
+  //   .pipe(changed( dist.img ))
+  //   .pipe(svgo()())
+  //   .pipe(gulp.dest( dist.img ));
 });
 
 // サーバーの起動
@@ -168,7 +183,7 @@ gulp.task('server', function() {
 });
 
 // gulpの実行とファイルの監視
-gulp.task('default', ['server'], function() {
+gulp.task('default', ['server', 'watch'], function() {
   gulp.watch([
     dist.base + '**/*.html',
     dist.base + '**/*.css',
@@ -177,9 +192,26 @@ gulp.task('default', ['server'], function() {
     dist.base + '**/*.png',
     dist.base + '**/*.svg',
   ], browserSync.reload);
-  gulp.watch([ src.base + '**/*.ejs' ], ['ejs']);
-  gulp.watch([ src.scss + '**/*.scss' ],['sass']);
-  gulp.watch([ src.js + '**/*.js' ], ['js']);
-  gulp.watch([ src.img + '*' ], [ 'imagemin' ]);
-  gulp.watch( './dev/docs/*.scss' , [ 'hologram' ]);
+});
+
+gulp.task('watch', function() {
+    watch( src.base + '**/*.ejs' , function () {
+        gulp.start( 'ejs' );
+    });
+
+    watch( src.scss + '**/*.scss' , function () {
+        gulp.start( 'sass' );
+    });
+
+    watch( src.js + '**/*.js' , function () {
+        gulp.start( 'js' );
+    });
+
+    watch( src.img + '**/*.*' , function () {
+        gulp.start( 'imagemin' );
+    });
+
+    watch( './dev/docs/*.scss' , function () {
+        gulp.start( 'hologram' );
+    });
 });
