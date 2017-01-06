@@ -24,7 +24,8 @@ var jshint       = require('gulp-jshint');       //jshint
 var stylestats   = require('gulp-stylestats');   //StyleStats
 var sourcemaps   = require('gulp-sourcemaps');
 var hologram     = require('gulp-hologram');
-
+var iconfont     = require('gulp-iconfont'); // アイコンフォント作成
+var consolidate  = require('gulp-consolidate'); // Lo-DashをGulpから使えるようにする
 
 /* -------------------------------------------- */
 /*  Setting
@@ -146,6 +147,45 @@ gulp.task( 'imagemin', function () {
     .pipe(gulp.dest( dist.img ));
 });
 
+/**
+ * 指定フォルダ内のSVGファイルからIconfont作成
+ * 読み込み用のscssファイルとStyleGuide用のscssファイルを生成
+ */
+gulp.task('iconfont', function(){
+  var fontName = 'icon';
+
+  return gulp.src(['./dev/assets/icons/*.svg'])
+    .pipe(iconfont({
+      fontName: fontName,
+      prependUnicode: true,
+      formats: ['ttf', 'eot', 'woff']
+    }))
+    .on('glyphs', function(codepoints, options) {
+      var engine             = 'lodash';
+      var templatePath       = './dev/assets/icons/template/';
+      var templateName       = '_icon';
+      var consolidateOptions = {
+        glyphs: codepoints,
+        fontName: fontName,
+        fontPath: '../fonts/',
+        className: 'icon'
+      };
+
+      //scss生成
+      gulp.src(templatePath + templateName + '.scss')
+        .pipe(consolidate(engine, consolidateOptions))
+        .pipe(rename({ basename: '_iconfont' }))
+        .pipe(gulp.dest(src.scss + 'base/'));
+
+      //StyleGuide用のscss生成
+      gulp.src(templatePath + templateName + '_doc.scss')
+        .pipe(consolidate(engine, consolidateOptions))
+        .pipe(rename({ basename:'_icon' }))
+        .pipe(gulp.dest(src.base + 'docs/'));
+    })
+
+    .pipe(gulp.dest('./htdocs/assets/fonts/'));
+});
 
 /**
  * Gulpからhologramを実行してスタイルガイド作成
