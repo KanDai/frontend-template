@@ -1,6 +1,6 @@
-/* -------------------------------------------- */
-/*  Gulp plugin
-/* -------------------------------------------- */
+/*========================================*/
+/* Gulp plugin
+/*========================================*/
 
 var fs           = require('fs');
 var gulp         = require('gulp');
@@ -26,10 +26,12 @@ var sourcemaps   = require('gulp-sourcemaps');
 var hologram     = require('gulp-hologram');
 var iconfont     = require('gulp-iconfont'); // アイコンフォント作成
 var consolidate  = require('gulp-consolidate'); // Lo-DashをGulpから使えるようにする
+var webpack      = require('gulp-webpack');     //webpack
 
-/* -------------------------------------------- */
-/*  Setting
-/* -------------------------------------------- */
+
+/*========================================*/
+/* Setting
+/*========================================*/
 
 // 対象ブラウザ
 var AUTOPREFIXER_BROWSERS = [
@@ -54,9 +56,9 @@ var dist = {
 };
 
 
-/* -------------------------------------------- */
-/*  Task
-/* -------------------------------------------- */
+/*========================================*/
+/* Task
+/*========================================*/
 
 /**
  * ejsのコンパイル
@@ -99,27 +101,55 @@ gulp.task('sass' , function(){
 
 
 /**
- * commonフォルダのjsを結合・圧縮
- * それ以外のjsはそのまま出力
+ * jsの結合・圧縮・コピーの処理まとめ
+ * デフォルトではWebpackの処理のみ
  */
-gulp.task( 'js', function () {
-  gulp.src([ src.js + '/common/script/*.js', '!' + src.js + '/common/script/!*.js' ])
+
+// Webpackでjs結合
+gulp.task( 'webpack', function () {
+  var webpackConfig = require('./webpack.config.js');
+
+  gulp.src( src.js + '*.js')
+    .pipe(webpack(webpackConfig))
+    .pipe(gulp.dest(dist.js));
+});
+
+// concatでjs結合(結合ファイルは指定)
+gulp.task( 'js_concat', function () {
+  gulp.src([
+        src.js + 'xx1.js',
+        src.js + 'xx2.js'
+    ])
     .pipe( plumber({errorHandler: notify.onError('<%= error.message %>')}) )
-    .pipe( concat( 'script.js' ) )
-    .pipe(gulp.dest(dist.js + 'common/'))
+    .pipe( concat( 'xxx.js' ) )
+    .pipe(gulp.dest(dist.js))
     .pipe( uglify( {
       preserveComments: 'some'
     } ) )
     .pipe(rename({ extname : '.min.js' }))
-    .pipe(gulp.dest(dist.js + 'common/'));
-
-  gulp.src([ src.js + '/common/lib/*.js', '!' + src.js + '/common/lib/!*.js' ])
-    .pipe( plumber({errorHandler: notify.onError('<%= error.message %>')}) )
-    .pipe( concat( 'lib.js' ) )
-    .pipe(gulp.dest(dist.js + 'common/'))
-
-  gulp.src([ src.js + '/**/*.js', '!' + src.js + '/common/**/*.js' ])
     .pipe(gulp.dest(dist.js));
+});
+
+// そのまま出力したいjsファイルを指定して出力領域にそのまま出力と圧縮しての出力
+gulp.task( 'js_copy', function () {
+  gulp.src([
+        src.js + 'xx1.js',
+        src.js + 'xx2.js'
+    ])
+    .pipe( plumber({errorHandler: notify.onError('<%= error.message %>')}) )
+    .pipe(gulp.dest(dist.js))
+    .pipe( uglify( {
+      preserveComments: 'some'
+    } ) )
+    .pipe(rename({ extname : '.min.js' }))
+    .pipe(gulp.dest(dist.js));
+});
+
+// 処理をまとめて実行
+gulp.task('js', function() {
+    gulp.start( 'webpack' );
+    // gulp.start( 'js_concat' );
+    // gulp.start( 'js_copy' );
 });
 
 
@@ -146,6 +176,7 @@ gulp.task( 'imagemin', function () {
     }))
     .pipe(gulp.dest( dist.img ));
 });
+
 
 /**
  * 指定フォルダ内のSVGファイルからIconfont作成
@@ -187,6 +218,7 @@ gulp.task('iconfont', function(){
     .pipe(gulp.dest('./htdocs/assets/fonts/'));
 });
 
+
 /**
  * Gulpからhologramを実行してスタイルガイド作成
  * そのままGithub Pages用に[docs]にコピー
@@ -227,12 +259,16 @@ gulp.task('jshint', function() {
     .pipe( jshint.reporter( 'jshint-stylish' ) );
 });
 
-gulp.task('lint', ['htmllint', 'stylestats', 'jshint'] );
+// 処理をまとめて実行
+gulp.task('lint', function() {
+    gulp.start( 'htmllint' );
+    gulp.start( 'stylestats' );
+    gulp.start( 'jshint' );
+});
 
-
-/* -------------------------------------------- */
-/*  Server / Watch
-/* -------------------------------------------- */
+/*========================================*/
+/* Server / Watch
+/*========================================*/
 
 // ローカルサーバーの起動
 // --------------------
@@ -272,7 +308,7 @@ gulp.task('watch', function() {
     watch( src.img + '**/*.*' , function () {
         gulp.start( 'imagemin' );
     });
-    watch( './dev/docs/*.scss' , function () {
+    watch( [ './dev/docs/*.scss', './hologram/**/*' ] , function () {
         gulp.start( 'hologram' );
     });
 });
