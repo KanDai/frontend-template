@@ -1,133 +1,129 @@
 @charset 'utf-8';
 
+.sg-body {
+    font-size: 13px;
+}
+.sg-body a {
+    color: #00b088;
+}
+
+/*========================================*/
+/* Header
+/*========================================*/
+
 .sg-header {
+    position: fixed;
     width: 100%;
-    height: 60px;
+    height: 70px;
     top: 0;
     left: 0;
-    position: fixed;
-    background-color: #fff;
+    padding: 0 20px;
+    background-color: #f6f6f6;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     z-index: 9999;
 }
-.sg-footer {
-    width: 100%;
-    position: absolute;
-    bottom: 0;
-    background-color: #555;
-    padding: 20px;
-    text-align: right;
-    font-size: 11px;
-    z-index: 10;
-}
-.sg-name {
-    float: left;
-    color: #222;
-    font-size: 24px;
-    line-height: 60px;
-    margin: 0 20px;
-    border: none;
-}
-.sg-name a {
-    color: #333;
-}
-.sg-logo {
-    font-size: 150%;
-    color: #ff4291;
-    position: relative;
-    top: -2px;
-}
 
+.sg-name > a {
+    font-weight: 200;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    color: #333;
+    vertical-align: middle;
+}
+.sg-name img {
+    margin-right: 10px
+}
 
 .sg-nav {
-    float: right;
-    margin: 0 8px 0 0;
+    display: flex;
 }
-
-.sg-nav li {
+.sg-nav > li {
     list-style: none;
-    float: left;
     position: relative;
+    margin: 0 6px;
 }
-.sg-nav li a {
+.sg-nav > li > a {
     color: #333;
-    font-size: 14px;
     display: block;
-    line-height: 60px;
-    padding: 0 12px;
+    line-height: 70px;
+    padding: 0 6px;
     text-decoration: none;
     transition: all .2s;
 }
-
-.sg-nav li a:hover {
-    background-color: #eee;
+.sg-nav > li > a:hover,
+.sg-nav > li.current > a {
+    color: #00b088;
 }
-.sg-nav li.current a {
-    color: #ff4291;
-}
-.sg-nav li.current:before {
+.sg-nav > li.current:before {
     position: absolute;
-    top: 0px;
+    bottom: 0;
     left: 0;
     display: block;
     content: '';
     width: 100%;
     height: 3px;
-    background-color: #ff4291;
+    background-color: #00b088;
 }
 
+/*========================================*/
+/* Main
+/*========================================*/
 
 .sg-main {
-    padding: 60px 0;
+    padding: 70px 0 60px;
     position: relative;
     min-height: 100vh;
 }
 
+/* localnav */
 .sg-localnav {
     position: fixed;
-    top: 60px;
+    top: 70px;
     width: 240px;
-    padding-top : 10px;
     height: 100%;
-    background: #333;
+    background: #393939;
     z-index: 100;
     overflow-y: scroll;
 }
 .sg-localnav a {
     display: block;
-    padding: 8px 20px;
+    padding: 16px;
     color: #fff;
+    border-bottom: 1px solid rgba(255, 255, 255, .15);
     transition: all .2s;
 }
 .sg-localnav a:hover {
     background: #555;
 }
-
-.sg-contents {
-    padding: 0 60px 50px 300px;
-}
-
 @media print, screen and (max-width: 1000px) {
     .sg-localnav {
         display: none;
     }
+}
+
+/* contents */
+.sg-contents {
+    padding: 0 60px 60px 300px;
+    font-size: 15px;
+}
+
+@media print, screen and (max-width: 1000px) {
     .sg-contents {
         padding: 0 20px 50px 20px;
     }
 }
 
 .sg-contents > h1 {
-    padding-top: 80px;
-    padding-bottom: 8px;
-    margin-bottom: 20px;
-    border-bottom: 1px solid #555;
     font-size: 28px;
     font-weight: bold;
+    padding: 90px 0 10px;
+    margin-top: -30px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ccc;
 }
-.sg-contents > h1:first-child,
-.sg-contents .codeblock + h1 {
-    margin-top: -40px;
-}
-
 .sg-contents > h2 {
     font-size: 24px;
     margin-top: 30px;
@@ -192,6 +188,8 @@
 .sg-contents > ol li ul li {
     list-style-type: circle;
 }
+
+
 .sg-contents > blockquote {
     padding: 0 0 0 4em;
     margin: 0 0 0 2em;
@@ -210,7 +208,7 @@
     padding: 20px;
     overflow: auto;
     font-family: Consolas, 'Liberation Mono', Courier, monospace;
-    background-color: #e9e9e9;
+    background-color: rgba(0, 0, 0, .1);
     font-size: 13px;
     border-radius: 5px;
     color: #333;
@@ -222,7 +220,7 @@
     display: inline-block;
     font-family: Consolas, 'Liberation Mono', Courier, monospace;
     font-size: 13px;
-    background-color: #454545;
+    background-color: rgba(0, 0, 0, .1);
     position: relative;
     top: -2px;
     border-radius: 3px;
@@ -312,18 +310,35 @@
     }
 }
 
+/*========================================*/
+/* Footer
+/*========================================*/
+
+.sg-footer {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    color: #999;
+    background-color: #f6f6f6;
+    padding: 20px;
+    text-align: right;
+    font-size: 11px;
+    z-index: 10;
+}
 
 
+/*========================================*/
+/**
+ * gitHub code highlight
+ *
+ * コードをハイライトするところで使用しているスタイルです。
+ * 以下のリポジトリにあるスタイルを利用しました。
+ *
+ * trulia/hologram-example
+ * https://github.com/trulia/hologram-example
+ */
+/*========================================*/
 
-/*
-gitHub code highlight
-
-コードをハイライトするところで使用しているスタイルです。
-以下のリポジトリにあるスタイルを利用しました。
-
-trulia/hologram-example
-https://github.com/trulia/hologram-example
-*/
 hll { background-color: #ffffcc }
 .c { color: #999988; font-style: italic } /* Comment */
 .err { color: #a61717; background-color: #e3d2d2 } /* Error */
