@@ -15,7 +15,23 @@ body {
     text-align: left;
     line-height:1.7;
     font-size: 1.4rem;
-    -webkit-text-size-adjust: 100%;  // デバイスの向きによって文字サイズが変更されないようにする
+
+    // デバイスの向きによって文字サイズが変更されないようにする
+    -webkit-text-size-adjust: 100%;
+
+    // 出来るだけ禁則処理を保持する(英数字の単語の途中では折り返さない)
+    // word-wrapの新しい仕様がoverflow-wrap
+    word-wrap : break-word;
+    overflow-wrap : break-word;
+
+    // フォントのレンダリングを調整してキレイにみせる
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    // 自動カーニングを有効に
+    // 参考) https://ics.media/entry/14087
+    font-feature-settings: "palt";
+
 }
 h1 , h2 , h3 , h4 , h5 , h6 {
     line-height : 1.4;  // 見出し系はパラつくので見えるので行間を少し狭める
