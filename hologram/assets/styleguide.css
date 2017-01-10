@@ -2,6 +2,7 @@
 
 .sg-body {
     font-size: 13px;
+    color: #333;
 }
 .sg-body a {
     color: #00b088;
@@ -238,8 +239,6 @@
     box-shadow: none;
 }
 
-
-
 .sg-contents .example {
     margin-top: 30px;
     padding: 30px;
@@ -276,46 +275,28 @@
     line-height: 1.6;
 }
 
-
 .sg-glyph {
-    margin: 30px -4px 20px;
-    padding: 0;
-    font-size: 0;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
 }
-
 .sg-glyph_item {
-    display: inline-block;
-    width: 20%;
-    margin-bottom: 4px;
-    padding: 0 2px;
-    font-size: 1rem;
-    color: #000;
-}
-
-.sg-glyph_inner {
-    padding: 25px 5px 20px;
-    background: #fff;
+    width: 16.666%;
+    background-color: rgba(0, 0, 0, .07);
+    border: 1px solid #fff;
     text-align: center;
+    padding-bottom: 12px;
 }
-
 .sg-glyph_icon {
     font-size: 36px;
-    margin-bottom: 15px;
+    padding: 30px 0 20px;
     display: block;
 }
-
-.sg-glyph_name,
-.sg-glyph_codepoint {
+.sg-glyph span {
     font-size: 13px;
     display: block !important;
-    background: #fff !important;
 }
 
-@media screen and (max-width: 1000px) {
-    .sg-glyph_item {
-        width: 25%;
-    }
-}
 
 /*========================================*/
 /* Footer

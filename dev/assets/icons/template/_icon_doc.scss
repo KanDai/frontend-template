@@ -5,22 +5,16 @@ name: 00-iconfont
 category: icon
 ---
 
-<div>
-<ul class="sg-glyph"><% _.each(glyphs, function(glyph) { %>
-    <li class="sg-glyph_item">
-      <div class="sg-glyph_inner">
-        <span class="sg-glyph_icon <%= className %> <%= className %>-<%= glyph.name %>"></span>
-        <code class="sg-glyph_name">.<%= className %>-<%= glyph.name %></code>
-        <code class="sg-glyph_codepoint"><%= glyph.unicode[0].charCodeAt(0).toString(16).toUpperCase() %></code>
-      </div>
-    </li><% }); %>
-</ul>
+<div class="sg-glyph"><% _.each(glyphs, function(glyph) { %>
+  <div class="sg-glyph_item">
+    <div class="sg-glyph_icon <%= className %> <%= className %>-<%= glyph.name %>"></div>
+    <span>.<%= className %>-<%= glyph.name %></span>
+    <span><%= glyph.unicode[0].charCodeAt(0).toString(16).toUpperCase() %></span>
+  </div><% }); %>
 </div>
 
 ```example
-<h2 class="ttl-md">
-  <i class="icon-logo"></i> iタグにクラス付与でアイコン表示
-</h2>
+<i class="icon-arrow-right"></i> iタグにクラス付与でアイコンを表示する
 ```
 
 */
