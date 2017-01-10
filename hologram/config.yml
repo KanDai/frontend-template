@@ -17,6 +17,7 @@ dependencies:
   - ./assets
   - ../htdocs/assets/css
   - ../htdocs/assets/js
+  - ../htdocs/assets/fonts
 
 # スタイルガイドの名前
 styleguide_name: 'Development Document'
