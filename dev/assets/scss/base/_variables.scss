@@ -1,10 +1,23 @@
 // Colors
 // --------------------------------------------------
 
-$color-main : #000;
-$color-secondary : #333;
-$color-link : #666;
-$color-bg-body : #fff;
+// main
+$color-main : #00b088;
+
+// sub
+// $color-sub : darken( $color-main, 20% );
+$color-sub : #004a39;
+
+// text
+$color-txt: #333;
+
+// link
+$color-link : #00b088;
+
+// utility
+$color-gray-dark : #666;
+$color-gray-light : #eee;
+
 
 // Font
 // --------------------------------------------------
@@ -13,30 +26,64 @@ $font-gothic : Helvetica,Arial,'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic
 $font-mincho : 'Palatino Linotype','游明朝',YuMincho,'ヒラギノ明朝 ProN W3','Hiragino Mincho ProN','HG明朝E','ＭＳ Ｐ明朝','ＭＳ 明朝',serif;
 
 
-//$color-xx : #fff;
-
 // Media query
 // --------------------------------------------------
 
-// todo 基本設定を検討
-
+// breakpoint
 $sm-min : 512px;
 $md-min : 768px;
-$lg-min : 1000px;
+$lg-min : 1024px;
 
 $xs-max : ($sm-min - 1);
 $sm-max : ($md-min - 1);
 $md-max : ($lg-min - 1);
 
-// xs 〜 511px
-// sm 512px 〜 767px
-// md 768px 〜 999px
-// lg 1000px 〜
+// - [ xs ] 〜511px ( スマートフォン縦 )
+// - [ sm ] 512px 〜 767px ( スマートフォン横・小さいタブレットの縦 )
+// - [ md ] 768px 〜 1023px（ タブレット・ノートPCなど ）
+// - [ lg ] 1024PX（ ワイドスクリーンのPC ）
+//   - 1024px以上は余白が広がる仕様で、最大コンテンツ幅は1024px(余白なしで980px)
+
+// media query Mixin
+@mixin media($point, $direction: min) {
+  @if $point == smMin {
+    @media print, screen and (min-width: $sm-min) { @content; }
+  }
+  @else if $point == mdMin {
+    @media print, screen and (min-width: $md-min) { @content; }
+  }
+  @else if $point == lgMin {
+    @media print, screen and (min-width: $lg-min) { @content; }
+  }
+  @else if $point == xsMax {
+    @media screen and (max-width: $xs-max) { @content; }
+  }
+  @else if $point == smMax {
+    @media screen and (max-width: $sm-max) { @content; }
+  }
+  @else if $point == mdMax {
+    @media screen and (max-width: $md-max) { @content; }
+  }
+  // 変数で定義されていない値の場合
+  @else {
+    @if $direction == min {
+        @media print, screen and (min-width: $point)  { @content; }
+    }
+    @else if $direction == max {
+        @media screen and (max-width: $point) { @content; }
+    }
+  }
+}
+// example
+// @include mq(smMin) {
+//  …
+// }
 
 
 // Width
 // --------------------------------------------------
 
-$width-main-inner : 1000px;
-$width-main-padding : 30px;
-$width-main : $width-main-inner + ($width-main-padding * 2);
+$width-xs-padding : 15px;
+$width-md-padding : 22px;
+
+$width-max: 1024px;

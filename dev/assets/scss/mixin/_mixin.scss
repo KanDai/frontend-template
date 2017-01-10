@@ -1,26 +1,19 @@
 @mixin inner {
-  width: $width-main;
-  min-width: $width-main;
-  padding-left: $width-main-padding;
-  padding-right: $width-main-padding;
-  margin-left: auto;
-  margin-right: auto;
-  @media (max-width: $sp) {
-      width: 100%;
-      min-width: 100%;
-      padding-left: 10px;
-      padding-right: 10px;
+  padding-left: $width-xs-padding;
+  padding-right: $width-xs-padding;
+  @include mq(lgMin) {
+    width: $lg-min;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: $width-md-padding;
+    padding-right: $width-md-padding;
   }
 }
 
 @mixin clearfix {
-  *zoom : 1;
-  &:before ,
   &:after {
-    display : table;
-    content : ' ';
-  }
-  &:after {
-      clear : both;
+    content: '';
+    clear: both;
+    display: block;
   }
 }

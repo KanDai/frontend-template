@@ -10,11 +10,13 @@ body, input, button, select, textarea {
     font-family: $font-gothic;
 }
 body {
-    background: $color-bg-body;
-    color: $color-secondary;
-    text-align: left;
-    line-height:1.7;
+    min-width: 320px;
+
+    background: #fff;
+    color: $color-txt;
+
     font-size: 1.4rem;
+    line-height:1.7;
 
     // デバイスの向きによって文字サイズが変更されないようにする
     -webkit-text-size-adjust: 100%;
@@ -34,25 +36,27 @@ body {
 
 }
 h1 , h2 , h3 , h4 , h5 , h6 {
-    line-height : 1.4;  // 見出し系はパラつくので見えるので行間を少し狭める
+    line-height : 1.4;  // 見出し系はパラついて見えるので行間を少し狭める
 }
 img {
     vertical-align: top;  // imgで意図しないマージンがつかないように設定
     max-width: 100%;
     height: auto;
 }
-// フォーム要素のデフォルトスタイルを削除
-input, button, textarea, select {
-    -webkit-appearance: none;  // iOSのSafariはクセが強いのでデフォルトで削除
-    // -moz-appearance: none;
-    // appearance: none;
-    margin: 0;
-    padding: 0;
-    // background: none;
-    // border: none;
-    // border-radius: 0;
-    // outline: none;
-}
+
+//
+// フォーム要素のデフォルトスタイルを削除する場合使用
+//
+// input, button, textarea, select {
+//     -webkit-appearance: none;
+//     -moz-appearance: none;
+//     appearance: none;
+//     background: none;
+//     border: none;
+//     border-radius: 0;
+//     outline: none;
+// }
+
 strong { font-weight: bold; }
 em { font-style: italic;}
 a {
@@ -60,6 +64,7 @@ a {
     color: $color-link;
     transition: opacity .3s;
 }
+
 // 画面サイズが大きい(PC想定)の時のみホバーを適用
 // iOS8.4.1で2回タップしないとリンク先に遷移しない問題対策
 @media print, screen and (min-width: $lg-min) {
@@ -67,6 +72,7 @@ a {
         opacity: 0.6;
     }
 }
+
 // デフォルトのボックスモデルをボーダーボックスに変更
 * {
   box-sizing: border-box;
