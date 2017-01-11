@@ -1,31 +1,59 @@
+/* Layout
+---------------------------------------*/
+
+.l-wrapper {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+.l-inner {
+
+}
+
+
 /* Header
 ---------------------------------------*/
 
-.header {
+.l-header {
+    background-color: #eee;
 }
-
-.gnav {
-}
-
 
 /* Footer
 ---------------------------------------*/
 
-.footer {
+.l-footer {
+    background-color: #eee;
 }
 
-.copyright {
-}
 
-
-/* SideNav
+/* Contents
 ---------------------------------------*/
 
-.sidenav {
+.l-contents {
+
 }
 
-/* Main
+
+/* Main Contants
 ---------------------------------------*/
 
-.main {
+.l-main {
+
+}
+
+
+/* Side Contents
+---------------------------------------*/
+
+.l-side {
+
+}
+
+
+/* Section
+---------------------------------------*/
+
+.l-sec {
+
 }
