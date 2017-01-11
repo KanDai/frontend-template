@@ -45,7 +45,7 @@ $md-max : ($lg-min - 1);
 //   - 1024px以上は余白が広がる仕様で、最大コンテンツ幅は1024px(余白なしで980px)
 
 // media query Mixin
-@mixin media($point, $direction: min) {
+@mixin mq($point, $direction: min) {
   @if $point == smMin {
     @media print, screen and (min-width: $sm-min) { @content; }
   }
