@@ -73,25 +73,28 @@ $gutter-lg : 32px;
 
 
 // ------------------------------------------
-// 左右の余白の設定
+// 余白の設定
 // ------------------------------------------
 
 .l-grid {
+    margin-top: -$gutter-xs;
     margin-left: - ( $gutter-xs / 2 );
     margin-right: - ( $gutter-xs / 2 );
     &_col {
+        margin-top: $gutter-xs;
         margin-left: $gutter-xs / 2;
         margin-right: $gutter-xs / 2;
         background-color: #eee;
-        margin-top: 20px;
     }
 }
 
 @include mq(smMin) {
 .l-grid {
+    margin-top: -$gutter-sm;
     margin-left: - ( $gutter-sm / 2 );
     margin-right: - ( $gutter-sm / 2 );
     &_col {
+        margin-top: $gutter-sm;
         margin-left: $gutter-sm / 2;
         margin-right: $gutter-sm / 2;
     }
@@ -100,9 +103,11 @@ $gutter-lg : 32px;
 
 @include mq(mdMin) {
 .l-grid {
+    margin-top: -$gutter-md;
     margin-left: - ( $gutter-md / 2 );
     margin-right: - ( $gutter-md / 2 );
     &_col {
+        margin-top: $gutter-md;
         margin-left: $gutter-md / 2;
         margin-right: $gutter-md / 2;
     }
@@ -111,124 +116,13 @@ $gutter-lg : 32px;
 
 @include mq(lgMin) {
 .l-grid {
+    margin-top: -$gutter-lg;
     margin-left: - ( $gutter-lg / 2 );
     margin-right: - ( $gutter-lg / 2 );
     &_col {
+        margin-top: $gutter-lg;
         margin-left: $gutter-lg / 2;
         margin-right: $gutter-lg / 2;
     }
 }
-}
-
-
-// ------------------------------------------
-// 上下の余白の設定
-// ------------------------------------------
-
-.grid-xs-1col > .l-grid_col:nth-child(n+2),
-.grid-xs-2col > .l-grid_col:nth-child(n+3),
-.grid-xs-3col > .l-grid_col:nth-child(n+4),
-.grid-xs-4col > .l-grid_col:nth-child(n+5),
-.grid-xs-5col > .l-grid_col:nth-child(n+6),
-.grid-xs-6col > .l-grid_col:nth-child(n+7),
-.grid-xs-7col > .l-grid_col:nth-child(n+8),
-.grid-xs-8col > .l-grid_col:nth-child(n+9),
-.grid-xs-9col > .l-grid_col:nth-child(n+10),
-.grid-xs-10col > .l-grid_col:nth-child(n+11),
-.grid-xs-11col > .l-grid_col:nth-child(n+12),
-.grid-xs-12col > .l-grid_col:nth-child(n+13) {
-    margin-top: $gutter-xs;
-}
-
-@include mq(smMin) {
-    .grid-sm-1col > .l-grid_col:nth-child(-n+2),
-    .grid-sm-2col > .l-grid_col:nth-child(-n+3),
-    .grid-sm-3col > .l-grid_col:nth-child(-n+4),
-    .grid-sm-4col > .l-grid_col:nth-child(-n+5),
-    .grid-sm-5col > .l-grid_col:nth-child(-n+6),
-    .grid-sm-6col > .l-grid_col:nth-child(-n+7),
-    .grid-sm-7col > .l-grid_col:nth-child(-n+8),
-    .grid-sm-8col > .l-grid_col:nth-child(-n+9),
-    .grid-sm-9col > .l-grid_col:nth-child(-n+10),
-    .grid-sm-10col > .l-grid_col:nth-child(-n+11),
-    .grid-sm-11col > .l-grid_col:nth-child(-n+12),
-    .grid-sm-12col > .l-grid_col:nth-child(-n+13) {
-        margin-top: 0;
-    }
-    .grid-sm-1col > .l-grid_col:nth-child(n+2),
-    .grid-sm-2col > .l-grid_col:nth-child(n+3),
-    .grid-sm-3col > .l-grid_col:nth-child(n+4),
-    .grid-sm-4col > .l-grid_col:nth-child(n+5),
-    .grid-sm-5col > .l-grid_col:nth-child(n+6),
-    .grid-sm-6col > .l-grid_col:nth-child(n+7),
-    .grid-sm-7col > .l-grid_col:nth-child(n+8),
-    .grid-sm-8col > .l-grid_col:nth-child(n+9),
-    .grid-sm-9col > .l-grid_col:nth-child(n+10),
-    .grid-sm-10col > .l-grid_col:nth-child(n+11),
-    .grid-sm-11col > .l-grid_col:nth-child(n+12),
-    .grid-sm-12col > .l-grid_col:nth-child(n+13) {
-        margin-top: $gutter-sm;
-    }
-}
-
-@include mq(mdMin) {
-    .grid-md-1col > .l-grid_col:nth-child(-n+2),
-    .grid-md-2col > .l-grid_col:nth-child(-n+3),
-    .grid-md-3col > .l-grid_col:nth-child(-n+4),
-    .grid-md-4col > .l-grid_col:nth-child(-n+5),
-    .grid-md-5col > .l-grid_col:nth-child(-n+6),
-    .grid-md-6col > .l-grid_col:nth-child(-n+7),
-    .grid-md-7col > .l-grid_col:nth-child(-n+8),
-    .grid-md-8col > .l-grid_col:nth-child(-n+9),
-    .grid-md-9col > .l-grid_col:nth-child(-n+10),
-    .grid-md-10col > .l-grid_col:nth-child(-n+11),
-    .grid-md-11col > .l-grid_col:nth-child(-n+12),
-    .grid-md-12col > .l-grid_col:nth-child(-n+13) {
-        margin-top: 0;
-    }
-    .grid-md-1col > .l-grid_col:nth-child(n+2),
-    .grid-md-2col > .l-grid_col:nth-child(n+3),
-    .grid-md-3col > .l-grid_col:nth-child(n+4),
-    .grid-md-4col > .l-grid_col:nth-child(n+5),
-    .grid-md-5col > .l-grid_col:nth-child(n+6),
-    .grid-md-6col > .l-grid_col:nth-child(n+7),
-    .grid-md-7col > .l-grid_col:nth-child(n+8),
-    .grid-md-8col > .l-grid_col:nth-child(n+9),
-    .grid-md-9col > .l-grid_col:nth-child(n+10),
-    .grid-md-10col > .l-grid_col:nth-child(n+11),
-    .grid-md-11col > .l-grid_col:nth-child(n+12),
-    .grid-md-12col > .l-grid_col:nth-child(n+13) {
-        margin-top: $gutter-md;
-    }
-}
-
-@include mq(lgMin) {
-    .grid-lg-1col > .l-grid_col:nth-child(-n+2),
-    .grid-lg-2col > .l-grid_col:nth-child(-n+3),
-    .grid-lg-3col > .l-grid_col:nth-child(-n+4),
-    .grid-lg-4col > .l-grid_col:nth-child(-n+5),
-    .grid-lg-5col > .l-grid_col:nth-child(-n+6),
-    .grid-lg-6col > .l-grid_col:nth-child(-n+7),
-    .grid-lg-7col > .l-grid_col:nth-child(-n+8),
-    .grid-lg-8col > .l-grid_col:nth-child(-n+9),
-    .grid-lg-9col > .l-grid_col:nth-child(-n+10),
-    .grid-lg-10col > .l-grid_col:nth-child(-n+11),
-    .grid-lg-11col > .l-grid_col:nth-child(-n+12),
-    .grid-lg-12col > .l-grid_col:nth-child(-n+13) {
-        margin-top: 0;
-    }
-    .grid-lg-1col > .l-grid_col:nth-child(n+2),
-    .grid-lg-2col > .l-grid_col:nth-child(n+3),
-    .grid-lg-3col > .l-grid_col:nth-child(n+4),
-    .grid-lg-4col > .l-grid_col:nth-child(n+5),
-    .grid-lg-5col > .l-grid_col:nth-child(n+6),
-    .grid-lg-6col > .l-grid_col:nth-child(n+7),
-    .grid-lg-7col > .l-grid_col:nth-child(n+8),
-    .grid-lg-8col > .l-grid_col:nth-child(n+9),
-    .grid-lg-9col > .l-grid_col:nth-child(n+10),
-    .grid-lg-10col > .l-grid_col:nth-child(n+11),
-    .grid-lg-11col > .l-grid_col:nth-child(n+12),
-    .grid-lg-12col > .l-grid_col:nth-child(n+13) {
-        margin-top: $gutter-lg;
-    }
 }
