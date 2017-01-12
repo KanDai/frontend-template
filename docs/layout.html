@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ja">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="format-detection" content="telephone=no">
+<title>layout | Development Document</title>
+<link rel="stylesheet" href="./css/styles.min.css">
+<link rel="stylesheet" href="./assets/styleguide.css">
+<link rel="shortcut icon" href="./assets/favicon.ico" type="image/vnd.microsoft.icon">
+<link rel="icon" href="./assets/favicon.ico" type="image/vnd.microsoft.icon">
+<meta name="robots" content="noindex,nofollow">
+<body class="sg-body">
+
+<header class="sg-header">
+  <h1 class="sg-name">
+    <a href="./">
+        <img src="./assets/logo.svg" width="20" height="20" alt="">
+        Development Document
+    </a>
+  </h1>
+  <ul class="sg-nav">
+    
+    <li><a href="./index.html">ドキュメント</a></li>
+    
+    <li class="current"><a href="./layout.html">CSSレイアウト</a></li>
+    
+    <li><a href="./components.html">CSSモジュール</a></li>
+    
+    <li><a href="./icon.html">アイコンフォント</a></li>
+    
+  </ul>
+</header><!-- / .sg-header -->
+
+<main class="sg-main">
+
+  <div class="sg-localnav">
+    
+    <a href="#01-grid">自由グリッド</a>
+    
+    <a href="#02-grid">等間隔グリッド</a>
+    
+  </div>
+
+  <div class="sg-contents">
+
+
+<h1 id="01-grid" class="styleguide">自由グリッド</h1>
+
+<p>Bootstrapのような12分割のグリッドになっています。<br>
+全体を <code>l-grid</code> で囲って子要素に <code>l-grid_col</code> を設定し、<code>col-xs-xx</code> <code>col-sm-xx</code> <code>col-md-xx</code> <code>col-lg-xx</code> のように指定していきます。</p>
+
+<p>例えば、xsサイズでは2カラム、smサイズでは3カラム、mdサイズでは4カラム、lgサイズでは6カラムにする場合は下記のように指定します。</p>
+<div class="example"><div class="l-grid">
+  <div class="l-grid_col col-xs-6 col-sm-4 col-md-3 col-lg-2">col-xs-6 <br> col-sm-4 <br> col-md-3 <br> col-lg-2</div>
+  <div class="l-grid_col col-xs-6 col-sm-4 col-md-3 col-lg-2">col-xs-6 <br> col-sm-4 <br> col-md-3 <br> col-lg-2</div>
+  <div class="l-grid_col col-xs-6 col-sm-4 col-md-3 col-lg-2">col-xs-6 <br> col-sm-4 <br> col-md-3 <br> col-lg-2</div>
+  <div class="l-grid_col col-xs-6 col-sm-4 col-md-3 col-lg-2">col-xs-6 <br> col-sm-4 <br> col-md-3 <br> col-lg-2</div>
+  <div class="l-grid_col col-xs-6 col-sm-4 col-md-3 col-lg-2">col-xs-6 <br> col-sm-4 <br> col-md-3 <br> col-lg-2</div>
+  <div class="l-grid_col col-xs-6 col-sm-4 col-md-3 col-lg-2">col-xs-6 <br> col-sm-4 <br> col-md-3 <br> col-lg-2</div>
+  <div class="l-grid_col col-xs-6 col-sm-4 col-md-3 col-lg-2">col-xs-6 <br> col-sm-4 <br> col-md-3 <br> col-lg-2</div>
+  <div class="l-grid_col col-xs-6 col-sm-4 col-md-3 col-lg-2">col-xs-6 <br> col-sm-4 <br> col-md-3 <br> col-lg-2</div>
+</div>
+</div><div class="codeblock"><pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"l-grid"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"l-grid_col col-xs-6 col-sm-4 col-md-3 col-lg-2"</span><span class="nt">&gt;</span>col-xs-6 <span class="nt">&lt;br&gt;</span> col-sm-4 <span class="nt">&lt;br&gt;</span> col-md-3 <span class="nt">&lt;br&gt;</span> col-lg-2<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"l-grid_col col-xs-6 col-sm-4 col-md-3 col-lg-2"</span><span class="nt">&gt;</span>col-xs-6 <span class="nt">&lt;br&gt;</span> col-sm-4 <span class="nt">&lt;br&gt;</span> col-md-3 <span class="nt">&lt;br&gt;</span> col-lg-2<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"l-grid_col col-xs-6 col-sm-4 col-md-3 col-lg-2"</span><span class="nt">&gt;</span>col-xs-6 <span class="nt">&lt;br&gt;</span> col-sm-4 <span class="nt">&lt;br&gt;</span> col-md-3 <span class="nt">&lt;br&gt;</span> col-lg-2<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"l-grid_col col-xs-6 col-sm-4 col-md-3 col-lg-2"</span><span class="nt">&gt;</span>col-xs-6 <span class="nt">&lt;br&gt;</span> col-sm-4 <span class="nt">&lt;br&gt;</span> col-md-3 <span class="nt">&lt;br&gt;</span> col-lg-2<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"l-grid_col col-xs-6 col-sm-4 col-md-3 col-lg-2"</span><span class="nt">&gt;</span>col-xs-6 <span class="nt">&lt;br&gt;</span> col-sm-4 <span class="nt">&lt;br&gt;</span> col-md-3 <span class="nt">&lt;br&gt;</span> col-lg-2<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"l-grid_col col-xs-6 col-sm-4 col-md-3 col-lg-2"</span><span class="nt">&gt;</span>col-xs-6 <span class="nt">&lt;br&gt;</span> col-sm-4 <span class="nt">&lt;br&gt;</span> col-md-3 <span class="nt">&lt;br&gt;</span> col-lg-2<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"l-grid_col col-xs-6 col-sm-4 col-md-3 col-lg-2"</span><span class="nt">&gt;</span>col-xs-6 <span class="nt">&lt;br&gt;</span> col-sm-4 <span class="nt">&lt;br&gt;</span> col-md-3 <span class="nt">&lt;br&gt;</span> col-lg-2<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"l-grid_col col-xs-6 col-sm-4 col-md-3 col-lg-2"</span><span class="nt">&gt;</span>col-xs-6 <span class="nt">&lt;br&gt;</span> col-sm-4 <span class="nt">&lt;br&gt;</span> col-md-3 <span class="nt">&lt;br&gt;</span> col-lg-2<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</pre></div>
+<p>均等じゃないグリッド</p>
+<div class="example"><div class="l-grid">
+  <div class="l-grid_col col-xs-12 col-md-8 col-lg-8">
+    <p>コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。</p>
+  </div>
+  <div class="l-grid_col col-xs-12 col-md-4 col-lg-4">
+    <p>コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。</p>
+  </div>
+  <div class="l-grid_col col-xs-12 col-md-4 col-lg-4">
+    <p>コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。</p>
+  </div>
+  <div class="l-grid_col col-xs-12 col-md-8 col-lg-8">
+    <p>コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。</p>
+  </div>
+</div>
+</div><div class="codeblock"><pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"l-grid"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"l-grid_col col-xs-12 col-md-8 col-lg-8"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;p&gt;</span>コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。<span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"l-grid_col col-xs-12 col-md-4 col-lg-4"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;p&gt;</span>コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。<span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"l-grid_col col-xs-12 col-md-4 col-lg-4"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;p&gt;</span>コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。<span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"l-grid_col col-xs-12 col-md-8 col-lg-8"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;p&gt;</span>コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。<span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</pre></div>
+<h1 id="02-grid" class="styleguide">等間隔グリッド</h1>
+
+<p>上記のグリッドでも等間隔のグリッドは作れますが、よりシンプルに等間隔のグリッドが作れます。</p>
+
+<p>全体を <code>l-tile</code> で囲って子要素に <code>l-tile_item</code> を設定します。
+子要素に幅用の指定を入れる必要はなく、親要素に何カラムにしたいか、<code>tile-xs-x</code> <code>tile-sm-x</code> <code>tile-md-x</code> <code>tile-lg-x</code> のように指定していきます。</p>
+
+<p>例えば、xsサイズでは2カラム、smサイズでは3カラム、mdサイズでは4カラム、lgサイズでは5カラムにする場合は下記のように指定します。
+6カラムまで用意してあります。</p>
+<div class="example"><div class="l-tile tile-xs-2 tile-sm-3 tile-md-4 tile-lg-5">
+  <div class="l-tile_item">コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。</div>
+  <div class="l-tile_item">コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。</div>
+  <div class="l-tile_item">コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。</div>
+  <div class="l-tile_item">コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。</div>
+  <div class="l-tile_item">コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。</div>
+  <div class="l-tile_item">コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。</div>
+  <div class="l-tile_item">コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。</div>
+  <div class="l-tile_item">コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。</div>
+</div>
+</div><div class="codeblock"><pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"l-tile tile-xs-2 tile-sm-3 tile-md-4 tile-lg-5"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"l-tile_item"</span><span class="nt">&gt;</span>コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"l-tile_item"</span><span class="nt">&gt;</span>コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"l-tile_item"</span><span class="nt">&gt;</span>コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"l-tile_item"</span><span class="nt">&gt;</span>コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"l-tile_item"</span><span class="nt">&gt;</span>コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"l-tile_item"</span><span class="nt">&gt;</span>コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"l-tile_item"</span><span class="nt">&gt;</span>コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"l-tile_item"</span><span class="nt">&gt;</span>コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</pre></div>  </div><!-- / .sg-contents -->
+
+<footer class="sg-footer">
+  <p>This documentation generated using <a href="http://github.com/trulia/hologram">Hologram</a></p>
+</footer>
+
+</main><!-- / .sg-main -->
+
+<script src="../assets/js/lib/jquery-2.1.4.min.js"></script>
+<script src="../js/common.js"></script>
+</body>
+</html>

@@ -5,6 +5,7 @@
 # Generated from development files
 htdocs/**/
 htdocs/*.html
+docs/css/maps
 
 
 ## ----------------------------

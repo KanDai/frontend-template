@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="ja">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="format-detection" content="telephone=no">
+<title>index | Development Document</title>
+<link rel="stylesheet" href="./css/styles.min.css">
+<link rel="stylesheet" href="./assets/styleguide.css">
+<link rel="shortcut icon" href="./assets/favicon.ico" type="image/vnd.microsoft.icon">
+<link rel="icon" href="./assets/favicon.ico" type="image/vnd.microsoft.icon">
+<meta name="robots" content="noindex,nofollow">
+<body class="sg-body">
+
+<header class="sg-header">
+  <h1 class="sg-name">
+    <a href="./">
+        <img src="./assets/logo.svg" width="20" height="20" alt="">
+        Development Document
+    </a>
+  </h1>
+  <ul class="sg-nav">
+    
+    <li class="current"><a href="./index.html">ドキュメント</a></li>
+    
+    <li><a href="./layout.html">CSSレイアウト</a></li>
+    
+    <li><a href="./components.html">CSSモジュール</a></li>
+    
+    <li><a href="./icon.html">アイコンフォント</a></li>
+    
+  </ul>
+</header><!-- / .sg-header -->
+
+<main class="sg-main">
+
+  <div class="sg-localnav">
+    
+    <a href="#00-base">基本仕様</a>
+    
+    <a href="#01-browser">対応ブラウザ</a>
+    
+    <a href="#02-directory">ディレクトリ構造・ファイルの命名規則</a>
+    
+    <a href="#03-CSS">CSSに関して</a>
+    
+    <a href="#04-breakpoint">ブレイクポイント</a>
+    
+    <a href="#05-javascript">JavaScriptに関して</a>
+    
+    <a href="#06-font">Webフォントに関して</a>
+    
+    <a href="#07-dev">開発環境について</a>
+    
+  </div>
+
+  <div class="sg-contents">
+
+
+<h1 id="00-base" class="styleguide">基本仕様</h1>
+
+<ul>
+<li>HTML文書型：HTML5</li>
+<li>文字コード：UTF-8（BOM無し）</li>
+<li>改行コード：CR+LF</li>
+<li>パス記述方式・リンクルール
+
+<ul>
+<li>サイト内ページへのリンク、画像パスは「/」始まりのルートパスで記述</li>
+<li>リンク先ページのファイル名がindex.htmlの場合、URLの記述はindex.htmlを省略し、「/（スラッシュ）」で止める</li>
+<li>サイト内のコンテンツへは、原則として同一ウインドウ内でのリンク設定にする（target指定なし）</li>
+<li>制作対象となるサイトから他サイトのページへリンクを設定する場合、新規の別ウインドウが開くリンク設定をする（target=&quot;_blank&quot;）</li>
+</ul></li>
+<li>レイアウト:レスポンシブウェブデザイン（<a href="#04-breakpoint">ブレイクポイントは下記参照</a>）</li>
+<li>CMS : 使用しない</li>
+</ul>
+
+<h1 id="01-browser" class="styleguide">対応ブラウザ</h1>
+
+<ul>
+<li><p>Windows</p>
+
+<ul>
+<li>IE11</li>
+<li>edge</li>
+<li>Firefox(最新版)</li>
+<li>Chrome(最新版)</li>
+</ul></li>
+<li><p>Mac OS</p>
+
+<ul>
+<li>Safari(最新版)</li>
+<li>Firefox(最新版)</li>
+<li>Chrome(最新版)</li>
+</ul></li>
+<li><p>iOS8+</p>
+
+<ul>
+<li>Safari</li>
+</ul></li>
+<li><p>Android 4.4+</p>
+
+<ul>
+<li>Android Browser</li>
+<li>Chrome</li>
+</ul></li>
+</ul>
+
+<h1 id="02-directory" class="styleguide">ディレクトリ構造・ファイルの命名規則</h1>
+
+<h2>ディレクトリについて</h2>
+
+<pre>
+xxxxx.co.jp
+│
+├─ xxx … 各HTML用ディレクトリ。
+│
+└─ assets … 画像やCSSなどのリソースをまとめます
+   ├─ css
+   │  ├─ styles.css … サイトで共通で使われるCSSファイル
+   │  └─ xxxxx.css … 特定のページやカテゴリだけで使用されるcss
+   │
+   ├─ js
+   │  ├─ lib … jQueryなどのライブラリ・プラグインはここに入れる
+   │  ├─ common.js … サイトで共通で使われるJSファイル
+   │  └─ xxxxx.js … 特定のページやカテゴリだけで使用されるjs(多い場合はフォルダにする)
+   │
+   ├─ images
+   │  ├─ common … サイトで共通で使われる画像ファイルを格納
+   │  └─ xxxxx … 特定のページやカテゴリだけで使用される画像を格納
+   │
+   └─ fonts … アイコンフォント
+</pre>
+
+<p>サイトで利用されるリソースはルート直下の 「assets」 ディレクトリ内に格納します。<br>
+ただし、CMSやツールで生成・アップロードされるリソースに関しては別とします。</p>
+
+<h3>記述規則</h3>
+
+<p>ファイル名、ディレクトリ名には半角英数字を使用。<br>
+全角文字、大文字の使用は原則禁止。</p>
+
+<h1 id="03-CSS" class="styleguide">CSSに関して</h1>
+
+<h3>命名規則</h3>
+
+<ul>
+<li><p>スタイルはidを使わずにclassを使用。<br>
+idはアンカーリンクやJavaScriptの動作用にのみ使用。</p></li>
+<li><p><code>BEM</code> を採用しますが、その限りではない。<br>
+クラス名はキャメルケースとし、エレメントの区切り文字には <code>_</code> を、モディファイアの区切り文字には <code>-</code> を使用。<br>
+ex: <code>mainBlock_element-modifier</code></p></li>
+<li><p>一部のクラスには、接頭辞をつける（SMACSS・FLOCSSを参考に）</p>
+
+<ul>
+<li><code>l-</code> レイアウト用のクラス</li>
+<li><code>is-</code> 状態を表すクラス。単体では使わずにマルチクラスの時だけスタイルをつけるようにする。<br>
+JavaScriptを使用して状態が変わるものなどに使用。<br>
+ex: <code>is-current</code> <code>is-open</code></li>
+<li><code>js-</code> JavaScriptで使用されるタグに使用。原則、スタイルはつけずに装飾は別のクラスを使って行う。</li>
+</ul></li>
+<li><p>Sass(Scss記法)を使用。</p></li>
+</ul>
+
+<h3>設計について</h3>
+
+<p>モジュール(BEMでいうBlock)にはmarginやpositionなどの位置を指定するプロパティは出来るだけ記述しない。
+モジュールは、どの場所にもおけることを前提としているので、想定外のところで干渉して問題が起こらないように、モジュールとレイアウト用のクラスを組み合わせて、ページを組んでいくようにする。</p>
+
+<p>ただ、やりすぎるとHTMLにスタイル書いてるのと変わらないので、マルチクラスで4個も5個もクラス指定が入るようなら、別のモジュールに出来ないか、デザイン上の設計に問題がないかなどを考える。</p>
+
+<h3>レイアウトやモジュールの参考</h3>
+
+<ul>
+<li><a href="./layout.html">CSSレイアウト</a></li>
+<li><a href="./components.html">CSSモジュール</a></li>
+</ul>
+
+<h1 id="04-breakpoint" class="styleguide">ブレイクポイント</h1>
+
+<h2>ブレイクポイント</h2>
+
+<p>基本的に以下の値で設定していますが、必要な場合は他の値も使用する。</p>
+
+<ul>
+<li>[ xs ] 〜511px ( スマートフォン縦 )</li>
+<li>[ sm ] 512px 〜 767px ( スマートフォン横・小さいタブレットの縦 )</li>
+<li>[ md ] 768px 〜 1023px（ タブレット・ノートPCなど ）</li>
+<li>[ lg ] 1024PX（ ワイドスクリーンのPC ）
+
+<ul>
+<li>1024px以上は余白が広がる仕様で、最大コンテンツ幅は1020px(余白なしで980px)</li>
+</ul></li>
+</ul>
+
+<h3>用意しているSass変数</h3>
+
+<ul>
+<li><code>$xs-max</code> : 511px;</li>
+<li><code>$sm-min</code> : 512px;</li>
+<li><code>$sm-max</code> : 767px;</li>
+<li><code>$md-min</code> : 768px;</li>
+<li><code>$md-max</code> : 1023px;</li>
+<li><code>$lg-min</code> : 1024px;</li>
+</ul>
+
+<h3>メディアクエリ記述サンプル</h3>
+
+<p>メディアクエリの記述順序はモバイルファーストとする。<br></p>
+
+<p><code>min-width</code>で指定をする場合は、印刷対策として<code>print</code>も設定。印刷するのは、PCで見てる場合などの大きいサイズが想定されるため。<br>
+逆に<code>max-width</code>で指定をする場合は、<code>print</code>を設定しない。</p>
+
+<h4>通常の書き方</h4>
+
+<pre>
+// xsサイズ ( スマートフォン縦 ) 用の記述
+.sample { ... }
+
+@media print, screen and (min-width: 512px) {
+  // smサイズ ( スマートフォン横・小さいタブレットの縦 ) 用の記述
+  .sample { ... }
+}
+
+@media print, screen and (min-width: 768px) {
+  // mdサイズ （ タブレット・ノートPCなど ） 用の記述
+  .sample { ... }
+}
+
+@media print, screen and (min-width: 1024px) {
+  // lgサイズ（ ワイドスクリーンのPC ）用の記述
+  .sample { ... }
+}
+
+@media screen and (max-width: 511px) {
+  // mdサイズより小さいサイズ用の記述
+  .sample { ... }
+}
+</pre>
+
+<h4>SassのMixinと変数を使用</h4>
+
+<pre>
+// xsサイズ ( スマートフォン縦 ) 用の記述
+.sample { ... }
+
+@include mq(smMin) {
+  // smサイズ ( スマートフォン横・小さいタブレットの縦 ) 用の記述
+  .sample { ... }
+}
+
+@include mq(mdMin) {
+  // mdサイズ （ タブレット・ノートPCなど ） 用の記述
+  .sample { ... }
+}
+
+@include mq(lgMin) {
+  // lgサイズ（ ワイドスクリーンのPC ）用の記述
+  .sample { ... }
+}
+
+@include mq(smMax) {
+  // mdサイズより小さいサイズ用の記述
+  .sample { ... }
+}
+</pre>
+
+<h1 id="05-javascript" class="styleguide">JavaScriptに関して</h1>
+
+<h3>使用ライブラリ</h3>
+
+<ul>
+<li>jQuery(3.1.1)</li>
+<li>xxxxx</li>
+</ul>
+
+<h3>使用プラグイン</h3>
+
+<ul>
+<li><a href="xxxxxx">xxxxx</a>
+
+<ul>
+<li>xxxで使用</li>
+</ul></li>
+<li><a href="xxxxxx">xxxxx</a>
+
+<ul>
+<li>xxxで使用</li>
+</ul></li>
+</ul>
+
+<h3>記述規則</h3>
+
+<ul>
+<li>命名は変数・関数ともにキャメルケースで書く。</li>
+<li>出来る限りわかりやすく書く。わかりづらいところはコメントを書く。</li>
+<li>グローバル変数は出来る限り使わない。</li>
+</ul>
+
+<h1 id="06-font" class="styleguide">Webフォントに関して</h1>
+
+<p>アイコンフォントを作成して使用。</p>
+
+<p><a href="./icon.html">アイコンフォント一覧</a></p>
+
+<h1 id="07-dev" class="styleguide">開発環境について</h1>
+
+<p>ビルドツールはGulpを使用。</p>
+
+<p>詳細はリポジトリ直下のREADMEを参照。</p>
+  </div><!-- / .sg-contents -->
+
+<footer class="sg-footer">
+  <p>This documentation generated using <a href="http://github.com/trulia/hologram">Hologram</a></p>
+</footer>
+
+</main><!-- / .sg-main -->
+
+<script src="../assets/js/lib/jquery-2.1.4.min.js"></script>
+<script src="../js/common.js"></script>
+</body>
+</html>
