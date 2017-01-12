@@ -4,7 +4,7 @@
 
 var fs           = require('fs');
 var gulp         = require('gulp');
-var watch        = require('gulp-watch');
+var watch        = require('gulp-watch');        //追加ファイルも検知する
 var ejs          = require('gulp-ejs');          //ejs
 var sass         = require('gulp-sass');         //SASSコンパイル
 var csscomb      = require('gulp-csscomb');      //CSS順番
@@ -22,11 +22,11 @@ var uglify       = require('gulp-uglify');       //特定のコメントを残�
 var htmlhint     = require("gulp-htmlhint");     //htmlhint
 var jshint       = require('gulp-jshint');       //jshint
 var stylestats   = require('gulp-stylestats');   //StyleStats
-var sourcemaps   = require('gulp-sourcemaps');
-var hologram     = require('gulp-hologram');
-var iconfont     = require('gulp-iconfont'); // アイコンフォント作成
-var consolidate  = require('gulp-consolidate'); // Lo-DashをGulpから使えるようにする
-var webpack      = require('gulp-webpack');     //webpack
+var sourcemaps   = require('gulp-sourcemaps');   //ソースマップ出力
+var hologram     = require('gulp-hologram');     //GulpからHologram実行
+var iconfont     = require('gulp-iconfont');     //アイコンフォント作成
+var consolidate  = require('gulp-consolidate');  //Lo-DashをGulpから使えるようにする
+var webpack      = require('gulp-webpack');      //webpack
 
 
 /*========================================*/
@@ -181,6 +181,7 @@ gulp.task( 'imagemin', function () {
 /**
  * 指定フォルダ内のSVGファイルからIconfont作成
  * 読み込み用のscssファイルとStyleGuide用のscssファイルを生成
+ * ファイル監視はせずに手動実行
  */
 gulp.task('iconfont', function(){
   var fontName = 'icon';
