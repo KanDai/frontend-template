@@ -3,6 +3,9 @@
 
 タスクランナーで `Gulp` を使用。タスクをまとめて色々やっています。
 
+テンプレートを使用して作ったスタイルガイドページ。<br>
+http://kandai.github.io/frontend-template/
+
 ## 概要
 - タスクランナー : gulp
 - CSS : Sass(Scss記法)
