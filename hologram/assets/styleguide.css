@@ -4,9 +4,6 @@
     font-size: 13px;
     color: #333;
 }
-.sg-body a {
-    color: #00b088;
-}
 
 /*========================================*/
 /* Header
@@ -146,6 +143,7 @@
     margin-top: 10px;
     margin-bottom: 5px;
 }
+.sg-contents > p,
 .sg-contents > ul,
 .sg-contents > ol {
     margin-bottom: 20px;

@@ -2,52 +2,53 @@
   Utility Styles
 ---------------------------------------*/
 
-.clear { clear: both; }
-.cf:before,.cf:after { content: " "; display: table; }
-.cf:after { clear: both; }
-.cf { *zoom: 1; }
+img.img-full {
+    width: 100%;
+    max-width: auto;
+}
 
-.fl-l     { float: left; }
-.fl-r     { float: right;}
+// テキスト要素
+.bold {font-weight: bold;}
+
+// 行揃え
 .ta-left   { text-align: left; }
 .ta-center { text-align: center; }
 .ta-right  { text-align: right; }
-.bold {font-weight: bold;}
 
-.ib {
-    display: inline-block;
-}
-.db {
+// フロート / clearfix
+.fl-l     { float: left; }
+.fl-r     { float: right;}
+.clear { clear: both; }
+.cf:after {
+    content: '';
+    clear: both;
     display: block;
 }
 
+// 要素タイプ
+.d-bl { display: block; }
+.d-ib { display: inline-block; }
+.d-in { display: inline; }
+
+// 非表示
 .hidden {
     display: none;
 }
-@media screen and (max-width: $xs-max) {
+@include mq(xsMax) {
     .hidden-u-sm { display: none; }
 }
-@media screen and (max-width: $sm-max) {
-    .hidden-u-md,
-    .hidden-sp { display: none; }
+@include mq(smMax) {
+    .hidden-u-md { display: none; }
 }
-@media screen and (max-width: $md-max) {
-    .hidden-u-lg {
-        display: none;
-    }
+@include mq(mdMax) {
+    .hidden-u-lg { display: none; }
 }
-
-@media print, screen and (min-width: $sm-min) {
-    .hidden-o-sm {
-        display: none;
-    }
+@include mq(smMin) {
+    .hidden-o-sm { display: none; }
 }
-@media print, screen and (min-width: $md-min) {
-    .hidden-o-md,
-    .hidden-pc { display: none; }
+@include mq(mdMin) {
+    .hidden-o-md { display: none; }
 }
-@media print, screen and (min-width: $lg-min) {
-    .hidden-o-lg {
-        display: none;
-    }
+@include mq(lgMin) {
+    .hidden-o-lg { display: none; }
 }

@@ -1,120 +1,64 @@
 
 .btn {
-    overflow: hidden;
     text-align: center;
-    font-size: 1.3rem;
     display: inline-block;
-    vertical-align: top;
-    border: 1px solid #ff4291;
-    color: #ff4291;
+    vertical-align: middle;
+    border: 1px solid $color-main;
+    color: $color-main !important;
     padding: 15px;
     width: 100%;
     max-width: 400px;
-    position: relative;
-    z-index: 10;
-    &:before {
-        content: '';
-        display: block;
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        height: 100%;
-        z-index: -1;
-        width: 0;
-        background-color: $color-brand;
-        transition: width .15s ease-in-out;
-    }
-    &:after {
-        z-index: 1;
-        position: absolute;
-        right: 5px;
-        bottom: 0;
-        line-height: 1;
-        font-family: 'icon';
-        content: "\EA0A";
-        color: $color-brand;
-        font-size: 1.8rem;
-    }
-
-    &-full {
-        max-width: 100%;
-    }
-
 }
 
-@media print, screen and (min-width: $md-min) {
+@include mq(mdMin) {
     .btn {
-        font-size: 1.5rem;
         padding: 20px;
-        &:after {
-            font-size: 2.5rem;
-            right: 8px;
-        }
-    }
-}
-
-@media print, screen and (min-width: $md-min) {
-    .btn-home {
-        font-size: 2rem;
-    }
-}
-
-.btn-white {
-    border: 1px solid #fff;
-    color: #fff;
-    &:before {
-        background-color: #fff;
-    }
-    &:after {
-        color: #fff;
     }
 }
 
 .btn-fill {
-    color: #fff;
-    background-color: $color-brand;
-    &:before {
-        background-color: #fff;
-    }
-    &:after {
-        color: #fff;
-    }
+    color: #fff !important;;
+    background-color: $color-main;
 }
-@media screen and (max-width: 1024px) {
-    .btn {
-        transition: opacity .3s;
-        &:hover {
-            opacity: .6;
-        }
-    }
-}
-@media print, screen and (min-width: 1025px) {
-    .btn:hover {
-        color: #fff;
-        &:before {
-            width: 100%;
-        }
-        &:after {
-            color: #fff;
-        }
-    }
-    .btn-white:hover {
-        color: $color-brand;
-        &:after {
-            color: $color-brand;
-        }
-    }
-    .btn-fill {
-        &:hover {
-            color: $color-brand;
-            &:before {
-                width: 100%;
-            }
-            &:after {
-                color: $color-brand;
-            }
-        }
-    }
-}
+
+// .btn-fill {
+//     color: #fff;
+//     background-color: $color-brand;
+//     &:before {
+//         background-color: #fff;
+//     }
+//     &:after {
+//         color: #fff;
+//     }
+// }
+// @media screen and (max-width: 1024px) {
+//     .btn {
+//         transition: opacity .3s;
+//         &:hover {
+//             opacity: .6;
+//         }
+//     }
+// }
+// @media print, screen and (min-width: 1025px) {
+//     .btn:hover {
+//         color: #fff;
+//         &:before {
+//             width: 100%;
+//         }
+//         &:after {
+//             color: #fff;
+//         }
+//     }
+
+//     .btn-fill {
+//         &:hover {
+//             color: $color-brand;
+//             &:before {
+//                 width: 100%;
+//             }
+//             &:after {
+//                 color: $color-brand;
+//             }
+//         }
+//     }
+// }

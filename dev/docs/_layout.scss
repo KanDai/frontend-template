@@ -1,0 +1,75 @@
+/*doc
+---
+title: 自由グリッド
+name: 01-grid
+category: layout
+---
+
+Bootstrapのような12分割のグリッドになっています。<br>
+全体を `l-grid` で囲って子要素に `l-grid_col` を設定し、`col-xs-xx` `col-sm-xx` `col-md-xx` `col-lg-xx` のように指定していきます。
+
+例えば、xsサイズでは2カラム、smサイズでは3カラム、mdサイズでは4カラム、lgサイズでは6カラムにする場合は下記のように指定します。
+
+```example
+<div class="l-grid">
+  <div class="l-grid_col col-xs-6 col-sm-4 col-md-3 col-lg-2">col-xs-6 <br> col-sm-4 <br> col-md-3 <br> col-lg-2</div>
+  <div class="l-grid_col col-xs-6 col-sm-4 col-md-3 col-lg-2">col-xs-6 <br> col-sm-4 <br> col-md-3 <br> col-lg-2</div>
+  <div class="l-grid_col col-xs-6 col-sm-4 col-md-3 col-lg-2">col-xs-6 <br> col-sm-4 <br> col-md-3 <br> col-lg-2</div>
+  <div class="l-grid_col col-xs-6 col-sm-4 col-md-3 col-lg-2">col-xs-6 <br> col-sm-4 <br> col-md-3 <br> col-lg-2</div>
+  <div class="l-grid_col col-xs-6 col-sm-4 col-md-3 col-lg-2">col-xs-6 <br> col-sm-4 <br> col-md-3 <br> col-lg-2</div>
+  <div class="l-grid_col col-xs-6 col-sm-4 col-md-3 col-lg-2">col-xs-6 <br> col-sm-4 <br> col-md-3 <br> col-lg-2</div>
+  <div class="l-grid_col col-xs-6 col-sm-4 col-md-3 col-lg-2">col-xs-6 <br> col-sm-4 <br> col-md-3 <br> col-lg-2</div>
+  <div class="l-grid_col col-xs-6 col-sm-4 col-md-3 col-lg-2">col-xs-6 <br> col-sm-4 <br> col-md-3 <br> col-lg-2</div>
+</div>
+```
+
+均等じゃないグリッド
+
+```example
+<div class="l-grid">
+  <div class="l-grid_col col-xs-12 col-md-8 col-lg-8">
+    <p>コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。</p>
+  </div>
+  <div class="l-grid_col col-xs-12 col-md-4 col-lg-4">
+    <p>コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。</p>
+  </div>
+  <div class="l-grid_col col-xs-12 col-md-4 col-lg-4">
+    <p>コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。</p>
+  </div>
+  <div class="l-grid_col col-xs-12 col-md-8 col-lg-8">
+    <p>コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。</p>
+  </div>
+</div>
+```
+*/
+
+
+/*doc
+---
+title: 等間隔グリッド
+name: 02-grid
+category: layout
+---
+
+上記のグリッドでも等間隔のグリッドは作れますが、よりシンプルに等間隔のグリッドが作れます。
+
+全体を `l-tile` で囲って子要素に `l-tile_item` を設定します。
+子要素に幅用の指定を入れる必要はなく、親要素に何カラムにしたいか、`tile-xs-x` `tile-sm-x` `tile-md-x` `tile-lg-x` のように指定していきます。
+
+例えば、xsサイズでは2カラム、smサイズでは3カラム、mdサイズでは4カラム、lgサイズでは5カラムにする場合は下記のように指定します。
+6カラムまで用意してあります。
+
+```example
+<div class="l-tile tile-xs-2 tile-sm-3 tile-md-4 tile-lg-5">
+  <div class="l-tile_item">コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。</div>
+  <div class="l-tile_item">コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。</div>
+  <div class="l-tile_item">コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。</div>
+  <div class="l-tile_item">コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。</div>
+  <div class="l-tile_item">コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。</div>
+  <div class="l-tile_item">コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。</div>
+  <div class="l-tile_item">コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。</div>
+  <div class="l-tile_item">コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。</div>
+</div>
+```
+
+*/

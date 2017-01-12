@@ -1,32 +1,22 @@
 .table {
   width: 100%;
-  border-top: 1px solid rgba(100,100,100,.5);
-  border-collapse: separate;
+  border-collapse: collapse;
   th, td {
     vertical-align: middle;
-    border-bottom: 1px solid rgba(100,100,100,.5);
+    border: 1px solid #e6e6e6;
+    padding: 15px;
   }
   th {
-    padding: 15px 20px 15px 10px;
+    text-align: left;
   }
   td {
-    padding: 15px 10px;
   }
-  a:not(.btn) {
-    text-decoration: underline;
-    &:hover {
-        text-decoration: none;
+}
+
+@include mq(mdMin) {
+    .table {
+      th, td {
+        padding: 20px;
+      }
     }
-  }
-  &-2col {
-    th {
-        white-space: nowrap;
-    }
-    td {
-        width: 90%;
-    }
-  }
-  &-more {
-    border-top: none;
-  }
 }

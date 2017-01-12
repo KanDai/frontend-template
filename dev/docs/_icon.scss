@@ -5,43 +5,31 @@ name: 00-iconfont
 category: icon
 ---
 
-<div>
-<ul class="sg-glyph">
-    <li class="sg-glyph_item">
-      <div class="sg-glyph_inner">
-        <span class="sg-glyph_icon icon icon-arrow-down"></span>
-        <code class="sg-glyph_name">.icon-arrow-down</code>
-        <code class="sg-glyph_codepoint">EA01</code>
-      </div>
-    </li>
-    <li class="sg-glyph_item">
-      <div class="sg-glyph_inner">
-        <span class="sg-glyph_icon icon icon-arrow-left"></span>
-        <code class="sg-glyph_name">.icon-arrow-left</code>
-        <code class="sg-glyph_codepoint">EA02</code>
-      </div>
-    </li>
-    <li class="sg-glyph_item">
-      <div class="sg-glyph_inner">
-        <span class="sg-glyph_icon icon icon-arrow-right"></span>
-        <code class="sg-glyph_name">.icon-arrow-right</code>
-        <code class="sg-glyph_codepoint">EA03</code>
-      </div>
-    </li>
-    <li class="sg-glyph_item">
-      <div class="sg-glyph_inner">
-        <span class="sg-glyph_icon icon icon-arrow-up"></span>
-        <code class="sg-glyph_name">.icon-arrow-up</code>
-        <code class="sg-glyph_codepoint">EA04</code>
-      </div>
-    </li>
-</ul>
+<div class="sg-glyph">
+  <div class="sg-glyph_item">
+    <div class="sg-glyph_icon icon icon-arrow-down"></div>
+    <span>.icon-arrow-down</span>
+    <span>EA01</span>
+  </div>
+  <div class="sg-glyph_item">
+    <div class="sg-glyph_icon icon icon-arrow-left"></div>
+    <span>.icon-arrow-left</span>
+    <span>EA02</span>
+  </div>
+  <div class="sg-glyph_item">
+    <div class="sg-glyph_icon icon icon-arrow-right"></div>
+    <span>.icon-arrow-right</span>
+    <span>EA03</span>
+  </div>
+  <div class="sg-glyph_item">
+    <div class="sg-glyph_icon icon icon-arrow-up"></div>
+    <span>.icon-arrow-up</span>
+    <span>EA04</span>
+  </div>
 </div>
 
 ```example
-<h2 class="ttl-md">
-  <i class="icon-logo"></i> iタグにクラス付与でアイコン表示
-</h2>
+<i class="icon-arrow-right"></i> iタグにクラス付与でアイコンを表示する
 ```
 
 */

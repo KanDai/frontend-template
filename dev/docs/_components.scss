@@ -1,0 +1,251 @@
+// hologram書き出し用のドキュメントです
+// モジュールごとに書くとコンパイルされたCSSにコメントが残るのが嫌なので
+// このファイル内で1ページ分をまとめて書いてます
+
+/*doc
+---
+title: カラー
+name: 00-color
+category: components
+---
+
+<div class="sg-colors">
+    <div class="sg-color">
+        <div class="sg-color_sample" style="background-color: #00b088;"></div>
+        <p class="sg-color_txt">
+            #00b088<br>
+            $color-brand
+        </p>
+    </div>
+    <div class="sg-color">
+        <div class="sg-color_sample" style="background-color: #004a39;"></div>
+        <p class="sg-color_txt">
+            #004a39<br>
+            $color-sub
+        </p>
+    </div>
+    <div class="sg-color">
+        <div class="sg-color_sample" style="background-color: #333;"></div>
+        <p class="sg-color_txt">
+            #333<br>
+            $color-txt
+        </p>
+    </div>
+    <div class="sg-color">
+        <div class="sg-color_sample" style="background-color: #666;"></div>
+        <p class="sg-color_txt">
+            #666<br>
+            $color-gray-dark
+        </p>
+    </div>
+    <div class="sg-color">
+        <div class="sg-color_sample" style="background-color: #eee;"></div>
+        <p class="sg-color_txt">
+            #eee<br>
+            $color-gray-light
+        </p>
+    </div>
+</div>
+*/
+
+
+
+/*doc
+---
+title: 見出し
+name: 01-title
+category: components
+---
+
+見出しのスタイルです。 `<h1>` `<h2>` などである必要はありません
+
+```example
+<h2 class="ttl-lg">大見出し</h2>
+```
+
+```example
+<h2 class="ttl-md">中見出し</h2>
+```
+*/
+
+
+
+/*doc
+---
+title: ボタン
+name: 02-button
+category: components
+---
+
+ボタンです。`btn-fill` などをマルチクラスで指定してパターンを変更できます。
+
+```example
+<a href="#" class="btn">スタンダードボタン</a>
+```
+
+```example
+<a href="#" class="btn btn-fill">塗りつぶしボタン</a>
+```
+
+*/
+
+
+/*doc
+---
+title: カードUI
+name: 03-card
+category: components
+---
+
+親要素の横幅100％まで広がります。グリッドと組み合わせて使うことが多いです。
+
+```example
+<div style="width: 400px">
+  <a href="#" class="card">
+    <img src="https://placehold.jp/400x200.png" class="card_img" alt="">
+    <div class="card_body">
+      <p class="card_ttl">タイトルが入ります。</p>
+      <p class="card_txt">テキストが入ります。テキストが入ります。テキストが入ります。</p>
+    </div>
+  </a>
+</div>
+```
+*/
+
+
+/*doc
+---
+title: テーブル
+name: 04-table
+category: components
+---
+
+テーブルです。
+
+```example
+<table class="table">
+  <tr>
+    <th>テーブルの見出しテーブルの見出し</th>
+    <td>テーブルの内容テーブルの内容テーブルの内容テーブルの内容テーブルの内容テーブルの内容テーブルの内容テーブルの内容テーブルの内容テーブルの内容</td>
+  </tr>
+  <tr>
+    <th>テーブルの見出し</th>
+    <td>テーブルの内容テーブルの内容テーブルの内容テーブルの内容テーブルの内容テーブルの内容テーブルの内容テーブルの内容テーブルの内容テーブルの内容</td>
+  </tr>
+</table>
+```
+*/
+
+
+/*doc
+---
+title: 汎用クラス
+name: 98-utility
+category: components
+---
+
+## テキスト要素
+
+太字です。
+
+```example
+<p class="bold">太字になります</p>
+<p>文章中に使いたい場合は<span class="bold">spanを使います</span></p>
+```
+
+## 行揃え
+
+```example
+<div class="ta-left">左寄せ</div>
+<div class="ta-center">中央寄せ</div>
+<div class="ta-right">右寄せ</div>
+```
+
+## フロート / clearfix
+
+```example
+<div class="fl-l">左フロート</div>
+<div class="fl-r">右フロート</div>
+<div class="clear">クリア</div>
+```
+
+`.cf` で囲むとclearfixになります
+
+```example
+<div class="cf" style="background: #eee">
+  <div class="fl-l">左フロート</div>
+  <div class="fl-r">右フロート</div>
+</div>
+```
+
+## 要素タイプ
+
+ブロック要素、インライン要素などを指定できます。
+
+```example
+<span class="d-bl" style="background: #eee">display:blockがかかります</span>
+
+<div class="d-ib" style="background: #ddd; padding: 20px">display:inline-blockがかかります</div>
+
+<div class="d-in" style="background: #ccc; padding: 20px">display:inlineがかかります</div>
+
+
+```
+
+
+## 非表示
+
+それぞれの状態で `display:none` がかかります。
+underとoverの略です。
+
+```example
+<div class="hidden">全ての状態で非表示になります</div>
+
+<div class="hidden-u-sm">smサイズ未満で非表示になります</div>
+
+<div class="hidden-u-md">mdサイズ未満で非表示になります</div>
+
+<div class="hidden-u-lg">lgサイズ未満で非表示になります</div>
+
+<div class="hidden-o-sm">smサイズ以上で非表示になります</div>
+
+<div class="hidden-o-md">mdサイズ以上で非表示になります</div>
+
+<div class="hidden-o-lg">lgサイズ以上で非表示になります</div>
+```
+*/
+
+/*doc
+---
+title: ヘルパー
+name: 99-helper
+category: components
+---
+
+レイアウトなどで、どうしても調整が必要な場合のクラスです。
+
+`!important` が指定されています。
+
+```example
+<p class="mb-xs">要素下にとても少しのマージン</p>
+
+<p class="mb-sm">要素下に少しのマージン</p>
+
+<p class="mb-md">要素下に普通のマージン</p>
+
+<p class="mb-lg">要素下に大きいマージン</p>
+
+<p class="mb-xl">要素下にとても大きいマージン</p>
+
+<p class="mt-xs">要素上にとても少しのマージン</p>
+
+<p class="mt-sm">要素上に少しのマージン</p>
+
+<p class="mt-md">要素上に普通のマージン</p>
+
+<p class="mt-lg">要素上に大きいマージン</p>
+
+<p class="mt-xl">要素上にとても大きいマージン</p>
+```
+
+*/

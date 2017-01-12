@@ -1,58 +1,18 @@
 .card {
   display: block;
-  height: 100%;
-  color: #000;
-  background-color: #e4e4e4;
-  line-height: 1.4;
+  color: $color-txt;
+  border: 1px solid #e6e6e6;
   &_img {
-    img {
-        width: 100%;
-    }
+    width: 100%;
   }
   &_body {
-    padding: 10px 12px;
-    border-top: 1px solid #d7d7d7;
+    padding: 15px;
   }
-  &_caption {
-    padding-top: 4px;
-    font-size: 1rem;
+  &_ttl {
+    font-weight: bold;
+    font-size: 1.8rem;
   }
-
-  &-product {
-    position: relative;
-    height: 100%;
-    &_check {
-        position: absolute;
-        top: -25px;
-        left: 0;
-    }
-  }
-
-
-}
-
-@media print, screen and (min-width: $md-min) {
-  .card {
-    &_caption {
-      padding-top: 6px;
-      font-size: 1.3rem;
-    }
-
-    &-product {
-        &_check {
-            top: -30px;
-        }
-      }
+  &_txt {
   }
 }
 
-
-
-
-a.card,
-a.imgSet {
-  transition: opacity .3s;
-  &:hover {
-    opacity: .6;
-  }
-}
