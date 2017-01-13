@@ -183,8 +183,8 @@ ex: <code>is-current</code> <code>is-open</code></li>
 <p>基本的に以下の値で設定していますが、必要な場合は他の値も使用する。</p>
 
 <ul>
-<li>[ xs ] 〜511px ( スマートフォン縦 )</li>
-<li>[ sm ] 512px 〜 767px ( スマートフォン横・小さいタブレットの縦 )</li>
+<li>[ xs ] 〜479px ( スマートフォン縦 )</li>
+<li>[ sm ] 480px 〜 767px ( スマートフォン横・小さいタブレットの縦 )</li>
 <li>[ md ] 768px 〜 1023px（ タブレット・ノートPCなど ）</li>
 <li>[ lg ] 1024PX（ ワイドスクリーンのPC ）
 
@@ -196,8 +196,8 @@ ex: <code>is-current</code> <code>is-open</code></li>
 <h3>用意しているSass変数</h3>
 
 <ul>
-<li><code>$xs-max</code> : 511px;</li>
-<li><code>$sm-min</code> : 512px;</li>
+<li><code>$xs-max</code> : 479px;</li>
+<li><code>$sm-min</code> : 480px;</li>
 <li><code>$sm-max</code> : 767px;</li>
 <li><code>$md-min</code> : 768px;</li>
 <li><code>$md-max</code> : 1023px;</li>
@@ -217,7 +217,7 @@ ex: <code>is-current</code> <code>is-open</code></li>
 // xsサイズ ( スマートフォン縦 ) 用の記述
 .sample { ... }
 
-@media print, screen and (min-width: 512px) {
+@media print, screen and (min-width: 480px) {
   // smサイズ ( スマートフォン横・小さいタブレットの縦 ) 用の記述
   .sample { ... }
 }
@@ -232,7 +232,7 @@ ex: <code>is-current</code> <code>is-open</code></li>
   .sample { ... }
 }
 
-@media screen and (max-width: 511px) {
+@media screen and (max-width: 479px) {
   // mdサイズより小さいサイズ用の記述
   .sample { ... }
 }
