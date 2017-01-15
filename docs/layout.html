@@ -50,8 +50,36 @@
 <p>Bootstrapのような12分割のグリッドになっています。<br>
 全体を <code>l-grid</code> で囲って子要素に <code>l-grid_col</code> を設定し、<code>col-xs-xx</code> <code>col-sm-xx</code> <code>col-md-xx</code> <code>col-lg-xx</code> のように指定していきます。</p>
 
-<p>例えば、xsサイズでは2カラム、smサイズでは3カラム、mdサイズでは4カラム、lgサイズでは6カラムにする場合は下記のように指定します。</p>
+<p>例えば、xsサイズでは2カラム、smサイズでは3カラム、mdサイズ、lgサイズでは4カラムにする場合は下記のように指定します。</p>
+
+<p>グリッド幅はモバイルファーストで、小さいサイズから指定していきます。<br>
+ブレイクポイントが変わっても幅が変わらない場合は指定をする必要はありません。</p>
 <div class="example"><div class="l-grid">
+  <div class="l-grid_col col-xs-6 col-sm-4 col-md-3">col-xs-6 <br> col-sm-4 <br> col-md-3</div>
+  <div class="l-grid_col col-xs-6 col-sm-4 col-md-3">col-xs-6 <br> col-sm-4 <br> col-md-3</div>
+  <div class="l-grid_col col-xs-6 col-sm-4 col-md-3">col-xs-6 <br> col-sm-4 <br> col-md-3</div>
+  <div class="l-grid_col col-xs-6 col-sm-4 col-md-3">col-xs-6 <br> col-sm-4 <br> col-md-3</div>
+  <div class="l-grid_col col-xs-6 col-sm-4 col-md-3">col-xs-6 <br> col-sm-4 <br> col-md-3</div>
+  <div class="l-grid_col col-xs-6 col-sm-4 col-md-3">col-xs-6 <br> col-sm-4 <br> col-md-3</div>
+  <div class="l-grid_col col-xs-6 col-sm-4 col-md-3">col-xs-6 <br> col-sm-4 <br> col-md-3</div>
+  <div class="l-grid_col col-xs-6 col-sm-4 col-md-3">col-xs-6 <br> col-sm-4 <br> col-md-3</div>
+</div>
+</div><div class="codeblock"><pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"l-grid"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"l-grid_col col-xs-6 col-sm-4 col-md-3"</span><span class="nt">&gt;</span>col-xs-6 <span class="nt">&lt;br&gt;</span> col-sm-4 <span class="nt">&lt;br&gt;</span> col-md-3<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"l-grid_col col-xs-6 col-sm-4 col-md-3"</span><span class="nt">&gt;</span>col-xs-6 <span class="nt">&lt;br&gt;</span> col-sm-4 <span class="nt">&lt;br&gt;</span> col-md-3<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"l-grid_col col-xs-6 col-sm-4 col-md-3"</span><span class="nt">&gt;</span>col-xs-6 <span class="nt">&lt;br&gt;</span> col-sm-4 <span class="nt">&lt;br&gt;</span> col-md-3<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"l-grid_col col-xs-6 col-sm-4 col-md-3"</span><span class="nt">&gt;</span>col-xs-6 <span class="nt">&lt;br&gt;</span> col-sm-4 <span class="nt">&lt;br&gt;</span> col-md-3<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"l-grid_col col-xs-6 col-sm-4 col-md-3"</span><span class="nt">&gt;</span>col-xs-6 <span class="nt">&lt;br&gt;</span> col-sm-4 <span class="nt">&lt;br&gt;</span> col-md-3<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"l-grid_col col-xs-6 col-sm-4 col-md-3"</span><span class="nt">&gt;</span>col-xs-6 <span class="nt">&lt;br&gt;</span> col-sm-4 <span class="nt">&lt;br&gt;</span> col-md-3<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"l-grid_col col-xs-6 col-sm-4 col-md-3"</span><span class="nt">&gt;</span>col-xs-6 <span class="nt">&lt;br&gt;</span> col-sm-4 <span class="nt">&lt;br&gt;</span> col-md-3<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"l-grid_col col-xs-6 col-sm-4 col-md-3"</span><span class="nt">&gt;</span>col-xs-6 <span class="nt">&lt;br&gt;</span> col-sm-4 <span class="nt">&lt;br&gt;</span> col-md-3<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</pre></div>
+<p>親要素を <code>l-grid-gutter</code> にすれば余白付きのグリッドになります。<br>
+余白はcssの <code>calc()</code> を使ってマージンで設定しています。</p>
+
+<p>xsサイズでは2カラム、smサイズでは3カラム、mdサイズでは4カラム、lgサイズでは6カラムにする場合。</p>
+<div class="example"><div class="l-grid-gutter">
   <div class="l-grid_col col-xs-6 col-sm-4 col-md-3 col-lg-2">col-xs-6 <br> col-sm-4 <br> col-md-3 <br> col-lg-2</div>
   <div class="l-grid_col col-xs-6 col-sm-4 col-md-3 col-lg-2">col-xs-6 <br> col-sm-4 <br> col-md-3 <br> col-lg-2</div>
   <div class="l-grid_col col-xs-6 col-sm-4 col-md-3 col-lg-2">col-xs-6 <br> col-sm-4 <br> col-md-3 <br> col-lg-2</div>
@@ -61,7 +89,7 @@
   <div class="l-grid_col col-xs-6 col-sm-4 col-md-3 col-lg-2">col-xs-6 <br> col-sm-4 <br> col-md-3 <br> col-lg-2</div>
   <div class="l-grid_col col-xs-6 col-sm-4 col-md-3 col-lg-2">col-xs-6 <br> col-sm-4 <br> col-md-3 <br> col-lg-2</div>
 </div>
-</div><div class="codeblock"><pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"l-grid"</span><span class="nt">&gt;</span>
+</div><div class="codeblock"><pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"l-grid-gutter"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"l-grid_col col-xs-6 col-sm-4 col-md-3 col-lg-2"</span><span class="nt">&gt;</span>col-xs-6 <span class="nt">&lt;br&gt;</span> col-sm-4 <span class="nt">&lt;br&gt;</span> col-md-3 <span class="nt">&lt;br&gt;</span> col-lg-2<span class="nt">&lt;/div&gt;</span>
   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"l-grid_col col-xs-6 col-sm-4 col-md-3 col-lg-2"</span><span class="nt">&gt;</span>col-xs-6 <span class="nt">&lt;br&gt;</span> col-sm-4 <span class="nt">&lt;br&gt;</span> col-md-3 <span class="nt">&lt;br&gt;</span> col-lg-2<span class="nt">&lt;/div&gt;</span>
   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"l-grid_col col-xs-6 col-sm-4 col-md-3 col-lg-2"</span><span class="nt">&gt;</span>col-xs-6 <span class="nt">&lt;br&gt;</span> col-sm-4 <span class="nt">&lt;br&gt;</span> col-md-3 <span class="nt">&lt;br&gt;</span> col-lg-2<span class="nt">&lt;/div&gt;</span>
@@ -72,32 +100,32 @@
   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"l-grid_col col-xs-6 col-sm-4 col-md-3 col-lg-2"</span><span class="nt">&gt;</span>col-xs-6 <span class="nt">&lt;br&gt;</span> col-sm-4 <span class="nt">&lt;br&gt;</span> col-md-3 <span class="nt">&lt;br&gt;</span> col-lg-2<span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
 </pre></div>
-<p>均等じゃないグリッド</p>
+<p>均等じゃないグリッド。<br></p>
 <div class="example"><div class="l-grid">
-  <div class="l-grid_col col-xs-12 col-md-8 col-lg-8">
+  <div class="l-grid_col col-xs-12 col-md-8">
     <p>コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。</p>
   </div>
-  <div class="l-grid_col col-xs-12 col-md-4 col-lg-4">
+  <div class="l-grid_col col-xs-12 col-md-4">
     <p>コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。</p>
   </div>
-  <div class="l-grid_col col-xs-12 col-md-4 col-lg-4">
+  <div class="l-grid_col col-xs-12 col-md-4">
     <p>コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。</p>
   </div>
-  <div class="l-grid_col col-xs-12 col-md-8 col-lg-8">
+  <div class="l-grid_col col-xs-12 col-md-8">
     <p>コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。</p>
   </div>
 </div>
 </div><div class="codeblock"><pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"l-grid"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"l-grid_col col-xs-12 col-md-8 col-lg-8"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"l-grid_col col-xs-12 col-md-8"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;p&gt;</span>コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。<span class="nt">&lt;/p&gt;</span>
   <span class="nt">&lt;/div&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"l-grid_col col-xs-12 col-md-4 col-lg-4"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"l-grid_col col-xs-12 col-md-4"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;p&gt;</span>コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。<span class="nt">&lt;/p&gt;</span>
   <span class="nt">&lt;/div&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"l-grid_col col-xs-12 col-md-4 col-lg-4"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"l-grid_col col-xs-12 col-md-4"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;p&gt;</span>コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。<span class="nt">&lt;/p&gt;</span>
   <span class="nt">&lt;/div&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"l-grid_col col-xs-12 col-md-8 col-lg-8"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"l-grid_col col-xs-12 col-md-8"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;p&gt;</span>コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。<span class="nt">&lt;/p&gt;</span>
   <span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
@@ -110,7 +138,7 @@
 
 <p>例えば、xsサイズでは2カラム、smサイズでは3カラム、mdサイズでは4カラム、lgサイズでは5カラムにする場合は下記のように指定します。
 6カラムまで用意してあります。</p>
-<div class="example"><div class="l-grid grid-xs-2 grid-sm-3 grid-md-4 grid-lg-5">
+<div class="example"><div class="l-grid grid-xs-2 grid-sm-3　grid-md-4 grid-lg-5">
   <div class="l-grid_col">コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。</div>
   <div class="l-grid_col">コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。</div>
   <div class="l-grid_col">コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。</div>
@@ -120,7 +148,34 @@
   <div class="l-grid_col">コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。</div>
   <div class="l-grid_col">コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。</div>
 </div>
-</div><div class="codeblock"><pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"l-grid grid-xs-2 grid-sm-3 grid-md-4 grid-lg-5"</span><span class="nt">&gt;</span>
+</div><div class="codeblock"><pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"l-grid grid-xs-2 grid-sm-3　grid-md-4 grid-lg-5"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"l-grid_col"</span><span class="nt">&gt;</span>コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"l-grid_col"</span><span class="nt">&gt;</span>コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"l-grid_col"</span><span class="nt">&gt;</span>コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"l-grid_col"</span><span class="nt">&gt;</span>コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"l-grid_col"</span><span class="nt">&gt;</span>コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"l-grid_col"</span><span class="nt">&gt;</span>コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"l-grid_col"</span><span class="nt">&gt;</span>コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"l-grid_col"</span><span class="nt">&gt;</span>コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</pre></div>
+<p>親要素を <code>l-grid-gutter</code> にすれば余白付きのグリッドになります。<br>
+余白はcssの <code>calc()</code> を使ってマージンで設定しています。</p>
+
+<p>小さいサイズから指定していって、ブレイクポイントが変わっても幅が変わらない場合は指定をする必要はありません。</p>
+
+<p>xs、sm、mdサイズでは3カラム、lgサイズでは6カラムにする場合は下記のようになります。</p>
+<div class="example"><div class="l-grid-gutter grid-xs-3 grid-lg-6">
+  <div class="l-grid_col">コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。</div>
+  <div class="l-grid_col">コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。</div>
+  <div class="l-grid_col">コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。</div>
+  <div class="l-grid_col">コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。</div>
+  <div class="l-grid_col">コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。</div>
+  <div class="l-grid_col">コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。</div>
+  <div class="l-grid_col">コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。</div>
+  <div class="l-grid_col">コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。</div>
+</div>
+</div><div class="codeblock"><pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"l-grid-gutter grid-xs-3 grid-lg-6"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"l-grid_col"</span><span class="nt">&gt;</span>コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。<span class="nt">&lt;/div&gt;</span>
   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"l-grid_col"</span><span class="nt">&gt;</span>コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。<span class="nt">&lt;/div&gt;</span>
   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"l-grid_col"</span><span class="nt">&gt;</span>コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。<span class="nt">&lt;/div&gt;</span>

@@ -8,10 +8,31 @@ category: layout
 Bootstrapのような12分割のグリッドになっています。<br>
 全体を `l-grid` で囲って子要素に `l-grid_col` を設定し、`col-xs-xx` `col-sm-xx` `col-md-xx` `col-lg-xx` のように指定していきます。
 
-例えば、xsサイズでは2カラム、smサイズでは3カラム、mdサイズでは4カラム、lgサイズでは6カラムにする場合は下記のように指定します。
+例えば、xsサイズでは2カラム、smサイズでは3カラム、mdサイズ、lgサイズでは4カラムにする場合は下記のように指定します。
+
+グリッド幅はモバイルファーストで、小さいサイズから指定していきます。<br>
+ブレイクポイントが変わっても幅が変わらない場合は指定をする必要はありません。
 
 ```example
 <div class="l-grid">
+  <div class="l-grid_col col-xs-6 col-sm-4 col-md-3">col-xs-6 <br> col-sm-4 <br> col-md-3</div>
+  <div class="l-grid_col col-xs-6 col-sm-4 col-md-3">col-xs-6 <br> col-sm-4 <br> col-md-3</div>
+  <div class="l-grid_col col-xs-6 col-sm-4 col-md-3">col-xs-6 <br> col-sm-4 <br> col-md-3</div>
+  <div class="l-grid_col col-xs-6 col-sm-4 col-md-3">col-xs-6 <br> col-sm-4 <br> col-md-3</div>
+  <div class="l-grid_col col-xs-6 col-sm-4 col-md-3">col-xs-6 <br> col-sm-4 <br> col-md-3</div>
+  <div class="l-grid_col col-xs-6 col-sm-4 col-md-3">col-xs-6 <br> col-sm-4 <br> col-md-3</div>
+  <div class="l-grid_col col-xs-6 col-sm-4 col-md-3">col-xs-6 <br> col-sm-4 <br> col-md-3</div>
+  <div class="l-grid_col col-xs-6 col-sm-4 col-md-3">col-xs-6 <br> col-sm-4 <br> col-md-3</div>
+</div>
+```
+
+親要素を `l-grid-gutter` にすれば余白付きのグリッドになります。<br>
+余白はcssの `calc()` を使ってマージンで設定しています。
+
+xsサイズでは2カラム、smサイズでは3カラム、mdサイズでは4カラム、lgサイズでは6カラムにする場合。
+
+```example
+<div class="l-grid-gutter">
   <div class="l-grid_col col-xs-6 col-sm-4 col-md-3 col-lg-2">col-xs-6 <br> col-sm-4 <br> col-md-3 <br> col-lg-2</div>
   <div class="l-grid_col col-xs-6 col-sm-4 col-md-3 col-lg-2">col-xs-6 <br> col-sm-4 <br> col-md-3 <br> col-lg-2</div>
   <div class="l-grid_col col-xs-6 col-sm-4 col-md-3 col-lg-2">col-xs-6 <br> col-sm-4 <br> col-md-3 <br> col-lg-2</div>
@@ -23,20 +44,20 @@ Bootstrapのような12分割のグリッドになっています。<br>
 </div>
 ```
 
-均等じゃないグリッド
+均等じゃないグリッド。<br>
 
 ```example
 <div class="l-grid">
-  <div class="l-grid_col col-xs-12 col-md-8 col-lg-8">
+  <div class="l-grid_col col-xs-12 col-md-8">
     <p>コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。</p>
   </div>
-  <div class="l-grid_col col-xs-12 col-md-4 col-lg-4">
+  <div class="l-grid_col col-xs-12 col-md-4">
     <p>コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。</p>
   </div>
-  <div class="l-grid_col col-xs-12 col-md-4 col-lg-4">
+  <div class="l-grid_col col-xs-12 col-md-4">
     <p>コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。</p>
   </div>
-  <div class="l-grid_col col-xs-12 col-md-8 col-lg-8">
+  <div class="l-grid_col col-xs-12 col-md-8">
     <p>コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。</p>
   </div>
 </div>
@@ -59,7 +80,28 @@ category: layout
 6カラムまで用意してあります。
 
 ```example
-<div class="l-grid grid-xs-2 grid-sm-3 grid-md-4 grid-lg-5">
+<div class="l-grid grid-xs-2 grid-sm-3　grid-md-4 grid-lg-5">
+  <div class="l-grid_col">コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。</div>
+  <div class="l-grid_col">コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。</div>
+  <div class="l-grid_col">コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。</div>
+  <div class="l-grid_col">コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。</div>
+  <div class="l-grid_col">コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。</div>
+  <div class="l-grid_col">コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。</div>
+  <div class="l-grid_col">コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。</div>
+  <div class="l-grid_col">コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。</div>
+</div>
+```
+
+親要素を `l-grid-gutter` にすれば余白付きのグリッドになります。<br>
+余白はcssの `calc()` を使ってマージンで設定しています。
+
+小さいサイズから指定していって、ブレイクポイントが変わっても幅が変わらない場合は指定をする必要はありません。
+
+xs、sm、mdサイズでは3カラム、lgサイズでは6カラムにする場合は下記のようになります。
+
+
+```example
+<div class="l-grid-gutter grid-xs-3 grid-lg-6">
   <div class="l-grid_col">コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。</div>
   <div class="l-grid_col">コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。</div>
   <div class="l-grid_col">コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。</div>
