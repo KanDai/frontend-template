@@ -5,6 +5,7 @@
 html {
     // font-size: 62.5%;
     font-size: 10px;
+    overflow-y: scroll; // スクロールバーの有無でガタつかないように、常にスクロールバーを表示
 }
 body, input, button, select, textarea {
     font-family: $font-gothic;
@@ -67,11 +68,12 @@ a {
 
 // 画面サイズが大きい(PC想定)の時のみホバーを適用
 // iOS8.4.1で2回タップしないとリンク先に遷移しない問題対策
-@media print, screen and (min-width: $lg-min) {
-    a:hover {
-        opacity: 0.6;
-    }
+@include mq(lgMin) {
+  a:hover {
+    opacity: 0.6;
+  }
 }
+
 
 // デフォルトのボックスモデルをボーダーボックスに変更
 * {

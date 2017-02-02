@@ -9,7 +9,7 @@
 if ((navigator.userAgent.indexOf('iPhone') > 0 && navigator.userAgent.indexOf('iPad') == -1) || navigator.userAgent.indexOf('iPod') > 0 || (navigator.userAgent.indexOf('Android') > 0 && navigator.userAgent.indexOf('Mobile') > 0)) {
     document.write('<meta name="viewport" content="width=device-width, initial-scale=1.0">');
 } else {
-    document.write('<meta name="viewport" content="width=980">');
+    document.write('<meta name="viewport" content="width=1024">');
 }
 </script>
 <!-- 半レスポンシブの場合 -->
@@ -19,6 +19,8 @@ if ((navigator.userAgent.indexOf('iPhone') > 0 && navigator.userAgent.indexOf('i
 <!-- レスポンシブの場合 -->
 
 <title><%= page.title %></title>
+
+<!-- OGP -->
 <meta name="keywords" content="<%= page.keywords %>">
 <meta name="description" content="<%= page.desc %>">
 <meta property="og:locale" content="ja_JP">
@@ -32,12 +34,10 @@ if ((navigator.userAgent.indexOf('iPhone') > 0 && navigator.userAgent.indexOf('i
 <!-- 連続した数字があると誤認識してしまうので、電話番号の自動リンク機能は停止 -->
 <meta name="format-detection" content="telephone=no">
 
-<!-- Favicon -->
+<!-- Link -->
 <link rel="shortcut icon" href="/images/favicon.ico" type="image/vnd.microsoft.icon">
 <link rel="icon" href="/images/favicon.ico" type="image/vnd.microsoft.icon">
 <link rel="apple-touch-icon" href="/images/home-icon.png">
-
-<!-- Favicon -->
 <link rel="stylesheet" href="/assets/css/styles.css">
 <link rel="canonical" href="<%= page.url %>">
 <link rel="alternate" media="only screen and (max-width: 640px)" href="">
