@@ -10,9 +10,8 @@
   font-style: normal;
 }
 
-[class^="icon-"], [class*=" icon-"] {
-    /* use !important to prevent issues with browser extensions that change fonts */
-    font-family: '<%= fontName %>' !important;
+@mixin iconfont {
+    font-family: 'icon' !important;
     speak: none;
     font-style: normal;
     font-weight: normal;
@@ -27,6 +26,12 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
+[class^="icon-"], [class*=" icon-"] {
+    @include iconfont;
+}
 
 <% _.each(glyphs, function(glyph) { %>.<%= className %>-<%= glyph.name %>:before { content: "\<%= glyph.unicode[0].charCodeAt(0).toString(16).toUpperCase() %>"; }
+<% }); %>
+
+<% _.each(glyphs, function(glyph) { %>@mixin <%= className %>-<%= glyph.name %> { content: "\<%= glyph.unicode[0].charCodeAt(0).toString(16).toUpperCase() %>"; }
 <% }); %>
