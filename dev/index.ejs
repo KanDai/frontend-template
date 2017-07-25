@@ -1,11 +1,17 @@
-<% var page = {
+<%
+// ファイル名から開発環境のルートを取って相対パスを作成する
+var pathDepth = filename.split(site.developDir)[1].split('/').length - 1;
+relativePath = (pathDepth > 0) ? "" : "./";
+while(1 <= pathDepth){ relativePath += "../"; pathDepth--; }
+%><%
+var page = {
   title : "ページのタイトル" + site.name,
   keywords : "キーワード",
   desc : "ディスクリプション",
   id : "home",
   url: site.url + ""
-} %><%
-include inc/_common_header
+} %><%-
+include( relativePath + 'inc/_common_header', { page: page } );
 %>
 
 <main class="l-main">
@@ -16,4 +22,4 @@ include inc/_common_header
 サブコンテンツ
 </aside>
 
-<% include inc/_common_footer %>
+<%- include( relativePath + 'inc/_common_footer', { page: page } ); %>
