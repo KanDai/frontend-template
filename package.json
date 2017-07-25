@@ -20,7 +20,7 @@
     "gulp-concat": "^2.6.1",
     "gulp-consolidate": "^0.2.0",
     "gulp-csscomb": "^3.0.8",
-    "gulp-ejs": "^3.0.0",
+    "gulp-ejs": "^2.3.0",
     "gulp-hologram": "^1.2.0",
     "gulp-htmlhint": "^0.3.1",
     "gulp-iconfont": "^8.0.1",
