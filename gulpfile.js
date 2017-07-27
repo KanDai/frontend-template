@@ -22,7 +22,7 @@ var concat       = require('gulp-concat');       //ファイルの結合
 var uglify       = require('gulp-uglify');       //特定のコメントを残したまま圧縮
 var htmlhint     = require("gulp-htmlhint");     //htmlhint
 var jshint       = require('gulp-jshint');       //jshint
-var stylestats   = require('gulp-stylestats');   //StyleStats
+// var stylestats   = require('gulp-stylestats');   //StyleStats
 var sourcemaps   = require('gulp-sourcemaps');   //ソースマップ出力
 var hologram     = require('gulp-hologram');     //GulpからHologram実行
 var iconfont     = require('gulp-iconfont');     //アイコンフォント作成
@@ -69,7 +69,8 @@ gulp.task('ejs', function() {
   .pipe(cached('ejs'))
   .pipe(plumber({errorHandler: notify.onError('<%= error.message %>')}))
   .pipe(ejs({
-        site: JSON.parse(fs.readFileSync( src.base + 'inc/config.json'))
+        site: JSON.parse(fs.readFileSync( src.base + 'inc/config.json')),
+        pages: JSON.parse(fs.readFileSync( src.base + 'inc/pages.json'))
       },
       {
         ext: '.html'
@@ -251,10 +252,10 @@ gulp.task('htmllint', function() {
 });
 
 // StyleStats
-gulp.task('stylestats', function () {
-  gulp.src('./htdocs/css/*.min.css')
-    .pipe(stylestats());
-});
+// gulp.task('stylestats', function () {
+//   gulp.src('./htdocs/css/*.min.css')
+//     .pipe(stylestats());
+// });
 
 // jshint
 gulp.task('jshint', function() {
@@ -266,7 +267,7 @@ gulp.task('jshint', function() {
 // 処理をまとめて実行
 gulp.task('lint', function() {
     gulp.start( 'htmllint' );
-    gulp.start( 'stylestats' );
+    // gulp.start( 'stylestats' );
     gulp.start( 'jshint' );
 });
 

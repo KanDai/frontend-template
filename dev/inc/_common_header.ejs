@@ -18,7 +18,7 @@ if ((navigator.userAgent.indexOf('iPhone') > 0 && navigator.userAgent.indexOf('i
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- レスポンシブの場合 -->
 
-<title><%= page.title %></title>
+<title><%= page.title %><% if(page.id !== 'home'){ ' | ' + site.name } <% } %></title>
 
 <!-- OGP -->
 <meta name="keywords" content="<%= page.keywords %>">
@@ -27,7 +27,7 @@ if ((navigator.userAgent.indexOf('iPhone') > 0 && navigator.userAgent.indexOf('i
 <meta property="og:type" content="<% if(page.id == 'home'){ %>website<% } else { %>article<% } %>">
 <meta property="og:site_name" content="<%= site.name %>">
 <meta property="og:title" content="<%= page.title %>">
-<meta property="og:url" content="<%= page.url %>">
+<meta property="og:url" content="<%= site.url %><%= page.url %>">
 <meta property="og:description" content="<%= page.desc %>">
 <meta property="og:image" content="<% if(page.ogimg){ %><%= site.url + page.ogimg %><% } else { %><%= site.url %>images/ogp.png<% } %>">
 
@@ -39,7 +39,7 @@ if ((navigator.userAgent.indexOf('iPhone') > 0 && navigator.userAgent.indexOf('i
 <link rel="icon" href="/images/favicon.ico" type="image/vnd.microsoft.icon">
 <link rel="apple-touch-icon" href="/images/home-icon.png">
 <link rel="stylesheet" href="/assets/css/styles.css">
-<link rel="canonical" href="<%= page.url %>">
+<link rel="canonical" href="<%= site.url %><%= page.url %>">
 <link rel="alternate" media="only screen and (max-width: 640px)" href="">
 
 </head>
