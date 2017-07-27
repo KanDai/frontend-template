@@ -6,7 +6,6 @@ while(1 <= pathDepth){ relativePath += "../"; pathDepth--; }
 
 // ページ情報を取得
 var page = pages.index;
-page.title += ' | ' site.name;
 %><%-
 include( relativePath + 'inc/_common_header', { page: page } );
 %>

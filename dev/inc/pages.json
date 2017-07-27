@@ -5,6 +5,7 @@
     "desc" : "ディスクリプション",
     "id" : "home",
     "url": "",
-    "ogimg": ""
+    "ogImg": "",
+    "amp": true
   }
 }

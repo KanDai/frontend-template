@@ -3,7 +3,12 @@
   "description": "site description",
   "keywords": "keyword1, keyword2",
   "url": "http://example.com/",
-  "favicon": "",
-  "appleIcon": "",
+  "favicon": "/assets/images/favicon.ico",
+  "appleIcon": "/assets/images/home-icon.png",
+  "ogImg": "assets/images/ogp.png",
+  "twitterCard": "summary",
+  "twitterId": "@USER_ID",
+  "alternateUrl": "http://example.com/sp/",
+  "ampUrl": "http://example.com/amp/",
   "developDir": "dev/"
 }
