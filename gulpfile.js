@@ -17,6 +17,7 @@ var browserSync  = require('browser-sync');      //ローカルホストとオ�
 var imagemin     = require('gulp-imagemin');     //画像圧縮
 var pngquant     = require('imagemin-pngquant'); //PNGの圧縮率を髙く
 var changed      = require('gulp-changed');      //変更したファイルだけ処理させる
+var cached       = require('gulp-cached');       //変更したファイルだけ処理させる
 var concat       = require('gulp-concat');       //ファイルの結合
 var uglify       = require('gulp-uglify');       //特定のコメントを残したまま圧縮
 var htmlhint     = require("gulp-htmlhint");     //htmlhint
@@ -65,6 +66,7 @@ var dist = {
  */
 gulp.task('ejs', function() {
   gulp.src([ src.base + '**/*.ejs', '!' + src.base + '**/_*.ejs' ])
+  .pipe(cached('ejs'))
   .pipe(plumber({errorHandler: notify.onError('<%= error.message %>')}))
   .pipe(ejs({
         site: JSON.parse(fs.readFileSync( src.base + 'inc/config.json'))
@@ -82,6 +84,7 @@ gulp.task('ejs', function() {
  */
 gulp.task('sass' , function(){
   return gulp.src( src.scss + '*.scss' )
+    .pipe(cached('sass'))
     .pipe(plumber({errorHandler: notify.onError('<%= error.message %>')}))
     .pipe(sourcemaps.init())
     .pipe(sass())
