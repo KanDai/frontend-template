@@ -27,6 +27,12 @@ var iconfont     = require('gulp-iconfont');     //アイコンフォント作�
 var consolidate  = require('gulp-consolidate');  //Lo-DashをGulpから使えるようにする
 var webpack      = require('gulp-webpack');      //webpack
 
+var aigis = require("gulp-aigis");
+
+gulp.task("aigis", function() {
+  gulp.src("./aigis/config.yml")
+    .pipe(aigis());
+});
 
 /*========================================*/
 /* Setting
