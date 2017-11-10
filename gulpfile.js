@@ -213,10 +213,16 @@ gulp.task('iconfont', function(){
       };
 
       //scss生成
-      gulp.src(templatePath + templateName + '.scss')
+      gulp.src(templatePath + templateName + '_base.scss')
         .pipe(consolidate(engine, consolidateOptions))
         .pipe(rename({ basename: '_iconfont' }))
         .pipe(gulp.dest(src.scss + 'base/'));
+
+      //mixin用のscss生成
+      gulp.src(templatePath + templateName + '_mixin.scss')
+        .pipe(consolidate(engine, consolidateOptions))
+        .pipe(rename({ basename: '_iconfont' }))
+        .pipe(gulp.dest(src.scss + 'mixin/'));
 
       //StyleGuide用のscss生成
       gulp.src(templatePath + templateName + '_doc.scss')

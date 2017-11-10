@@ -1,4 +1,3 @@
-
 @font-face {
   font-family: "<%= fontName %>";
   src: url('<%= fontPath %><%= fontName %>.eot');
@@ -10,28 +9,9 @@
   font-style: normal;
 }
 
-@mixin iconfont {
-    font-family: 'icon' !important;
-    speak: none;
-    font-style: normal;
-    font-weight: normal;
-    font-variant: normal;
-    text-transform: none;
-    line-height: 1;
-
-    display: inline-block;
-    vertical-align: middle;
-
-    /* Better Font Rendering =========== */
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
 [class^="icon-"], [class*=" icon-"] {
     @include iconfont;
 }
 
 <% _.each(glyphs, function(glyph) { %>.<%= className %>-<%= glyph.name %>:before { content: "\<%= glyph.unicode[0].charCodeAt(0).toString(16).toUpperCase() %>"; }
-<% }); %>
-
-<% _.each(glyphs, function(glyph) { %>@mixin <%= className %>-<%= glyph.name %> { content: "\<%= glyph.unicode[0].charCodeAt(0).toString(16).toUpperCase() %>"; }
 <% }); %>

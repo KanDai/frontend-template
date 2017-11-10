@@ -1,0 +1,21 @@
+@mixin iconfont {
+    font-family: 'icon' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    display: inline-block;
+    vertical-align: middle;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+@mixin icon-arrow-down { content: "\EA01"; }
+@mixin icon-arrow-left { content: "\EA02"; }
+@mixin icon-arrow-right { content: "\EA03"; }
+@mixin icon-arrow-up { content: "\EA04"; }
