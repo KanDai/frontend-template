@@ -13,7 +13,7 @@ Bootstrapのような12分割のグリッドになっています。<br>
 グリッド幅はモバイルファーストで、小さいサイズから指定していきます。<br>
 ブレイクポイントが変わっても幅が変わらない場合は指定をする必要はありません。
 
-```example
+```html
 <div class="l-grid">
   <div class="l-grid_col col-xs-6 col-sm-4 col-md-3">col-xs-6 <br> col-sm-4 <br> col-md-3</div>
   <div class="l-grid_col col-xs-6 col-sm-4 col-md-3">col-xs-6 <br> col-sm-4 <br> col-md-3</div>
@@ -31,7 +31,7 @@ Bootstrapのような12分割のグリッドになっています。<br>
 
 xsサイズでは2カラム、smサイズでは3カラム、mdサイズでは4カラム、lgサイズでは6カラムにする場合。
 
-```example
+```html
 <div class="l-grid-gutter">
   <div class="l-grid_col col-xs-6 col-sm-4 col-md-3 col-lg-2">col-xs-6 <br> col-sm-4 <br> col-md-3 <br> col-lg-2</div>
   <div class="l-grid_col col-xs-6 col-sm-4 col-md-3 col-lg-2">col-xs-6 <br> col-sm-4 <br> col-md-3 <br> col-lg-2</div>
@@ -46,7 +46,7 @@ xsサイズでは2カラム、smサイズでは3カラム、mdサイズでは4�
 
 均等じゃないグリッド。<br>
 
-```example
+```html
 <div class="l-grid">
   <div class="l-grid_col col-xs-12 col-md-8">
     <p>コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。</p>
@@ -79,7 +79,7 @@ category: layout
 例えば、xsサイズでは2カラム、smサイズでは3カラム、mdサイズでは4カラム、lgサイズでは5カラムにする場合は下記のように指定します。
 6カラムまで用意してあります。
 
-```example
+```html
 <div class="l-grid grid-xs-2 grid-sm-3　grid-md-4 grid-lg-5">
   <div class="l-grid_col">コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。</div>
   <div class="l-grid_col">コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。</div>
@@ -100,7 +100,7 @@ category: layout
 xs、sm、mdサイズでは3カラム、lgサイズでは6カラムにする場合は下記のようになります。
 
 
-```example
+```html
 <div class="l-grid-gutter grid-xs-3 grid-lg-6">
   <div class="l-grid_col">コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。</div>
   <div class="l-grid_col">コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。コンテンツが入ります。</div>

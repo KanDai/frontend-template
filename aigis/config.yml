@@ -1,11 +1,14 @@
 # The directory containing the source files to parse recursively
-source: ./assets
+# スタイルガイドのもとになるスタイルシートファイルがあるディレクトリ
+source: ../dev/docs
 
 # The directory that aigis will build to
+# スタイルガイドの書き出し先のディレクトリ
 dest: ../htdocs/styleguide
 
 # The assets needed to build the docs
 # You may put doc related assets here too: images, css, etc.
+# destで指定したディレクトリにコピーしたいファイル／ディレクトリ
 dependencies:
   - ./assets
 

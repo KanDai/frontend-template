@@ -1,4 +1,4 @@
-<div class="aigis-sidemenu">
+<!-- <div class="aigis-sidemenu">
   <header class="aigis-header">
     <a href="<%- root %>index.html"><%- config.name %></a>
   </header>
@@ -13,4 +13,11 @@
     <% }) %>
   </nav>
   <h2 class="aigis-sidemenu__heading"><a href="<%- root %>color.html">All Colors</a></h2>
+</div>
+ -->
+
+<div class="sg-localnav">
+<% components.forEach(function(component) { %>
+      <a href="#<%- component.config.name %>"><%- component.config.title %></a>
+<% }) %>
 </div>

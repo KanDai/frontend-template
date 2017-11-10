@@ -22,17 +22,11 @@ var concat       = require('gulp-concat');       //ファイルの結合
 var uglify       = require('gulp-uglify');       //特定のコメントを残したまま圧縮
 var htmlhint     = require("gulp-htmlhint");     //htmlhint
 var sourcemaps   = require('gulp-sourcemaps');   //ソースマップ出力
-var hologram     = require('gulp-hologram');     //GulpからHologram実行
+var aigis        = require("gulp-aigis");        //Gulpからaigis実行
 var iconfont     = require('gulp-iconfont');     //アイコンフォント作成
 var consolidate  = require('gulp-consolidate');  //Lo-DashをGulpから使えるようにする
 var webpack      = require('gulp-webpack');      //webpack
 
-var aigis = require("gulp-aigis");
-
-gulp.task("aigis", function() {
-  gulp.src("./aigis/config.yml")
-    .pipe(aigis());
-});
 
 /*========================================*/
 /* Setting
@@ -46,14 +40,14 @@ var AUTOPREFIXER_BROWSERS = [
 ];
 // 開発環境パス
 var src = {
-    base: './dev/',
-    html: './dev/ejs/',
-    scss: './dev/scss/',
-    js  : './dev/js/',
-    img : './dev/images/',
-    font: './dev/icons/',
-    docs: './dev/docs/',
-    hologram: './hologram/',
+    base : './dev/',
+    html : './dev/ejs/',
+    scss : './dev/scss/',
+    js   : './dev/js/',
+    img  : './dev/images/',
+    font : './dev/icons/',
+    docs : './dev/docs/',
+    aigis: './aigis/',
 };
 // 出力環境パス
 var dist = {
@@ -240,17 +234,17 @@ gulp.task('iconfont', function(){
 
 
 /**
- * Gulpからhologramを実行してスタイルガイド作成
+ * Gulpからaigisを実行してスタイルガイド作成
  * そのままGithub Pages用に[docs]にコピー
  */
-gulp.task('hologram', ['styleguide'], function() {
+gulp.task('aigis', ['styleguide'], function() {
   gulp.src("./htdocs/_docs/**/*")
     .pipe(gulp.dest("./docs"));
 });
 
 gulp.task('styleguide', function() {
-  return gulp.src( src.hologram + 'config.yml')
-    .pipe(hologram());
+  return gulp.src( src.aigis + 'config.yml')
+    .pipe(aigis());
 });
 
 
@@ -328,8 +322,8 @@ gulp.task('watch', function() {
     watch( src.img + '**/*.*' , function () {
         gulp.start( 'imagemin' );
     });
-    watch( [ src.docs + '*.scss', src.hologram + '**/*' ] , function () {
-        gulp.start( 'hologram' );
+    watch( [ src.docs + '*.scss', src.aigis + '**/*' ] , function () {
+        gulp.start( 'aigis' );
     });
 });
 

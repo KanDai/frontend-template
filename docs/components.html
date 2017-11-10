@@ -98,116 +98,74 @@
 <h1 id="01-title" class="styleguide">見出し</h1>
 
 <p>見出しのスタイルです。 <code>&lt;h1&gt;</code> <code>&lt;h2&gt;</code> などである必要はありません</p>
-<div class="example"><h2 class="ttl-lg">大見出し</h2>
-</div><div class="codeblock"><pre><span class="nt">&lt;h2</span> <span class="na">class=</span><span class="s">"ttl-lg"</span><span class="nt">&gt;</span>大見出し<span class="nt">&lt;/h2&gt;</span>
-</pre></div><div class="example"><h2 class="ttl-md">中見出し</h2>
-</div><div class="codeblock"><pre><span class="nt">&lt;h2</span> <span class="na">class=</span><span class="s">"ttl-md"</span><span class="nt">&gt;</span>中見出し<span class="nt">&lt;/h2&gt;</span>
+<div class="codeblock"><pre>&lt;h2 class="ttl-lg"&gt;大見出し&lt;/h2&gt;
+</pre></div><div class="codeblock"><pre>&lt;h2 class="ttl-md"&gt;中見出し&lt;/h2&gt;
 </pre></div>
 <h1 id="02-button" class="styleguide">ボタン</h1>
 
 <p>ボタンです。<code>btn-fill</code> などをマルチクラスで指定してパターンを変更できます。</p>
-<div class="example"><a href="#" class="btn">スタンダードボタン</a>
-</div><div class="codeblock"><pre><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"btn"</span><span class="nt">&gt;</span>スタンダードボタン<span class="nt">&lt;/a&gt;</span>
-</pre></div><div class="example"><a href="#" class="btn btn-fill">塗りつぶしボタン</a>
-</div><div class="codeblock"><pre><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"btn btn-fill"</span><span class="nt">&gt;</span>塗りつぶしボタン<span class="nt">&lt;/a&gt;</span>
+<div class="codeblock"><pre>&lt;a href="#" class="btn"&gt;スタンダードボタン&lt;/a&gt;
+</pre></div><div class="codeblock"><pre>&lt;a href="#" class="btn btn-fill"&gt;塗りつぶしボタン&lt;/a&gt;
 </pre></div>
 <h1 id="03-card" class="styleguide">カードUI</h1>
 
 <p>親要素の横幅100％まで広がります。グリッドと組み合わせて使うことが多いです。</p>
-<div class="example"><div style="width: 400px">
-  <a href="#" class="card">
-    <img src="https://placehold.jp/400x200.png" class="card_img" alt="">
-    <div class="card_body">
-      <p class="card_ttl">タイトルが入ります。</p>
-      <p class="card_txt">テキストが入ります。テキストが入ります。テキストが入ります。</p>
-    </div>
-  </a>
-</div>
-</div><div class="codeblock"><pre><span class="nt">&lt;div</span> <span class="na">style=</span><span class="s">"width: 400px"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"card"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"https://placehold.jp/400x200.png"</span> <span class="na">class=</span><span class="s">"card_img"</span> <span class="na">alt=</span><span class="s">""</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"card_body"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"card_ttl"</span><span class="nt">&gt;</span>タイトルが入ります。<span class="nt">&lt;/p&gt;</span>
-      <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"card_txt"</span><span class="nt">&gt;</span>テキストが入ります。テキストが入ります。テキストが入ります。<span class="nt">&lt;/p&gt;</span>
-    <span class="nt">&lt;/div&gt;</span>
-  <span class="nt">&lt;/a&gt;</span>
-<span class="nt">&lt;/div&gt;</span>
+<div class="codeblock"><pre>&lt;div style="width: 400px"&gt;
+  &lt;a href="#" class="card"&gt;
+    &lt;img src="https://placehold.jp/400x200.png" class="card_img" alt=""&gt;
+    &lt;div class="card_body"&gt;
+      &lt;p class="card_ttl"&gt;タイトルが入ります。&lt;/p&gt;
+      &lt;p class="card_txt"&gt;テキストが入ります。テキストが入ります。テキストが入ります。&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/a&gt;
+&lt;/div&gt;
 </pre></div>
 <h1 id="04-table" class="styleguide">テーブル</h1>
 
 <p>テーブルです。</p>
-<div class="example"><table class="table">
-  <tr>
-    <th>テーブルの見出しテーブルの見出し</th>
-    <td>テーブルの内容テーブルの内容テーブルの内容テーブルの内容テーブルの内容テーブルの内容テーブルの内容テーブルの内容テーブルの内容テーブルの内容</td>
-  </tr>
-  <tr>
-    <th>テーブルの見出し</th>
-    <td>テーブルの内容テーブルの内容テーブルの内容テーブルの内容テーブルの内容テーブルの内容テーブルの内容テーブルの内容テーブルの内容テーブルの内容</td>
-  </tr>
-</table>
-</div><div class="codeblock"><pre><span class="nt">&lt;table</span> <span class="na">class=</span><span class="s">"table"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;tr&gt;</span>
-    <span class="nt">&lt;th&gt;</span>テーブルの見出しテーブルの見出し<span class="nt">&lt;/th&gt;</span>
-    <span class="nt">&lt;td&gt;</span>テーブルの内容テーブルの内容テーブルの内容テーブルの内容テーブルの内容テーブルの内容テーブルの内容テーブルの内容テーブルの内容テーブルの内容<span class="nt">&lt;/td&gt;</span>
-  <span class="nt">&lt;/tr&gt;</span>
-  <span class="nt">&lt;tr&gt;</span>
-    <span class="nt">&lt;th&gt;</span>テーブルの見出し<span class="nt">&lt;/th&gt;</span>
-    <span class="nt">&lt;td&gt;</span>テーブルの内容テーブルの内容テーブルの内容テーブルの内容テーブルの内容テーブルの内容テーブルの内容テーブルの内容テーブルの内容テーブルの内容<span class="nt">&lt;/td&gt;</span>
-  <span class="nt">&lt;/tr&gt;</span>
-<span class="nt">&lt;/table&gt;</span>
+<div class="codeblock"><pre>&lt;table class="table"&gt;
+  &lt;tr&gt;
+    &lt;th&gt;テーブルの見出しテーブルの見出し&lt;/th&gt;
+    &lt;td&gt;テーブルの内容テーブルの内容テーブルの内容テーブルの内容テーブルの内容テーブルの内容テーブルの内容テーブルの内容テーブルの内容テーブルの内容&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;th&gt;テーブルの見出し&lt;/th&gt;
+    &lt;td&gt;テーブルの内容テーブルの内容テーブルの内容テーブルの内容テーブルの内容テーブルの内容テーブルの内容テーブルの内容テーブルの内容テーブルの内容&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
 </pre></div>
 <h1 id="98-utility" class="styleguide">汎用クラス</h1>
 
 <h2>テキスト要素</h2>
 
 <p>太字です。</p>
-<div class="example"><p class="bold">太字になります</p>
-<p>文章中に使いたい場合は<span class="bold">spanを使います</span></p>
-</div><div class="codeblock"><pre><span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"bold"</span><span class="nt">&gt;</span>太字になります<span class="nt">&lt;/p&gt;</span>
-<span class="nt">&lt;p&gt;</span>文章中に使いたい場合は<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"bold"</span><span class="nt">&gt;</span>spanを使います<span class="nt">&lt;/span&gt;&lt;/p&gt;</span>
+<div class="codeblock"><pre>&lt;p class="bold"&gt;太字になります&lt;/p&gt;
+&lt;p&gt;文章中に使いたい場合は&lt;span class="bold"&gt;spanを使います&lt;/span&gt;&lt;/p&gt;
 </pre></div>
 <h2>行揃え</h2>
-<div class="example"><div class="ta-left">左寄せ</div>
-<div class="ta-center">中央寄せ</div>
-<div class="ta-right">右寄せ</div>
-</div><div class="codeblock"><pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"ta-left"</span><span class="nt">&gt;</span>左寄せ<span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"ta-center"</span><span class="nt">&gt;</span>中央寄せ<span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"ta-right"</span><span class="nt">&gt;</span>右寄せ<span class="nt">&lt;/div&gt;</span>
+<div class="codeblock"><pre>&lt;div class="ta-left"&gt;左寄せ&lt;/div&gt;
+&lt;div class="ta-center"&gt;中央寄せ&lt;/div&gt;
+&lt;div class="ta-right"&gt;右寄せ&lt;/div&gt;
 </pre></div>
 <h2>フロート / clearfix</h2>
-<div class="example"><div class="fl-l">左フロート</div>
-<div class="fl-r">右フロート</div>
-<div class="clear">クリア</div>
-</div><div class="codeblock"><pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fl-l"</span><span class="nt">&gt;</span>左フロート<span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fl-r"</span><span class="nt">&gt;</span>右フロート<span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"clear"</span><span class="nt">&gt;</span>クリア<span class="nt">&lt;/div&gt;</span>
+<div class="codeblock"><pre>&lt;div class="fl-l"&gt;左フロート&lt;/div&gt;
+&lt;div class="fl-r"&gt;右フロート&lt;/div&gt;
+&lt;div class="clear"&gt;クリア&lt;/div&gt;
 </pre></div>
 <p><code>.cf</code> で囲むとclearfixになります</p>
-<div class="example"><div class="cf" style="background: #eee">
-  <div class="fl-l">左フロート</div>
-  <div class="fl-r">右フロート</div>
-</div>
-</div><div class="codeblock"><pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"cf"</span> <span class="na">style=</span><span class="s">"background: #eee"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fl-l"</span><span class="nt">&gt;</span>左フロート<span class="nt">&lt;/div&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fl-r"</span><span class="nt">&gt;</span>右フロート<span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;/div&gt;</span>
+<div class="codeblock"><pre>&lt;div class="cf" style="background: #eee"&gt;
+  &lt;div class="fl-l"&gt;左フロート&lt;/div&gt;
+  &lt;div class="fl-r"&gt;右フロート&lt;/div&gt;
+&lt;/div&gt;
 </pre></div>
 <h2>要素タイプ</h2>
 
 <p>ブロック要素、インライン要素などを指定できます。</p>
-<div class="example"><span class="d-bl" style="background: #eee">display:blockがかかります</span>
+<div class="codeblock"><pre>&lt;span class="d-bl" style="background: #eee"&gt;display:blockがかかります&lt;/span&gt;
 
-<div class="d-ib" style="background: #ddd; padding: 20px">display:inline-blockがかかります</div>
+&lt;div class="d-ib" style="background: #ddd; padding: 20px"&gt;display:inline-blockがかかります&lt;/div&gt;
 
-<div class="d-in" style="background: #ccc; padding: 20px">display:inlineがかかります</div>
-
-
-</div><div class="codeblock"><pre><span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"d-bl"</span> <span class="na">style=</span><span class="s">"background: #eee"</span><span class="nt">&gt;</span>display:blockがかかります<span class="nt">&lt;/span&gt;</span>
-
-<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"d-ib"</span> <span class="na">style=</span><span class="s">"background: #ddd; padding: 20px"</span><span class="nt">&gt;</span>display:inline-blockがかかります<span class="nt">&lt;/div&gt;</span>
-
-<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"d-in"</span> <span class="na">style=</span><span class="s">"background: #ccc; padding: 20px"</span><span class="nt">&gt;</span>display:inlineがかかります<span class="nt">&lt;/div&gt;</span>
+&lt;div class="d-in" style="background: #ccc; padding: 20px"&gt;display:inlineがかかります&lt;/div&gt;
 
 
 </pre></div>
@@ -215,76 +173,44 @@
 
 <p>それぞれの状態で <code>display:none</code> がかかります。
 underとoverの略です。</p>
-<div class="example"><div class="hidden">全ての状態で非表示になります</div>
+<div class="codeblock"><pre>&lt;div class="hidden"&gt;全ての状態で非表示になります&lt;/div&gt;
 
-<div class="hidden-u-sm">smサイズ未満で非表示になります</div>
+&lt;div class="hidden-u-sm"&gt;smサイズ未満で非表示になります&lt;/div&gt;
 
-<div class="hidden-u-md">mdサイズ未満で非表示になります</div>
+&lt;div class="hidden-u-md"&gt;mdサイズ未満で非表示になります&lt;/div&gt;
 
-<div class="hidden-u-lg">lgサイズ未満で非表示になります</div>
+&lt;div class="hidden-u-lg"&gt;lgサイズ未満で非表示になります&lt;/div&gt;
 
-<div class="hidden-o-sm">smサイズ以上で非表示になります</div>
+&lt;div class="hidden-o-sm"&gt;smサイズ以上で非表示になります&lt;/div&gt;
 
-<div class="hidden-o-md">mdサイズ以上で非表示になります</div>
+&lt;div class="hidden-o-md"&gt;mdサイズ以上で非表示になります&lt;/div&gt;
 
-<div class="hidden-o-lg">lgサイズ以上で非表示になります</div>
-</div><div class="codeblock"><pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"hidden"</span><span class="nt">&gt;</span>全ての状態で非表示になります<span class="nt">&lt;/div&gt;</span>
-
-<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"hidden-u-sm"</span><span class="nt">&gt;</span>smサイズ未満で非表示になります<span class="nt">&lt;/div&gt;</span>
-
-<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"hidden-u-md"</span><span class="nt">&gt;</span>mdサイズ未満で非表示になります<span class="nt">&lt;/div&gt;</span>
-
-<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"hidden-u-lg"</span><span class="nt">&gt;</span>lgサイズ未満で非表示になります<span class="nt">&lt;/div&gt;</span>
-
-<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"hidden-o-sm"</span><span class="nt">&gt;</span>smサイズ以上で非表示になります<span class="nt">&lt;/div&gt;</span>
-
-<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"hidden-o-md"</span><span class="nt">&gt;</span>mdサイズ以上で非表示になります<span class="nt">&lt;/div&gt;</span>
-
-<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"hidden-o-lg"</span><span class="nt">&gt;</span>lgサイズ以上で非表示になります<span class="nt">&lt;/div&gt;</span>
+&lt;div class="hidden-o-lg"&gt;lgサイズ以上で非表示になります&lt;/div&gt;
 </pre></div>
 <h1 id="99-helper" class="styleguide">ヘルパー</h1>
 
 <p>レイアウトなどで、どうしても調整が必要な場合のクラスです。</p>
 
 <p><code>!important</code> が指定されています。</p>
-<div class="example"><p class="mb-xs">要素下にとても少しのマージン</p>
+<div class="codeblock"><pre>&lt;p class="mb-xs"&gt;要素下にとても少しのマージン&lt;/p&gt;
 
-<p class="mb-sm">要素下に少しのマージン</p>
+&lt;p class="mb-sm"&gt;要素下に少しのマージン&lt;/p&gt;
 
-<p class="mb-md">要素下に普通のマージン</p>
+&lt;p class="mb-md"&gt;要素下に普通のマージン&lt;/p&gt;
 
-<p class="mb-lg">要素下に大きいマージン</p>
+&lt;p class="mb-lg"&gt;要素下に大きいマージン&lt;/p&gt;
 
-<p class="mb-xl">要素下にとても大きいマージン</p>
+&lt;p class="mb-xl"&gt;要素下にとても大きいマージン&lt;/p&gt;
 
-<p class="mt-xs">要素上にとても少しのマージン</p>
+&lt;p class="mt-xs"&gt;要素上にとても少しのマージン&lt;/p&gt;
 
-<p class="mt-sm">要素上に少しのマージン</p>
+&lt;p class="mt-sm"&gt;要素上に少しのマージン&lt;/p&gt;
 
-<p class="mt-md">要素上に普通のマージン</p>
+&lt;p class="mt-md"&gt;要素上に普通のマージン&lt;/p&gt;
 
-<p class="mt-lg">要素上に大きいマージン</p>
+&lt;p class="mt-lg"&gt;要素上に大きいマージン&lt;/p&gt;
 
-<p class="mt-xl">要素上にとても大きいマージン</p>
-</div><div class="codeblock"><pre><span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"mb-xs"</span><span class="nt">&gt;</span>要素下にとても少しのマージン<span class="nt">&lt;/p&gt;</span>
-
-<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"mb-sm"</span><span class="nt">&gt;</span>要素下に少しのマージン<span class="nt">&lt;/p&gt;</span>
-
-<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"mb-md"</span><span class="nt">&gt;</span>要素下に普通のマージン<span class="nt">&lt;/p&gt;</span>
-
-<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"mb-lg"</span><span class="nt">&gt;</span>要素下に大きいマージン<span class="nt">&lt;/p&gt;</span>
-
-<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"mb-xl"</span><span class="nt">&gt;</span>要素下にとても大きいマージン<span class="nt">&lt;/p&gt;</span>
-
-<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"mt-xs"</span><span class="nt">&gt;</span>要素上にとても少しのマージン<span class="nt">&lt;/p&gt;</span>
-
-<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"mt-sm"</span><span class="nt">&gt;</span>要素上に少しのマージン<span class="nt">&lt;/p&gt;</span>
-
-<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"mt-md"</span><span class="nt">&gt;</span>要素上に普通のマージン<span class="nt">&lt;/p&gt;</span>
-
-<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"mt-lg"</span><span class="nt">&gt;</span>要素上に大きいマージン<span class="nt">&lt;/p&gt;</span>
-
-<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"mt-xl"</span><span class="nt">&gt;</span>要素上にとても大きいマージン<span class="nt">&lt;/p&gt;</span>
+&lt;p class="mt-xl"&gt;要素上にとても大きいマージン&lt;/p&gt;
 </pre></div>  </div><!-- / .sg-contents -->
 
 <footer class="sg-footer">

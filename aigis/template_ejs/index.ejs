@@ -1,21 +1,45 @@
+
+
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <link href="<%- root %>assets/css/highlight/okadia.css" rel="stylesheet">
-    <link href="<%- root %>assets/css/theme.css" rel="stylesheet">
-    <link href="<%- root %>css/style.css" rel="stylesheet">
-  </head>
+<html lang="ja">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="format-detection" content="telephone=no">
+<link rel="stylesheet" href="/assets/css/styles.min.css">
+<link rel="stylesheet" href="/styleguide/assets/css/styleguide.css">
+<meta name="robots" content="noindex,nofollow">
+
 <body>
-  <div class="aigis-container">
-    <%- include('sidemenu') %>
-    <div class="aigis-contents">
-      <div class="aigis-contents__body">
-        <%- include('components') %>
-        <footer class="aigis-footer">Last update at <%- timestamp %></footer>
-      </div>
-    </div>
-  </div>
+
+<header class="sg-header">
+  <h1 class="sg-name">
+    <a href="./">
+        ろご
+    </a>
+  </h1>
+  <ul class="sg-nav">
+    <%- helper.renderCollectionTree('category') %>
+  </ul>
+</header><!-- / .sg-header -->
+
+<main class="sg-main">
+
+  <%- include('sidemenu') %>
+
+  <div class="sg-contents">
+
+    <%- include('components') %>
+
+  </div><!-- / .sg-contents -->
+
+<footer class="sg-footer">
+  <p>Last update at <%- timestamp %></p>
+</footer>
+
+</main><!-- / .sg-main -->
+
+<script src="../assets/js/lib/jquery-2.1.4.min.js"></script>
+<script src="../js/common.js"></script>
 </body>
 </html>

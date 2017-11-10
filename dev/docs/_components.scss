@@ -59,11 +59,11 @@ category: components
 
 見出しのスタイルです。 `<h1>` `<h2>` などである必要はありません
 
-```example
+```html
 <h2 class="ttl-lg">大見出し</h2>
 ```
 
-```example
+```html
 <h2 class="ttl-md">中見出し</h2>
 ```
 */
@@ -79,11 +79,11 @@ category: components
 
 ボタンです。`btn-fill` などをマルチクラスで指定してパターンを変更できます。
 
-```example
+```html
 <a href="#" class="btn">スタンダードボタン</a>
 ```
 
-```example
+```html
 <a href="#" class="btn btn-fill">塗りつぶしボタン</a>
 ```
 
@@ -99,7 +99,7 @@ category: components
 
 親要素の横幅100％まで広がります。グリッドと組み合わせて使うことが多いです。
 
-```example
+```html
 <div style="width: 400px">
   <a href="#" class="card">
     <img src="https://placehold.jp/400x200.png" class="card_img" alt="">
@@ -122,7 +122,7 @@ category: components
 
 テーブルです。
 
-```example
+```html
 <table class="table">
   <tr>
     <th>テーブルの見出しテーブルの見出し</th>
@@ -148,14 +148,14 @@ category: components
 
 太字です。
 
-```example
+```html
 <p class="bold">太字になります</p>
 <p>文章中に使いたい場合は<span class="bold">spanを使います</span></p>
 ```
 
 ## 行揃え
 
-```example
+```html
 <div class="ta-left">左寄せ</div>
 <div class="ta-center">中央寄せ</div>
 <div class="ta-right">右寄せ</div>
@@ -163,7 +163,7 @@ category: components
 
 ## フロート / clearfix
 
-```example
+```html
 <div class="fl-l">左フロート</div>
 <div class="fl-r">右フロート</div>
 <div class="clear">クリア</div>
@@ -171,7 +171,7 @@ category: components
 
 `.cf` で囲むとclearfixになります
 
-```example
+```html
 <div class="cf" style="background: #eee">
   <div class="fl-l">左フロート</div>
   <div class="fl-r">右フロート</div>
@@ -182,7 +182,7 @@ category: components
 
 ブロック要素、インライン要素などを指定できます。
 
-```example
+```html
 <span class="d-bl" style="background: #eee">display:blockがかかります</span>
 
 <div class="d-ib" style="background: #ddd; padding: 20px">display:inline-blockがかかります</div>
@@ -198,7 +198,7 @@ category: components
 それぞれの状態で `display:none` がかかります。
 underとoverの略です。
 
-```example
+```html
 <div class="hidden">全ての状態で非表示になります</div>
 
 <div class="hidden-u-sm">smサイズ未満で非表示になります</div>
@@ -226,7 +226,7 @@ category: components
 
 `!important` が指定されています。
 
-```example
+```html
 <p class="mb-xs">要素下にとても少しのマージン</p>
 
 <p class="mb-sm">要素下に少しのマージン</p>
