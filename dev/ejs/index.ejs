@@ -1,8 +1,6 @@
 <%
-// ファイル名から開発環境のルートを取って相対パスを作成する
-var pathDepth = filename.split(site.developDir)[1].split('/').length - 1;
-relativePath = (pathDepth > 0) ? "" : "./";
-while(1 <= pathDepth){ relativePath += "../"; pathDepth--; }
+// 相対パスを指定
+relativePath =  "./";
 
 // ページ情報を取得
 var page = pages.index;

@@ -10,8 +10,7 @@
   font-style: normal;
 }
 
-[class^="icon-"], [class*=" icon-"] {
-    /* use !important to prevent issues with browser extensions that change fonts */
+@mixin iconfont {
     font-family: 'icon' !important;
     speak: none;
     font-style: normal;
@@ -27,8 +26,17 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
+[class^="icon-"], [class*=" icon-"] {
+    @include iconfont;
+}
 
 .icon-arrow-down:before { content: "\EA01"; }
 .icon-arrow-left:before { content: "\EA02"; }
 .icon-arrow-right:before { content: "\EA03"; }
 .icon-arrow-up:before { content: "\EA04"; }
+
+
+@mixin icon-arrow-down { content: "\EA01"; }
+@mixin icon-arrow-left { content: "\EA02"; }
+@mixin icon-arrow-right { content: "\EA03"; }
+@mixin icon-arrow-up { content: "\EA04"; }

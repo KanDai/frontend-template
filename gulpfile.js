@@ -36,26 +36,31 @@ var webpack      = require('gulp-webpack');      //webpack
 
 // 対象ブラウザ
 var AUTOPREFIXER_BROWSERS = [
-    'last 3 versions',
-    'ie >= 9',
-    'iOS >= 8',
-    'Android >= 4.2'
+    'ie >= 11',
+    'iOS >= 9',
+    'Android >= 4.4'
 ];
 // 開発環境パス
 var src = {
     base: './dev/',
-    scss: './dev/assets/scss/',
-    js  : './dev/assets/js/',
-    img : './dev/assets/images/',
+    html: './dev/ejs/',
+    scss: './dev/scss/',
+    js  : './dev/js/',
+    img : './dev/images/',
+    font: './dev/icons/',
+    docs: './dev/docs/',
+    hologram: './hologram/',
 };
 // 出力環境パス
 var dist = {
     base: './htdocs/',
+    html: './htdocs/',
     css : './htdocs/assets/css/',
     js  : './htdocs/assets/js/',
     img : './htdocs/assets/images/',
+    font: './htdocs/assets/fonts/',
+    docs: './htdocs/_docs/',
 };
-
 
 /*========================================*/
 /* Task
@@ -65,18 +70,18 @@ var dist = {
  * ejsのコンパイル
  */
 gulp.task('ejs', function() {
-  gulp.src([ src.base + '**/*.ejs', '!' + src.base + '**/_*.ejs' ])
+  gulp.src([ src.html + '**/*.ejs', '!' + src.html + '**/_*.ejs' ])
   .pipe(cached('ejs'))
   .pipe(plumber({errorHandler: notify.onError('<%= error.message %>')}))
   .pipe(ejs({
-        site: JSON.parse(fs.readFileSync( src.base + 'inc/config.json')),
-        pages: JSON.parse(fs.readFileSync( src.base + 'inc/pages.json'))
+        site: JSON.parse(fs.readFileSync( src.html + 'inc/config.json')),
+        pages: JSON.parse(fs.readFileSync( src.html + 'inc/pages.json'))
       },
       {
         ext: '.html'
       }
   ))
-  .pipe(gulp.dest(dist.base));
+  .pipe(gulp.dest(dist.html));
 });
 
 
@@ -190,7 +195,7 @@ gulp.task( 'imagemin', function () {
 gulp.task('iconfont', function(){
   var fontName = 'icon';
 
-  return gulp.src(['./dev/assets/icons/*.svg'])
+  return gulp.src([ src.font + '*.svg'])
     .pipe(iconfont({
       fontName: fontName,
       prependUnicode: true,
@@ -198,7 +203,7 @@ gulp.task('iconfont', function(){
     }))
     .on('glyphs', function(codepoints, options) {
       var engine             = 'lodash';
-      var templatePath       = './dev/assets/icons/template/';
+      var templatePath       = src.font + 'template/';
       var templateName       = '_icon';
       var consolidateOptions = {
         glyphs: codepoints,
@@ -220,7 +225,7 @@ gulp.task('iconfont', function(){
         .pipe(gulp.dest(src.base + 'docs/'));
     })
 
-    .pipe(gulp.dest('./htdocs/assets/fonts/'));
+    .pipe(gulp.dest(dist.font));
 });
 
 
@@ -234,7 +239,7 @@ gulp.task('hologram', ['styleguide'], function() {
 });
 
 gulp.task('styleguide', function() {
-  return gulp.src('./hologram/config.yml')
+  return gulp.src( src.hologram + 'config.yml')
     .pipe(hologram());
 });
 
@@ -313,7 +318,7 @@ gulp.task('watch', function() {
     watch( src.img + '**/*.*' , function () {
         gulp.start( 'imagemin' );
     });
-    watch( [ './dev/docs/*.scss', './hologram/**/*' ] , function () {
+    watch( [ src.docs + '*.scss', src.hologram + '**/*' ] , function () {
         gulp.start( 'hologram' );
     });
 });

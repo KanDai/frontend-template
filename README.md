@@ -13,8 +13,8 @@ http://kandai.github.io/frontend-template/
 - htmlテンプレート : ejs
 
 #### 検証環境
-- Mac OSX Yosemite(10.10)
-- Node v5.8.0(4以上とかだったら動くと思う)
+- macOS Sierra(10.12.6)
+- Node v8.9.0(nodenvで管理)
 
 ## インストール
 
@@ -200,13 +200,12 @@ category　→　category単位でページが生成されます
 ### /dev/
 開発領域。
 
-- xxx.ejs : ejsファイル。出力領域の同じ構造でhtml出力
-- assets/scss : scssファイルを格納
-- assets/js : jsファイルを格納。
-- assets/images : 画像ファイルを格納。
-- assets/icons : iconfont用のsvgファイルを格納
-- docs: スタイルガイド用のscssファイルを格納
-- inc: ejsのモジュール・設定ファイルなど格納
+- ejs/ : ejsファイル。出力領域の同じ構造でhtml出力
+- scss/ : scssファイルを格納
+- js/ : jsファイルを格納。
+- images/ : 画像ファイルを格納。
+- icons/ : iconfont用のsvgファイルを格納
+- docs/ : スタイルガイド用のscssファイルを格納
 
 
 ### /htdocs/

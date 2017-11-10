@@ -2,7 +2,7 @@ var webpack = require('webpack');
 
 module.exports = {
     entry: {
-        common: './dev/assets/js/common.js'
+        common: './dev/js/common.js'
     },
 
     output: {
