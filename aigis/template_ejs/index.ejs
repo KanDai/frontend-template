@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="ja">
 <meta charset="utf-8">
@@ -8,36 +6,92 @@
 <meta name="format-detection" content="telephone=no">
 <link rel="stylesheet" href="/assets/css/styles.min.css">
 <link rel="stylesheet" href="/styleguide/assets/css/styleguide.css">
+<link rel="stylesheet" href="/styleguide/assets/css/highlight/prism.css">
 <meta name="robots" content="noindex,nofollow">
 
-<body>
+<body class="sg-body">
+
 
 <header class="sg-header">
-  <h1 class="sg-name">
-    <a href="./">
-        ろご
-    </a>
-  </h1>
-  <ul class="sg-nav">
-    <%- helper.renderCollectionTree('category') %>
-  </ul>
+    <h1>
+      <a href="./" class="sg-name">
+          <!-- <img src="/styleguide/assets/images/logo.svg" alt="">  -->Develop Document
+      </a>
+    </h1>
 </header><!-- / .sg-header -->
 
-<main class="sg-main">
 
-  <%- include('sidemenu') %>
+  <% if(components.length) {
+    var currentCategory = components[0].config.category;
+  } %>
+
+<nav class="sg-gNav">
+    <ul class="sg-gNav">
+      <li>
+        <a href="/styleguide/"<% if(components.length == 0) { %> class="isCurrent"<% } %>>TOP</a>
+      </li>
+    <% config.pages.forEach(function(page) { %>
+      <li>
+        <a href="/styleguide/category/<%- page.name %>/"<% if( currentCategory == page.name ) { %> class="isCurrent"<% } %>><%- page.label %></a>
+      </li>
+    <% })%>
+    </ul>
+
+    <p class="sg-update">Last update at<br><%- timestamp %></p>
+</nav>
+
+
+
+
+
+<% if(components.length) { %>
+<nav class="sg-localnav">
+<% components.forEach(function(component) { %>
+    <a href="#<%- component.config.name %>"><%- component.config.title %></a>
+<% }) %>
+</nav>
+<% } %>
+
+
+
+<main class="sg-main<% if(components.length) { %> hasLocalnav<% } %>">
 
   <div class="sg-contents">
 
-    <%- include('components') %>
+<% if(components.length) { %>
+<div><% components.forEach(function(component) { %>
+  <div class="aigis-module">
+    <h2 class="aigis-module__heading" id="<%- component.config.name %>">
+      <%- component.config.title %>
+    </h2>
+    <div class="aigis-module__filepath">
+      <%- component.sourcePath %>
+    </div>
+    <ul class="aigis-tags"><% component.config.tag.forEach(function(tag) { %>
+      <li class="aigis-tags__item aigis-tags__item--<%- tag %>">
+        <%- tag %>
+      </li><% })%>
+    </ul>
+    <div class="aaa">
+    <%- component.html %>
+    </div>
+  </div><% }) %>
+</div>
+<% } else { %>
+  <%- html %>
+  <%- helper.renderCollectionTree('category') %>
+
+  <% config.pages.forEach(function(page) { %>
+    <%- page.name %>
+    <%- page.label %>
+  <% })%>
+
+<% } %>
 
   </div><!-- / .sg-contents -->
 
-<footer class="sg-footer">
-  <p>Last update at <%- timestamp %></p>
-</footer>
-
 </main><!-- / .sg-main -->
+
 
 <script src="../assets/js/lib/jquery-2.1.4.min.js"></script>
 <script src="../js/common.js"></script>

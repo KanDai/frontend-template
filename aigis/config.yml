@@ -16,3 +16,34 @@ dependencies:
 # It must contain 'layout.xxx' and 'index.xxx' (.ejs or .jade or .hbs)
 template_dir: ./template_ejs
 template_engine: ejs
+
+# ログの出力
+log: false
+
+# カラーパレットの作成
+color_palette: true
+
+# プレビューの外側の要素につくCSSのクラス名
+preview_class: example
+
+# 出力するページのグループを指定
+output_collection:
+  - category
+  - tag
+
+# タイムスタンプのフォーマット
+timestamp_format: YYYY/MM/DD HH:mm
+
+# Index page created from markdown file
+index: ./index.md
+
+#
+pages:
+  - name: document
+    label: ドキュメント
+  - name: layout
+    label: CSSレイアウト
+  - name: components
+    label: CSSモジュール
+  - name: icon
+    label: アイコンフォント

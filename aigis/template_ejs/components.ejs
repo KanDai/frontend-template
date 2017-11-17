@@ -24,5 +24,13 @@
   </div><% }) %>
 </div>
 <% } else { %>
+  <%- html %>
   <%- helper.renderCollectionTree('category') %>
+
+  <% config.pages.forEach(function(page) { %>
+    <%- page.name %>
+    <%- page.label %>
+  <% })%>
+
 <% } %>
+
