@@ -1,0 +1,361 @@
+@charset 'utf-8';
+
+
+
+
+.sg-body {
+    font-size: 13px;
+    color: #333;
+}
+
+/*========================================*/
+/* Header
+/*========================================*/
+
+.sg-header {
+    position: fixed;
+    top: 0;
+    background-color: #333;
+
+    height: 60px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.sg-header_inner {
+    height: 100%;
+    position: relative;
+}
+
+.sg-name {
+    font-weight: 200;
+    font-size: 18px;
+    /*text-align: center;*/
+    display: block;
+
+/*    display: flex;
+    align-items: center;
+*/    color: #fff;
+    /*vertical-align: middle;*/
+    /*padding: 40px 20px;*/
+
+}
+.sg-name img {
+    height: 20px;
+    margin-right: 10px;
+    /*margin-right: 10px*/
+}
+
+
+
+.sg-gNav {
+    width: 170px;
+    height: calc(100% - 60px);
+    background-color: #fff;
+    border-right: 1px solid #eee;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    overflow-y: scroll;
+    /*display: flex;*/
+/*    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+*/
+    margin-bottom: 20px;
+}
+.sg-gNav > li {
+    list-style: none;
+/*    position: relative;
+    margin: 0 6px;*/
+}
+.sg-gNav > li > a {
+    color: #333;
+    display: block;
+    padding: 15px 20px;
+}
+.sg-gNav > li > a:hover {
+    background-color: #eee;
+}
+.sg-gNav > li > a.isCurrent {
+    /*border-left: 2px solid #00b088;*/
+    background-color: #d9d9d9;
+    /*color: #fff;*/
+}
+
+.sg-update {
+    width: 100%;
+    border-top: 1px solid #eee;
+    padding: 12px;
+    font-size: 12px;
+    color: #999;
+    position: absolute;
+    bottom: 0;
+}
+
+/*========================================*/
+/* localNav
+/*========================================*/
+
+.sg-localnav {
+    width: 170px;
+    height: calc(100% - 60px);
+    position: fixed;
+    top: 60px;
+    left: 170px;
+    background-color: #f6f6f6;
+    overflow-y: scroll;
+}
+
+.sg-localnav a {
+    display: block;
+    padding: 16px;
+    color: #333;
+    border-bottom: 1px solid rgba(155, 155, 155, .1);
+    /*transition: all .2s;*/
+}
+/*.sg-localnav a:hover {
+    background: #555;
+}
+@media print, screen and (max-width: 1000px) {
+    .sg-localnav {
+        display: none;
+    }
+}
+*/
+
+
+/*========================================*/
+/* Main
+/*========================================*/
+
+.sg-main {
+    margin-top: 60px;
+    margin-left: 170px;
+    position: relative;
+    min-height: calc(100% - 60px);
+}
+
+.sg-main.hasLocalnav {
+    margin-left: 340px;
+}
+
+
+
+/* contents */
+.sg-contents {
+    padding: 50px;
+    /*padding: 0 60px 60px 300px;*/
+    font-size: 15px;
+}
+
+@media print, screen and (max-width: 1000px) {
+    .sg-contents {
+        padding: 0 20px 50px 20px;
+    }
+}
+
+.sg-contents > h1 {
+    font-size: 28px;
+    font-weight: bold;
+    padding: 90px 0 10px;
+    margin-top: -40px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+}
+.sg-contents > h2 {
+    font-size: 24px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+.sg-contents > h3 {
+    font-size: 17px;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+.sg-contents > h4 {
+    font-size: 16px;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+.sg-contents > h5 {
+    font-size: 14px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+.sg-contents > p,
+.sg-contents > ul,
+.sg-contents > ol {
+    margin-bottom: 20px;
+}
+.sg-contents > ul li,
+.sg-contents > ol li {
+    margin-left: 20px;
+}
+
+.sg-contents > ul li ul,
+.sg-contents > ul li ol,
+.sg-contents > ol li ul,
+.sg-contents > ol li ol {
+    margin-bottom: 0;
+}
+
+.sg-contents > ul li ul li,
+.sg-contents > ul li ol li,
+.sg-contents > ol li ul li,
+.sg-contents > ol li ol li {
+    margin-left: 15px;
+}
+
+.sg-contents > ul li {
+    padding-top: 3px;
+    padding-bottom: 3px;
+    list-style-type: disc;
+}
+
+.sg-contents > ul li ul li {
+    list-style-type: circle;
+}
+
+.sg-contents > ul li ol li {
+    list-style-type: decimal;
+}
+
+.sg-contents > ol li {
+    list-style-type: decimal;
+}
+
+.sg-contents > ol li ul li {
+    list-style-type: circle;
+}
+
+
+.sg-contents > blockquote {
+    padding: 0 0 0 4em;
+    margin: 0 0 0 2em;
+    color: #ccc;
+    border-left: 3px solid #eee;
+}
+.sg-contents > hr {
+    height: 0;
+    margin: 2em 0;
+    border: none;
+    border-top: 1px dashed #eee;
+}
+
+.sg-contents pre {
+    margin: 20px 0;
+    padding: 20px;
+    overflow: auto;
+    font-family: Consolas, 'Liberation Mono', Courier, monospace;
+    /*background-color: rgba(0, 0, 0, .07);*/
+    font-size: 13px;
+    border-radius: 5px;
+    color: #333;
+}
+
+.aaa pre {
+    background-color: rgba(0, 0, 0, .07);
+}
+
+.sg-contents code {
+    padding: 0 0.5em;
+    white-space: nowrap;
+    display: inline-block;
+    font-family: Consolas, 'Liberation Mono', Courier, monospace;
+    font-size: 13px;
+    /*background-color: rgba(0, 0, 0, .07);*/
+    position: relative;
+    top: -2px;
+    border-radius: 3px;
+}
+
+.sg-contents pre code {
+    padding: 0;
+    white-space: pre;
+    display: inline;
+    font-size: 14px;
+    line-height: 1;
+    background-color: inherit;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.sg-contents .example {
+    margin-top: 30px;
+    padding: 30px;
+    border: 1px solid #e6e6e6;
+    border-bottom: none;
+}
+.sg-contents .codeblock {
+    margin-bottom: 40px;
+}
+.sg-contents .codeblock pre {
+    margin: 0;
+    border-radius: 0 0 5px 5px;
+}
+
+.sg-colors {
+    display: flex;
+    flex-wrap: wrap;
+}
+.sg-color {
+    width: 23%;
+    margin-left: 2.666%;
+    border: 1px solid #e6e6e6;
+    margin-top: 20px;
+}
+.sg-color:nth-child(4n + 1) {
+    margin-left: 0;
+}
+.sg-color_sample {
+    width: 100%;
+    height: 80px;
+}
+.sg-color_txt {
+    padding: 15px;
+    line-height: 1.6;
+}
+
+.sg-glyph {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+}
+.sg-glyph_item {
+    width: 16.666%;
+    background-color: rgba(0, 0, 0, .07);
+    border: 1px solid #fff;
+    text-align: center;
+    padding-bottom: 12px;
+}
+.sg-glyph_icon {
+    font-size: 36px;
+    padding: 30px 0 20px;
+    display: block;
+}
+.sg-glyph span {
+    font-size: 13px;
+    display: block !important;
+}
+
+
+/*========================================*/
+/* Footer
+/*========================================*/
+
+.sg-footer {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    color: #999;
+    background-color: #f6f6f6;
+    padding: 20px;
+    text-align: right;
+    font-size: 11px;
+    z-index: 10;
+}
+

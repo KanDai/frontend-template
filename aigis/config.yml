@@ -1,6 +1,6 @@
 # The directory containing the source files to parse recursively
 # スタイルガイドのもとになるスタイルシートファイルがあるディレクトリ
-source: ../dev/docs
+source: ./docs
 
 # The directory that aigis will build to
 # スタイルガイドの書き出し先のディレクトリ

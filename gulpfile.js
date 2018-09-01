@@ -46,7 +46,7 @@ var src = {
     js   : './dev/js/',
     img  : './dev/images/',
     font : './dev/icons/',
-    docs : './dev/docs/',
+    docs : './aigis/docs/',
     aigis: './aigis/',
 };
 // 出力環境パス
@@ -105,6 +105,20 @@ gulp.task('sass' , function(){
     .pipe(rename({ extname : '.min.css' }))
     .pipe(gulp.dest(dist.css));
 });
+
+
+gulp.task('sg_sass' , function(){
+  return gulp.src( src.aigis + 'assets/scss/*.scss' )
+    .pipe(cached('sass'))
+    .pipe(plumber({errorHandler: notify.onError('<%= error.message %>')}))
+    .pipe(sass())
+    .pipe(autoprefixer({
+        browsers: AUTOPREFIXER_BROWSERS
+    }))
+    .pipe(csscomb())
+    .pipe(gulp.dest(src.aigis + 'assets/css/'));
+});
+
 
 
 /**
@@ -325,6 +339,10 @@ gulp.task('watch', function() {
     watch( [ src.docs + '*.scss', src.aigis + '**/*' ] , function () {
         gulp.start( 'aigis' );
     });
+    watch( src.aigis + 'assets/scss/*.scss', function () {
+        gulp.start( 'sg_sass' );
+    });
+
 });
 
 // gulpコマンドでサーバー起動とファイル監視
